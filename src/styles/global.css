@@ -251,171 +251,211 @@ a:hover {
 }
 
 /* ============================================
-   SKETCH GRAPHICAL ELEMENTS
-   Hand-drawn style decorations
+   SOPHISTICATED GRAPHICAL ELEMENTS
+   Refined, editorial decorations
    ============================================ */
 
-/* Sketchy underline effect */
-.sketch-underline {
+/* Elegant accent line - thin, precise */
+.accent-line {
   position: relative;
   display: inline-block;
 }
 
-.sketch-underline::after {
+.accent-line::after {
   content: '';
   position: absolute;
-  bottom: -4px;
+  bottom: -8px;
   left: 0;
-  width: 100%;
-  height: 8px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 10' preserveAspectRatio='none'%3E%3Cpath d='M0 8 Q 25 2, 50 8 T 100 8' stroke='%23D4A373' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-size: 100% 100%;
+  width: 40px;
+  height: 2px;
+  background: var(--color-accent);
 }
 
-/* Sketchy circle highlight */
-.sketch-circle {
+/* Vertical accent bar */
+.accent-bar {
   position: relative;
+  padding-left: 1.5rem;
 }
 
-.sketch-circle::before {
+.accent-bar::before {
   content: '';
   position: absolute;
-  top: -10px;
-  left: -15px;
-  right: -15px;
-  bottom: -10px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 60' preserveAspectRatio='none'%3E%3Cellipse cx='50' cy='30' rx='48' ry='28' stroke='%23D4A373' stroke-width='1.5' fill='none' stroke-dasharray='4,3' transform='rotate(-2 50 30)'/%3E%3C/svg%3E");
-  background-size: 100% 100%;
-  pointer-events: none;
-  z-index: -1;
+  left: 0;
+  top: 0.25em;
+  width: 3px;
+  height: 1.5em;
+  background: var(--color-accent);
 }
 
-/* Sketchy arrow */
-.sketch-arrow {
-  display: inline-block;
-  width: 40px;
-  height: 20px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 20'%3E%3Cpath d='M0 10 Q 10 8, 20 10 T 35 10 M28 5 Q 33 10, 28 15 M35 10 L 28 5 M35 10 L 28 15' stroke='%231A1A1A' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-/* Decorative scribble */
-.sketch-scribble {
+/* Decorative circle - geometric, clean */
+.deco-circle {
   position: absolute;
   width: 120px;
-  height: 80px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 80'%3E%3Cpath d='M10 40 Q 30 20, 60 40 T 110 40 M15 50 Q 40 70, 70 50 T 105 50' stroke='%23D4A373' stroke-width='1' fill='none' stroke-linecap='round' opacity='0.4'/%3E%3C/svg%3E");
-  background-size: contain;
-  background-repeat: no-repeat;
+  height: 120px;
+  border: 1px solid var(--color-accent);
+  border-radius: 50%;
+  opacity: 0.15;
   pointer-events: none;
 }
 
-/* Star burst decoration */
-.sketch-star {
-  display: inline-block;
-  width: 24px;
-  height: 24px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2 L14 9 L21 9 L15 14 L17 21 L12 17 L7 21 L9 14 L3 9 L10 9 Z' stroke='%23D4A373' stroke-width='1' fill='none' stroke-linejoin='round'/%3E%3C/svg%3E");
+/* Decorative arc - elegant curve */
+.deco-arc {
+  position: absolute;
+  width: 200px;
+  height: 100px;
+  pointer-events: none;
+  opacity: 0.12;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100' preserveAspectRatio='none'%3E%3Cpath d='M0 100 Q 100 0, 200 100' stroke='%23D4A373' stroke-width='1' fill='none'/%3E%3C/svg%3E");
   background-size: contain;
   background-repeat: no-repeat;
 }
 
-/* Squiggly divider line */
-.sketch-divider {
-  width: 100%;
-  height: 12px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12' preserveAspectRatio='none'%3E%3Cpath d='M0 6 Q 10 2, 20 6 T 40 6 T 60 6 T 80 6 T 100 6 T 120 6 T 140 6 T 160 6 T 180 6 T 200 6' stroke='%23E8E6E1' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-size: 100% 100%;
+/* Grid pattern overlay */
+.deco-grid {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  pointer-events: none;
+  opacity: 0.04;
+  background-image:
+    linear-gradient(var(--color-text) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-text) 1px, transparent 1px);
+  background-size: 20px 20px;
 }
 
-/* Corner flourish */
-.sketch-corner {
+/* Dot accent - single sophisticated dot */
+.deco-dot {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--color-accent);
+  border-radius: 50%;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* Line cluster - parallel lines */
+.deco-lines {
   position: absolute;
   width: 60px;
-  height: 60px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 60'%3E%3Cpath d='M5 55 Q 5 30, 20 15 M10 50 Q 15 35, 25 25 M5 55 C 15 50, 25 45, 30 35' stroke='%23D4A373' stroke-width='1.5' fill='none' stroke-linecap='round' opacity='0.6'/%3E%3C/svg%3E");
+  height: 40px;
+  pointer-events: none;
+  opacity: 0.15;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 40'%3E%3Cline x1='0' y1='10' x2='60' y2='10' stroke='%23D4A373' stroke-width='1'/%3E%3Cline x1='0' y1='20' x2='60' y2='20' stroke='%23D4A373' stroke-width='1'/%3E%3Cline x1='0' y1='30' x2='60' y2='30' stroke='%23D4A373' stroke-width='1'/%3E%3C/svg%3E");
   background-size: contain;
   background-repeat: no-repeat;
-  pointer-events: none;
 }
 
-.sketch-corner.top-left {
+/* Corner bracket - editorial style */
+.deco-bracket {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  pointer-events: none;
+  opacity: 0.2;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M0 40 L0 0 L40 0' stroke='%231A1A1A' stroke-width='1' fill='none'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.deco-bracket.top-left {
   top: 0;
   left: 0;
 }
 
-.sketch-corner.top-right {
+.deco-bracket.top-right {
   top: 0;
   right: 0;
   transform: scaleX(-1);
 }
 
-.sketch-corner.bottom-left {
+.deco-bracket.bottom-left {
   bottom: 0;
   left: 0;
   transform: scaleY(-1);
 }
 
-.sketch-corner.bottom-right {
+.deco-bracket.bottom-right {
   bottom: 0;
   right: 0;
   transform: scale(-1);
 }
 
-/* Doodle dots pattern */
-.sketch-dots {
-  position: absolute;
-  width: 100px;
-  height: 50px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 50'%3E%3Ccircle cx='10' cy='10' r='2' fill='%23D4A373' opacity='0.4'/%3E%3Ccircle cx='30' cy='25' r='1.5' fill='%23D4A373' opacity='0.3'/%3E%3Ccircle cx='50' cy='15' r='2.5' fill='%23D4A373' opacity='0.35'/%3E%3Ccircle cx='70' cy='35' r='2' fill='%23D4A373' opacity='0.4'/%3E%3Ccircle cx='90' cy='20' r='1.5' fill='%23D4A373' opacity='0.3'/%3E%3Ccircle cx='20' cy='40' r='2' fill='%23D4A373' opacity='0.35'/%3E%3Ccircle cx='60' cy='42' r='1.5' fill='%23D4A373' opacity='0.3'/%3E%3Ccircle cx='80' cy='8' r='2' fill='%23D4A373' opacity='0.4'/%3E%3C/svg%3E");
+/* Number/index style */
+.deco-index {
+  font-family: var(--font-serif);
+  font-size: 0.75rem;
+  color: var(--color-accent);
+  letter-spacing: 0.05em;
+}
+
+/* Subtle arrow */
+.arrow-refined {
+  display: inline-block;
+  width: 24px;
+  height: 12px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 12'%3E%3Cpath d='M0 6 L20 6 M16 2 L20 6 L16 10' stroke='%231A1A1A' stroke-width='1' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   background-size: contain;
   background-repeat: no-repeat;
-  pointer-events: none;
+  transition: transform 0.2s ease;
 }
 
-/* Hand-drawn box/frame */
-.sketch-frame {
-  position: relative;
-  padding: 1.5rem;
+.group:hover .arrow-refined {
+  transform: translateX(4px);
 }
 
-.sketch-frame::before {
-  content: '';
+/* Cross/plus decoration */
+.deco-cross {
   position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100' preserveAspectRatio='none'%3E%3Cpath d='M5 5 Q 100 3, 195 5 Q 197 50, 195 95 Q 100 97, 5 95 Q 3 50, 5 5' stroke='%23E8E6E1' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-size: 100% 100%;
+  width: 20px;
+  height: 20px;
   pointer-events: none;
+  opacity: 0.25;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 0 L10 20 M0 10 L20 10' stroke='%23D4A373' stroke-width='1'/%3E%3C/svg%3E");
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
-/* Animated wiggle for hover states */
-@keyframes wiggle {
-  0%, 100% { transform: rotate(-1deg); }
-  50% { transform: rotate(1deg); }
+/* Elegant divider with accent */
+.divider-accent {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 }
 
-.hover-wiggle:hover {
-  animation: wiggle 0.3s ease-in-out;
-}
-
-/* Brush stroke background */
-.sketch-brush {
-  position: relative;
-}
-
-.sketch-brush::before {
+.divider-accent::before,
+.divider-accent::after {
   content: '';
-  position: absolute;
-  top: 50%;
-  left: -10%;
-  width: 120%;
-  height: 100%;
-  transform: translateY(-50%);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 40' preserveAspectRatio='none'%3E%3Cpath d='M0 20 Q 20 10, 50 22 T 100 18 T 150 22 T 200 20' stroke='%23D4A373' stroke-width='30' fill='none' stroke-linecap='round' opacity='0.15'/%3E%3C/svg%3E");
-  background-size: 100% 100%;
-  pointer-events: none;
-  z-index: -1;
+  flex: 1;
+  height: 1px;
+  background: var(--color-border);
+}
+
+.divider-accent::before {
+  max-width: 60px;
+}
+
+/* Hover lift effect - subtle and refined */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-2px);
+}
+
+/* Number badge */
+.num-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  font-size: 0.75rem;
+  font-family: var(--font-serif);
+  color: var(--color-text-muted);
 }
 
 /* Responsive */
