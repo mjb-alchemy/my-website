@@ -1,0 +1,263 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+/* ============================================
+   MEENAL BALAR'S WEBSITE - DESIGN SYSTEM
+   Handmade, warm, South Asian zine aesthetic
+   ============================================ */
+
+/* Custom Theme */
+@theme {
+  /* Color Palette */
+  --color-cream: #F5F0E6;
+  --color-cream-dark: #EBE4D4;
+  --color-indigo: #1E3A5F;
+  --color-indigo-light: #2D4A6F;
+  --color-ochre: #C9A227;
+  --color-ochre-light: #D4B44A;
+  --color-amber: #D4A574;
+  --color-amber-light: #E0B98A;
+  --color-sepia: #8B7355;
+
+  /* Typography */
+  --font-mono: 'JetBrains Mono', 'IBM Plex Mono', 'Courier Prime', ui-monospace, monospace;
+  --font-display: 'Playfair Display', Georgia, serif;
+
+  /* Spacing for organic layouts */
+  --spacing-organic-sm: 0.875rem;
+  --spacing-organic-md: 1.125rem;
+  --spacing-organic-lg: 2.25rem;
+}
+
+/* Base Styles */
+html {
+  background-color: var(--color-cream);
+  color: var(--color-indigo);
+  font-family: var(--font-mono);
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--color-cream);
+}
+
+/* Paper Texture Background */
+.paper-texture {
+  background-color: var(--color-cream);
+  background-image:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-blend-mode: soft-light;
+  background-size: 200px 200px;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--color-indigo);
+  line-height: 1.3;
+}
+
+h1 {
+  font-size: 2.5rem;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: 1.875rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+/* Links */
+a {
+  color: var(--color-indigo);
+  text-decoration-color: var(--color-ochre);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+  transition: all 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-ochre);
+  text-decoration-color: var(--color-ochre);
+}
+
+/* Handmade Elements */
+
+/* Stitched border effect */
+.stitched {
+  border: 2px dashed var(--color-sepia);
+  border-radius: 4px;
+  padding: 1rem;
+  position: relative;
+}
+
+.stitched::before {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  border: 1px dashed var(--color-amber);
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+/* Torn paper edge effect */
+.torn-edge {
+  position: relative;
+}
+
+.torn-edge::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 8px;
+  background: linear-gradient(135deg, var(--color-cream) 25%, transparent 25%),
+              linear-gradient(225deg, var(--color-cream) 25%, transparent 25%);
+  background-size: 8px 8px;
+}
+
+/* Slight rotation for organic feel */
+.tilt-left {
+  transform: rotate(-1deg);
+}
+
+.tilt-right {
+  transform: rotate(1deg);
+}
+
+.tilt-subtle {
+  transform: rotate(-0.5deg);
+}
+
+/* Aged/vintage image treatment */
+.vintage-image {
+  filter: sepia(10%) contrast(95%) brightness(98%);
+  border-radius: 2px;
+  box-shadow:
+    0 1px 3px rgba(30, 58, 95, 0.1),
+    inset 0 0 30px rgba(139, 115, 85, 0.05);
+}
+
+/* Hand-drawn underline */
+.hand-underline {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 10'%3E%3Cpath d='M0 8 Q 25 2, 50 8 T 100 8' stroke='%23C9A227' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: 100% 8px;
+  padding-bottom: 8px;
+}
+
+/* Decorative divider */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 2rem 0;
+  color: var(--color-sepia);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-amber) 20%,
+    var(--color-amber) 80%,
+    transparent
+  );
+}
+
+/* Button styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 2px solid var(--color-indigo);
+  background: transparent;
+  color: var(--color-indigo);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn:hover {
+  background: var(--color-indigo);
+  color: var(--color-cream);
+}
+
+.btn-ochre {
+  border-color: var(--color-ochre);
+  color: var(--color-ochre);
+}
+
+.btn-ochre:hover {
+  background: var(--color-ochre);
+  color: var(--color-cream);
+}
+
+/* Card component */
+.card {
+  background: var(--color-cream);
+  border: 1px solid var(--color-amber);
+  padding: 1.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px) rotate(0.5deg);
+  box-shadow: 4px 4px 0 var(--color-amber-light);
+}
+
+/* Image gallery grid */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Star rating display */
+.stars {
+  color: var(--color-ochre);
+  letter-spacing: 0.1em;
+}
+
+/* Responsive typography */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+}
+
+/* Print styles */
+@media print {
+  .paper-texture {
+    background-image: none;
+  }
+}

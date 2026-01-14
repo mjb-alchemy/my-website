@@ -1,0 +1,146 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const illustrations = await getCollection('illustrations');
+const sortedIllustrations = illustrations.sort((a, b) =>
+  b.data.date.valueOf() - a.data.date.valueOf()
+);
+---
+
+<BaseLayout title="Illustrations">
+  <div class="max-w-5xl mx-auto px-6 py-12">
+    <header class="mb-12 text-center">
+      <h1 class="text-3xl md:text-4xl font-display font-semibold text-indigo mb-4">
+        Illustrations
+      </h1>
+      <p class="text-sepia max-w-md mx-auto">
+        Sketches, studies, and finished pieces. Click to view larger.
+      </p>
+    </header>
+
+    {sortedIllustrations.length === 0 ? (
+      <div class="text-center py-16 stitched max-w-md mx-auto">
+        <p class="text-sepia mb-4">No illustrations yet.</p>
+        <p class="text-sm text-sepia opacity-75">
+          Add your first illustration through the CMS at <code>/admin</code>
+        </p>
+      </div>
+    ) : (
+      <div class="gallery-grid">
+        {sortedIllustrations.map((illustration) => (
+          <button
+            class="card group cursor-pointer text-left p-0 overflow-hidden"
+            data-lightbox
+            data-title={illustration.data.title}
+            data-description={illustration.data.description || ''}
+            data-date={illustration.data.date.toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric'
+            })}
+          >
+            <div class="aspect-[4/3] overflow-hidden bg-cream-dark">
+              <img
+                src={typeof illustration.data.image === 'string'
+                  ? illustration.data.image
+                  : illustration.data.image.src}
+                alt={illustration.data.title}
+                class="w-full h-full object-cover vintage-image group-hover:scale-105 transition-transform duration-300"
+                loading="lazy"
+              />
+            </div>
+            <div class="p-4">
+              <h3 class="font-display text-lg text-indigo group-hover:text-ochre transition-colors">
+                {illustration.data.title}
+              </h3>
+              <p class="text-xs text-sepia mt-1">
+                {illustration.data.date.toLocaleDateString('en-US', {
+                  year: 'numeric',
+                  month: 'short'
+                })}
+              </p>
+            </div>
+          </button>
+        ))}
+      </div>
+    )}
+  </div>
+
+  <!-- Lightbox Modal -->
+  <div
+    id="lightbox"
+    class="fixed inset-0 z-50 hidden bg-indigo/95 backdrop-blur-sm"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="lightbox-title"
+  >
+    <button
+      id="lightbox-close"
+      class="absolute top-4 right-4 text-cream hover:text-ochre transition-colors p-2"
+      aria-label="Close lightbox"
+    >
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M18 6L6 18M6 6l12 12"/>
+      </svg>
+    </button>
+
+    <div class="h-full flex flex-col md:flex-row items-center justify-center p-6 md:p-12 gap-8">
+      <div class="flex-1 flex items-center justify-center max-h-[70vh] md:max-h-full">
+        <img
+          id="lightbox-image"
+          src=""
+          alt=""
+          class="max-w-full max-h-full object-contain rounded"
+        />
+      </div>
+      <div class="md:w-72 text-cream text-center md:text-left">
+        <h2 id="lightbox-title" class="font-display text-2xl mb-2"></h2>
+        <p id="lightbox-date" class="text-sm text-amber mb-4"></p>
+        <p id="lightbox-description" class="text-sm opacity-80"></p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Lightbox functionality
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightbox-image') as HTMLImageElement;
+    const lightboxTitle = document.getElementById('lightbox-title');
+    const lightboxDate = document.getElementById('lightbox-date');
+    const lightboxDescription = document.getElementById('lightbox-description');
+    const lightboxClose = document.getElementById('lightbox-close');
+
+    // Open lightbox
+    document.querySelectorAll('[data-lightbox]').forEach((button) => {
+      button.addEventListener('click', () => {
+        const img = button.querySelector('img') as HTMLImageElement;
+        if (img && lightbox && lightboxImage && lightboxTitle && lightboxDate && lightboxDescription) {
+          lightboxImage.src = img.src;
+          lightboxImage.alt = img.alt;
+          lightboxTitle.textContent = button.getAttribute('data-title') || '';
+          lightboxDate.textContent = button.getAttribute('data-date') || '';
+          lightboxDescription.textContent = button.getAttribute('data-description') || '';
+          lightbox.classList.remove('hidden');
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    });
+
+    // Close lightbox
+    function closeLightbox() {
+      if (lightbox) {
+        lightbox.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+    }
+
+    lightboxClose?.addEventListener('click', closeLightbox);
+    lightbox?.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  </script>
+</BaseLayout>

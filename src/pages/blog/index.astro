@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog', ({ data }) => !data.draft);
+const sortedPosts = posts.sort((a, b) =>
+  b.data.date.valueOf() - a.data.date.valueOf()
+);
+---
+
+<BaseLayout title="Blog">
+  <div class="max-w-2xl mx-auto px-6 py-12">
+    <header class="mb-12 text-center">
+      <h1 class="text-3xl md:text-4xl font-display font-semibold text-indigo mb-4">
+        Blog
+      </h1>
+      <p class="text-sepia max-w-md mx-auto">
+        Essays, reflections, and notes on things I'm learning.
+      </p>
+    </header>
+
+    {sortedPosts.length === 0 ? (
+      <div class="text-center py-16 stitched">
+        <p class="text-sepia mb-4">No posts yet.</p>
+        <p class="text-sm text-sepia opacity-75">
+          Write your first post through the CMS at <code>/admin</code>
+        </p>
+      </div>
+    ) : (
+      <div class="space-y-1">
+        {sortedPosts.map((post, index) => (
+          <article class="group">
+            <a
+              href={`/blog/${post.slug}`}
+              class="block py-6 border-b border-amber/30 hover:border-ochre transition-colors"
+            >
+              <div class="flex items-baseline gap-4">
+                <span class="text-ochre text-xs font-mono shrink-0">
+                  {post.data.date.toLocaleDateString('en-US', {
+                    month: 'short',
+                    day: 'numeric'
+                  })}
+                </span>
+                <div class="flex-1">
+                  <h2 class="font-display text-lg text-indigo group-hover:text-ochre transition-colors">
+                    {post.data.title}
+                  </h2>
+                  {post.data.description && (
+                    <p class="text-sm text-sepia mt-1 opacity-75">
+                      {post.data.description}
+                    </p>
+                  )}
+                </div>
+                <span class="text-ochre opacity-0 group-hover:opacity-100 transition-opacity">
+                  →
+                </span>
+              </div>
+            </a>
+          </article>
+        ))}
+      </div>
+    )}
+  </div>
+</BaseLayout>

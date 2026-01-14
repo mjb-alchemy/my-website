@@ -1,0 +1,113 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// Placeholder data - will be replaced with Google Sheets integration
+// For now, you can edit this array directly or wait for the Google Sheets setup
+const books = [
+  {
+    title: "Sample Book Title",
+    author: "Author Name",
+    rating: 4,
+    referrer: "A friend",
+    notes: "Add your notes about this book here. What stood out? What did you learn?",
+    dateRead: "2024-01-10"
+  }
+];
+
+// Helper to render star rating
+function renderStars(rating: number): string {
+  return '★'.repeat(rating) + '☆'.repeat(5 - rating);
+}
+---
+
+<BaseLayout title="Books">
+  <div class="max-w-3xl mx-auto px-6 py-12">
+    <header class="mb-12 text-center">
+      <h1 class="text-3xl md:text-4xl font-display font-semibold text-indigo mb-4">
+        Books
+      </h1>
+      <p class="text-sepia max-w-md mx-auto">
+        What I've been reading, with notes and who recommended them.
+      </p>
+    </header>
+
+    <div class="mb-8 text-center text-sm text-sepia opacity-75">
+      <p>
+        This page will pull from Google Sheets once connected.
+        <br />
+        For now, edit the placeholder data in <code>src/pages/books.astro</code>
+      </p>
+    </div>
+
+    {books.length === 0 ? (
+      <div class="text-center py-16 stitched max-w-md mx-auto">
+        <p class="text-sepia mb-4">No books logged yet.</p>
+        <p class="text-sm text-sepia opacity-75">
+          Add books to your Google Sheet to see them here.
+        </p>
+      </div>
+    ) : (
+      <div class="space-y-6">
+        {books.map((book, index) => (
+          <article
+            class:list={[
+              "card",
+              index % 3 === 0 ? "tilt-left" : index % 3 === 1 ? "" : "tilt-right"
+            ]}
+          >
+            <div class="flex flex-col sm:flex-row sm:items-start gap-4">
+              <div class="flex-1">
+                <div class="flex items-start justify-between gap-4 mb-2">
+                  <div>
+                    <h2 class="font-display text-lg text-indigo">
+                      {book.title}
+                    </h2>
+                    <p class="text-sm text-sepia">
+                      by {book.author}
+                    </p>
+                  </div>
+                  <span class="stars text-lg shrink-0" title={`${book.rating} out of 5 stars`}>
+                    {renderStars(book.rating)}
+                  </span>
+                </div>
+
+                {book.notes && (
+                  <p class="text-sm text-sepia/90 my-4 leading-relaxed">
+                    {book.notes}
+                  </p>
+                )}
+
+                <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-sepia opacity-75">
+                  {book.referrer && (
+                    <span>
+                      Recommended by: <span class="text-ochre">{book.referrer}</span>
+                    </span>
+                  )}
+                  <span>
+                    Read: {new Date(book.dateRead).toLocaleDateString('en-US', {
+                      year: 'numeric',
+                      month: 'short'
+                    })}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    )}
+
+    <!-- Instructions for Google Sheets setup -->
+    <div class="mt-16 p-6 bg-cream-dark/50 rounded text-sm text-sepia">
+      <h3 class="font-display text-base text-indigo mb-3">
+        Setting up Google Sheets
+      </h3>
+      <ol class="space-y-2 list-decimal list-inside">
+        <li>Create a Google Sheet with columns: Title, Author, Rating, Referrer, Notes, Date Read</li>
+        <li>Go to File → Share → Publish to web → Select CSV format</li>
+        <li>Copy the published URL</li>
+        <li>We'll add a build script to fetch this data automatically</li>
+      </ol>
+    </div>
+  </div>
+</BaseLayout>

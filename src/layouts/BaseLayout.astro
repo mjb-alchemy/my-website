@@ -1,0 +1,118 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  showNav?: boolean;
+}
+
+const {
+  title,
+  description = "Meenal Balar — illustrations, projects, writing, and reading notes.",
+  showNav = true
+} = Astro.props;
+
+const currentPath = Astro.url.pathname;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title} | Meenal Balar</title>
+    <!-- Netlify Identity Widget for CMS authentication -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  </head>
+  <body class="paper-texture min-h-screen">
+    {showNav && (
+      <nav class="fixed top-0 left-0 right-0 z-50 px-6 py-4 bg-cream/90 backdrop-blur-sm border-b border-amber/30">
+        <div class="max-w-4xl mx-auto flex items-center justify-between">
+          <a href="/" class="font-display text-lg font-semibold text-indigo hover:text-ochre transition-colors no-underline">
+            Meenal Balar
+          </a>
+          <ul class="flex items-center gap-6 text-sm">
+            <li>
+              <a
+                href="/illustrations"
+                class:list={[
+                  "hover:text-ochre transition-colors",
+                  { "text-ochre": currentPath.startsWith('/illustrations') }
+                ]}
+              >
+                illustrations
+              </a>
+            </li>
+            <li>
+              <a
+                href="/projects"
+                class:list={[
+                  "hover:text-ochre transition-colors",
+                  { "text-ochre": currentPath.startsWith('/projects') }
+                ]}
+              >
+                projects
+              </a>
+            </li>
+            <li>
+              <a
+                href="/blog"
+                class:list={[
+                  "hover:text-ochre transition-colors",
+                  { "text-ochre": currentPath.startsWith('/blog') }
+                ]}
+              >
+                blog
+              </a>
+            </li>
+            <li>
+              <a
+                href="/books"
+                class:list={[
+                  "hover:text-ochre transition-colors",
+                  { "text-ochre": currentPath.startsWith('/books') }
+                ]}
+              >
+                books
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    )}
+
+    <main class={showNav ? "pt-20" : ""}>
+      <slot />
+    </main>
+
+    <footer class="mt-16 py-8 px-6 border-t border-amber/30">
+      <div class="max-w-4xl mx-auto text-center text-sm text-sepia">
+        <p class="font-display text-base mb-2">Meenal Balar</p>
+        <p class="opacity-75">
+          Illustrator, builder, reader.
+          <span class="mx-2">·</span>
+          <a href="mailto:hello@meenalbalar.com" class="hover:text-ochre">hello@meenalbalar.com</a>
+        </p>
+        <p class="mt-4 text-xs opacity-50">
+          Made with care, paper textures, and a little bit of code.
+        </p>
+      </div>
+    </footer>
+
+    <!-- Redirect to admin after Netlify Identity login -->
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", (user: any) => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

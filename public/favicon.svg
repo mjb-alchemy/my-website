@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="3" fill="#F5F0E6"/>
+  <!-- Hand-drawn style M using slightly imperfect curves -->
+  <path
+    d="M8 24 L8 10 Q9 8, 10 10 L15.5 20 Q16 21, 16.5 20 L22 10 Q23 8, 24 10 L24 24"
+    fill="none"
+    stroke="#1E3A5F"
+    stroke-width="2.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <!-- Small decorative dot -->
+  <circle cx="16" cy="27" r="1.5" fill="#C9A227"/>
+</svg>
