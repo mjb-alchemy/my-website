@@ -9,12 +9,14 @@ const sortedProjects = projects.sort((a, b) =>
 ---
 
 <BaseLayout title="Projects">
-  <header class="pt-12 pb-16 max-w-4xl">
+  <header class="pt-12 pb-16 max-w-4xl relative">
+    <div class="sketch-star absolute -top-2 left-32 opacity-50"></div>
     <span class="text-label mb-4 block">Work</span>
-    <h1 class="mb-6">Projects</h1>
+    <h1 class="mb-6"><span class="sketch-underline">Projects</span></h1>
     <p class="text-body-lg max-w-xl">
       Things I've built, designed, or helped bring to life.
     </p>
+    <div class="sketch-divider w-32 mt-8"></div>
   </header>
 
   {sortedProjects.length === 0 ? (
