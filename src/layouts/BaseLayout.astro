@@ -4,13 +4,11 @@ import '../styles/global.css';
 interface Props {
   title: string;
   description?: string;
-  showNav?: boolean;
 }
 
 const {
   title,
   description = "Meenal Balar — illustrations, projects, writing, and reading notes.",
-  showNav = true
 } = Astro.props;
 
 const currentPath = Astro.url.pathname;
@@ -24,85 +22,74 @@ const currentPath = Astro.url.pathname;
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title} | Meenal Balar</title>
-    <!-- Netlify Identity Widget for CMS authentication -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   </head>
-  <body class="paper-texture min-h-screen">
-    {showNav && (
-      <nav class="fixed top-0 left-0 right-0 z-50 px-6 py-4 bg-cream/90 backdrop-blur-sm border-b border-amber/30">
-        <div class="max-w-4xl mx-auto flex items-center justify-between">
-          <a href="/" class="font-display text-lg font-semibold text-indigo hover:text-ochre transition-colors no-underline">
-            Meenal Balar
+  <body class="min-h-screen">
+    <nav class="px-6 md:px-12 lg:px-24 py-6 flex items-center justify-between">
+      <a href="/" class="font-serif text-xl hover:opacity-60 transition-opacity">
+        Meenal Balar
+      </a>
+      <ul class="flex items-center gap-8 text-sm font-medium">
+        <li>
+          <a
+            href="/illustrations"
+            class:list={[
+              "hover:opacity-60 transition-opacity",
+              { "opacity-60": currentPath.startsWith('/illustrations') }
+            ]}
+          >
+            Illustrations
           </a>
-          <ul class="flex items-center gap-6 text-sm">
-            <li>
-              <a
-                href="/illustrations"
-                class:list={[
-                  "hover:text-ochre transition-colors",
-                  { "text-ochre": currentPath.startsWith('/illustrations') }
-                ]}
-              >
-                illustrations
-              </a>
-            </li>
-            <li>
-              <a
-                href="/projects"
-                class:list={[
-                  "hover:text-ochre transition-colors",
-                  { "text-ochre": currentPath.startsWith('/projects') }
-                ]}
-              >
-                projects
-              </a>
-            </li>
-            <li>
-              <a
-                href="/blog"
-                class:list={[
-                  "hover:text-ochre transition-colors",
-                  { "text-ochre": currentPath.startsWith('/blog') }
-                ]}
-              >
-                blog
-              </a>
-            </li>
-            <li>
-              <a
-                href="/books"
-                class:list={[
-                  "hover:text-ochre transition-colors",
-                  { "text-ochre": currentPath.startsWith('/books') }
-                ]}
-              >
-                books
-              </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    )}
+        </li>
+        <li>
+          <a
+            href="/projects"
+            class:list={[
+              "hover:opacity-60 transition-opacity",
+              { "opacity-60": currentPath.startsWith('/projects') }
+            ]}
+          >
+            Projects
+          </a>
+        </li>
+        <li>
+          <a
+            href="/blog"
+            class:list={[
+              "hover:opacity-60 transition-opacity",
+              { "opacity-60": currentPath.startsWith('/blog') }
+            ]}
+          >
+            Blog
+          </a>
+        </li>
+        <li>
+          <a
+            href="/books"
+            class:list={[
+              "hover:opacity-60 transition-opacity",
+              { "opacity-60": currentPath.startsWith('/books') }
+            ]}
+          >
+            Books
+          </a>
+        </li>
+      </ul>
+    </nav>
 
-    <main class={showNav ? "pt-20" : ""}>
+    <main class="px-6 md:px-12 lg:px-24 pb-24">
       <slot />
     </main>
 
-    <footer class="mt-16 py-8 px-6 border-t border-amber/30">
-      <div class="max-w-4xl mx-auto text-center text-sm text-sepia">
-        <p class="font-display text-base mb-2">Meenal Balar</p>
-        <p class="opacity-75">
-          Illustrator, builder, reader.
-          <span class="mx-2">·</span>
-          <a href="mailto:hello@meenalbalar.com" class="hover:text-ochre">hello@meenalbalar.com</a>
-        </p>
-        <p class="mt-4 text-xs opacity-50">
-          Made with care, paper textures, and a little bit of code.
-        </p>
+    <footer class="px-6 md:px-12 lg:px-24 py-8 border-t border-border">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-label">
+        <span>© 2024 Meenal Balar</span>
+        <a href="mailto:hello@meenalbalar.com" class="hover:opacity-60 transition-opacity">
+          hello@meenalbalar.com
+        </a>
       </div>
     </footer>
 
-    <!-- Redirect to admin after Netlify Identity login -->
     <script>
       if (window.netlifyIdentity) {
         window.netlifyIdentity.on("init", (user: any) => {

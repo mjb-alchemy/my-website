@@ -9,96 +9,59 @@ const sortedProjects = projects.sort((a, b) =>
 ---
 
 <BaseLayout title="Projects">
-  <div class="max-w-4xl mx-auto px-6 py-12">
-    <header class="mb-12 text-center">
-      <h1 class="text-3xl md:text-4xl font-display font-semibold text-indigo mb-4">
-        Projects
-      </h1>
-      <p class="text-sepia max-w-md mx-auto">
-        Things I've built, designed, or helped bring to life.
+  <header class="pt-12 pb-16 max-w-4xl">
+    <span class="text-label mb-4 block">Work</span>
+    <h1 class="mb-6">Projects</h1>
+    <p class="text-body-lg max-w-xl">
+      Things I've built, designed, or helped bring to life.
+    </p>
+  </header>
+
+  {sortedProjects.length === 0 ? (
+    <div class="py-24 text-center">
+      <p class="text-text-muted mb-2">No projects yet.</p>
+      <p class="text-sm text-text-light">
+        Add your first project through the CMS at <code class="bg-bg-alt px-2 py-1">/admin</code>
       </p>
-    </header>
-
-    {sortedProjects.length === 0 ? (
-      <div class="text-center py-16 stitched max-w-md mx-auto">
-        <p class="text-sepia mb-4">No projects yet.</p>
-        <p class="text-sm text-sepia opacity-75">
-          Add your first project through the CMS at <code>/admin</code>
-        </p>
-      </div>
-    ) : (
-      <div class="space-y-8">
-        {sortedProjects.map(async (project, index) => {
-          const { Content } = await project.render();
-          return (
-            <article
-              class:list={[
-                "card",
-                index % 2 === 0 ? "tilt-left" : "tilt-right"
-              ]}
-            >
-              <div class="flex flex-col md:flex-row md:items-start gap-6">
-                <div class="flex-1">
-                  <div class="flex items-center gap-3 mb-3">
-                    <span class="text-ochre text-xs font-mono">
-                      {String(index + 1).padStart(2, '0')}
-                    </span>
-                    <h2 class="font-display text-xl text-indigo">
-                      {project.data.title}
-                    </h2>
-                    {project.data.featured && (
-                      <span class="text-xs bg-ochre/20 text-ochre px-2 py-0.5 rounded">
-                        Featured
-                      </span>
-                    )}
-                  </div>
-
-                  <p class="text-sm text-sepia mb-4">
-                    {project.data.description}
-                  </p>
-
-                  <div class="prose prose-sm text-sepia/90 mb-4">
-                    <Content />
-                  </div>
-
-                  <div class="flex items-center gap-4 text-xs">
-                    <span class="text-sepia opacity-75">
-                      {project.data.date.toLocaleDateString('en-US', {
-                        year: 'numeric',
-                        month: 'long'
-                      })}
-                    </span>
-                    {project.data.link && (
-                      <a
-                        href={project.data.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="text-ochre hover:text-indigo transition-colors"
-                      >
-                        View project →
-                      </a>
-                    )}
-                  </div>
-                </div>
+    </div>
+  ) : (
+    <div class="space-y-16 max-w-4xl">
+      {sortedProjects.map(async (project, index) => {
+        const { Content } = await project.render();
+        return (
+          <article class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+            <div class="md:col-span-4">
+              <span class="text-label block mb-2">
+                {project.data.date.toLocaleDateString('en-US', {
+                  year: 'numeric'
+                })}
+              </span>
+              <h2 class="text-2xl mb-2">{project.data.title}</h2>
+              {project.data.featured && (
+                <span class="text-label text-accent">Featured</span>
+              )}
+            </div>
+            <div class="md:col-span-8">
+              <p class="text-body-lg mb-6">
+                {project.data.description}
+              </p>
+              <div class="prose mb-6">
+                <Content />
               </div>
-            </article>
-          );
-        })}
-      </div>
-    )}
-  </div>
+              {project.data.link && (
+                <a
+                  href={project.data.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn"
+                >
+                  View project →
+                </a>
+              )}
+            </div>
+          </article>
+        );
+      })}
+    </div>
+  )}
 </BaseLayout>
-
-<style>
-  .prose {
-    --tw-prose-body: var(--color-sepia);
-    --tw-prose-headings: var(--color-indigo);
-    --tw-prose-links: var(--color-ochre);
-  }
-  .prose h2, .prose h3 {
-    font-family: var(--font-display);
-  }
-  .prose p {
-    margin-bottom: 0.75rem;
-  }
-</style>

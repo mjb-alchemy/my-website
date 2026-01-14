@@ -1,72 +1,54 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
 
 /* ============================================
-   MEENAL BALAR'S WEBSITE - DESIGN SYSTEM
-   Handmade, warm, South Asian zine aesthetic
+   MEENAL BALAR'S WEBSITE
+   Modern Editorial / Asymmetric Layout
    ============================================ */
 
-/* Custom Theme */
 @theme {
-  /* Color Palette */
-  --color-cream: #F5F0E6;
-  --color-cream-dark: #EBE4D4;
-  --color-indigo: #1E3A5F;
-  --color-indigo-light: #2D4A6F;
-  --color-ochre: #C9A227;
-  --color-ochre-light: #D4B44A;
-  --color-amber: #D4A574;
-  --color-amber-light: #E0B98A;
-  --color-sepia: #8B7355;
+  /* Colors - Warm but modern */
+  --color-bg: #FAF9F7;
+  --color-bg-alt: #F3F1ED;
+  --color-text: #1A1A1A;
+  --color-text-muted: #6B6B6B;
+  --color-text-light: #9A9A9A;
+  --color-accent: #D4A373;
+  --color-border: #E8E6E1;
 
   /* Typography */
-  --font-mono: 'JetBrains Mono', 'IBM Plex Mono', 'Courier Prime', ui-monospace, monospace;
-  --font-display: 'Playfair Display', Georgia, serif;
-
-  /* Spacing for organic layouts */
-  --spacing-organic-sm: 0.875rem;
-  --spacing-organic-md: 1.125rem;
-  --spacing-organic-lg: 2.25rem;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
 }
 
-/* Base Styles */
+/* Base */
 html {
-  background-color: var(--color-cream);
-  color: var(--color-indigo);
-  font-family: var(--font-mono);
-  line-height: 1.7;
-  letter-spacing: 0.01em;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
 }
 
 body {
   min-height: 100vh;
-  background-color: var(--color-cream);
+  background-color: var(--color-bg);
 }
 
-/* Paper Texture Background */
-.paper-texture {
-  background-color: var(--color-cream);
-  background-image:
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
-  background-blend-mode: soft-light;
-  background-size: 200px 200px;
-}
-
-/* Headings */
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-display);
-  font-weight: 600;
-  color: var(--color-indigo);
-  line-height: 1.3;
-}
-
-h1 {
-  font-size: 2.5rem;
+/* Typography */
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  line-height: 1.1;
   letter-spacing: -0.02em;
 }
 
+h1 {
+  font-size: clamp(3rem, 8vw, 6rem);
+}
+
 h2 {
-  font-size: 1.875rem;
+  font-size: clamp(2rem, 5vw, 3rem);
 }
 
 h3 {
@@ -75,189 +57,213 @@ h3 {
 
 /* Links */
 a {
-  color: var(--color-indigo);
-  text-decoration-color: var(--color-ochre);
-  text-decoration-thickness: 2px;
-  text-underline-offset: 3px;
-  transition: all 0.2s ease;
+  color: inherit;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
 }
 
 a:hover {
-  color: var(--color-ochre);
-  text-decoration-color: var(--color-ochre);
+  opacity: 0.6;
 }
 
-/* Handmade Elements */
-
-/* Stitched border effect */
-.stitched {
-  border: 2px dashed var(--color-sepia);
-  border-radius: 4px;
-  padding: 1rem;
-  position: relative;
+/* Editorial Grid Helpers */
+.editorial-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1.5rem;
 }
 
-.stitched::before {
-  content: '';
-  position: absolute;
-  inset: 3px;
-  border: 1px dashed var(--color-amber);
-  border-radius: 2px;
-  pointer-events: none;
+.col-span-full { grid-column: 1 / -1; }
+.col-start-2 { grid-column-start: 2; }
+.col-start-3 { grid-column-start: 3; }
+.col-end-11 { grid-column-end: 11; }
+.col-end-12 { grid-column-end: 12; }
+
+/* Offset elements for asymmetry */
+.offset-left { margin-left: -2rem; }
+.offset-right { margin-right: -2rem; }
+.push-right { margin-left: auto; }
+.push-left { margin-right: auto; }
+
+/* Cards - minimal */
+.card {
+  background: var(--color-bg);
+  transition: transform 0.3s ease;
 }
 
-/* Torn paper edge effect */
-.torn-edge {
-  position: relative;
+.card:hover {
+  transform: translateY(-4px);
 }
 
-.torn-edge::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  right: 0;
-  height: 8px;
-  background: linear-gradient(135deg, var(--color-cream) 25%, transparent 25%),
-              linear-gradient(225deg, var(--color-cream) 25%, transparent 25%);
-  background-size: 8px 8px;
+/* Gallery - Masonry-like feel */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
 }
 
-/* Slight rotation for organic feel */
-.tilt-left {
-  transform: rotate(-1deg);
+.gallery-item {
+  break-inside: avoid;
 }
 
-.tilt-right {
-  transform: rotate(1deg);
+.gallery-item:nth-child(3n+1) {
+  transform: translateY(1rem);
 }
 
-.tilt-subtle {
-  transform: rotate(-0.5deg);
+.gallery-item:nth-child(3n+2) {
+  transform: translateY(-0.5rem);
 }
 
-/* Aged/vintage image treatment */
-.vintage-image {
-  filter: sepia(10%) contrast(95%) brightness(98%);
-  border-radius: 2px;
-  box-shadow:
-    0 1px 3px rgba(30, 58, 95, 0.1),
-    inset 0 0 30px rgba(139, 115, 85, 0.05);
+/* Image treatments */
+.img-editorial {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
 
-/* Hand-drawn underline */
-.hand-underline {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 10'%3E%3Cpath d='M0 8 Q 25 2, 50 8 T 100 8' stroke='%23C9A227' stroke-width='2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: bottom;
-  background-size: 100% 8px;
-  padding-bottom: 8px;
+/* Text styles */
+.text-display {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  line-height: 1;
+  letter-spacing: -0.03em;
 }
 
-/* Decorative divider */
-.divider {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin: 2rem 0;
-  color: var(--color-sepia);
+.text-label {
   font-size: 0.75rem;
-  letter-spacing: 0.2em;
+  font-weight: 500;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
+  color: var(--color-text-muted);
 }
 
-.divider::before,
-.divider::after {
-  content: '';
-  flex: 1;
+.text-body-lg {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+}
+
+/* Dividers */
+.divider {
   height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    var(--color-amber) 20%,
-    var(--color-amber) 80%,
-    transparent
-  );
+  background: var(--color-border);
 }
 
-/* Button styles */
+.divider-thick {
+  height: 2px;
+  background: var(--color-text);
+  width: 3rem;
+}
+
+/* Buttons */
 .btn {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
-  font-family: var(--font-mono);
+  padding: 0.875rem 1.75rem;
   font-size: 0.875rem;
   font-weight: 500;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  border: 2px solid var(--color-indigo);
+  letter-spacing: 0.02em;
+  border: 1px solid var(--color-text);
   background: transparent;
-  color: var(--color-indigo);
-  cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .btn:hover {
-  background: var(--color-indigo);
-  color: var(--color-cream);
+  background: var(--color-text);
+  color: var(--color-bg);
+  opacity: 1;
 }
 
-.btn-ochre {
-  border-color: var(--color-ochre);
-  color: var(--color-ochre);
-}
-
-.btn-ochre:hover {
-  background: var(--color-ochre);
-  color: var(--color-cream);
-}
-
-/* Card component */
-.card {
-  background: var(--color-cream);
-  border: 1px solid var(--color-amber);
-  padding: 1.5rem;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.card:hover {
-  transform: translateY(-2px) rotate(0.5deg);
-  box-shadow: 4px 4px 0 var(--color-amber-light);
-}
-
-/* Image gallery grid */
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1.5rem;
-}
-
-/* Star rating display */
+/* Star ratings */
 .stars {
-  color: var(--color-ochre);
-  letter-spacing: 0.1em;
+  color: var(--color-accent);
+  letter-spacing: 0.05em;
 }
 
-/* Responsive typography */
+/* Prose for blog */
+.prose {
+  color: var(--color-text-muted);
+  font-size: 1.0625rem;
+  line-height: 1.8;
+  max-width: 65ch;
+}
+
+.prose h2 {
+  color: var(--color-text);
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+
+.prose h3 {
+  color: var(--color-text);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose p {
+  margin-bottom: 1.5rem;
+}
+
+.prose a {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--color-accent);
+}
+
+.prose ul, .prose ol {
+  margin-bottom: 1.5rem;
+  padding-left: 1.25rem;
+}
+
+.prose li {
+  margin-bottom: 0.5rem;
+}
+
+.prose ul li { list-style-type: disc; }
+.prose ol li { list-style-type: decimal; }
+
+.prose blockquote {
+  border-left: 2px solid var(--color-accent);
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 1.25rem;
+}
+
+.prose code {
+  background: var(--color-bg-alt);
+  padding: 0.2rem 0.4rem;
+  font-size: 0.875em;
+}
+
+.prose pre {
+  background: var(--color-text);
+  color: var(--color-bg);
+  padding: 1.5rem;
+  overflow-x: auto;
+  margin: 2rem 0;
+}
+
+.prose img {
+  margin: 2rem 0;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-  h1 {
-    font-size: 2rem;
-  }
-
-  h2 {
-    font-size: 1.5rem;
-  }
-
   .gallery-grid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 1rem;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
-}
 
-/* Print styles */
-@media print {
-  .paper-texture {
-    background-image: none;
+  .gallery-item:nth-child(3n+1),
+  .gallery-item:nth-child(3n+2) {
+    transform: none;
+  }
+
+  .offset-left, .offset-right {
+    margin-left: 0;
+    margin-right: 0;
   }
 }
