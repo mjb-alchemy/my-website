@@ -24,18 +24,19 @@ const currentPath = Astro.url.pathname;
     <title>{title} | Meenal Balar</title>
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   </head>
-  <body class="min-h-screen relative">
-    <nav class="px-6 md:px-12 lg:px-24 py-6 flex items-center justify-between relative z-10">
-      <a href="/" class="font-serif text-xl hover:opacity-60 transition-opacity">
+  <body class="min-h-screen bg-bg">
+    <!-- Bold Navigation -->
+    <nav class="px-6 md:px-12 lg:px-16 py-6 flex items-center justify-between border-b border-border">
+      <a href="/" class="font-serif text-2xl font-semibold hover:text-accent transition-colors">
         Meenal Balar
       </a>
-      <ul class="flex items-center gap-8 text-sm font-medium">
+      <ul class="flex items-center gap-8 text-base font-medium">
         <li>
           <a
             href="/illustrations"
             class:list={[
-              "hover:opacity-60 transition-opacity",
-              { "opacity-60": currentPath.startsWith('/illustrations') }
+              "hover:text-accent transition-colors",
+              { "text-accent": currentPath.startsWith('/illustrations') }
             ]}
           >
             Illustrations
@@ -45,8 +46,8 @@ const currentPath = Astro.url.pathname;
           <a
             href="/projects"
             class:list={[
-              "hover:opacity-60 transition-opacity",
-              { "opacity-60": currentPath.startsWith('/projects') }
+              "hover:text-accent transition-colors",
+              { "text-accent": currentPath.startsWith('/projects') }
             ]}
           >
             Projects
@@ -56,8 +57,8 @@ const currentPath = Astro.url.pathname;
           <a
             href="/blog"
             class:list={[
-              "hover:opacity-60 transition-opacity",
-              { "opacity-60": currentPath.startsWith('/blog') }
+              "hover:text-accent transition-colors",
+              { "text-accent": currentPath.startsWith('/blog') }
             ]}
           >
             Blog
@@ -67,8 +68,8 @@ const currentPath = Astro.url.pathname;
           <a
             href="/books"
             class:list={[
-              "hover:opacity-60 transition-opacity",
-              { "opacity-60": currentPath.startsWith('/books') }
+              "hover:text-accent transition-colors",
+              { "text-accent": currentPath.startsWith('/books') }
             ]}
           >
             Books
@@ -77,14 +78,14 @@ const currentPath = Astro.url.pathname;
       </ul>
     </nav>
 
-    <main class="px-6 md:px-12 lg:px-24 pb-24 relative z-10">
+    <main class="px-6 md:px-12 lg:px-16 pb-24">
       <slot />
     </main>
 
-    <footer class="px-6 md:px-12 lg:px-24 py-8 border-t border-border relative z-10">
-      <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-label">
+    <footer class="px-6 md:px-12 lg:px-16 py-8 border-t border-border">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-text-muted">
         <span>© 2024 Meenal Balar</span>
-        <a href="mailto:hello@meenalbalar.com" class="hover:opacity-60 transition-opacity">
+        <a href="mailto:hello@meenalbalar.com" class="hover:text-accent transition-colors">
           hello@meenalbalar.com
         </a>
       </div>
