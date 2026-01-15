@@ -1,24 +1,25 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
 
 /* ============================================
    MEENAL BALAR'S WEBSITE
-   Modern Editorial / Asymmetric Layout
+   Polished Zine Aesthetic
    ============================================ */
 
 @theme {
-  /* Colors - Warm but modern */
-  --color-bg: #FAF9F7;
-  --color-bg-alt: #F3F1ED;
+  /* Colors - Warm, slightly aged paper */
+  --color-bg: #FAF8F5;
+  --color-bg-alt: #F5F2ED;
   --color-text: #1A1A1A;
-  --color-text-muted: #6B6B6B;
-  --color-text-light: #9A9A9A;
-  --color-accent: #D4A373;
-  --color-border: #E8E6E1;
+  --color-text-muted: #5A5A5A;
+  --color-text-light: #8A8A8A;
+  --color-accent: #C45D3A;
+  --color-border: #E5E0D8;
 
   /* Typography */
   --font-sans: 'DM Sans', system-ui, sans-serif;
   --font-serif: 'Libre Baskerville', Georgia, serif;
+  --font-mono: 'JetBrains Mono', monospace;
 }
 
 /* Base */
@@ -251,211 +252,176 @@ a:hover {
 }
 
 /* ============================================
-   SOPHISTICATED GRAPHICAL ELEMENTS
-   Refined, editorial decorations
+   POLISHED ZINE ELEMENTS
+   DIY spirit, refined execution
    ============================================ */
 
-/* Elegant accent line - thin, precise */
-.accent-line {
-  position: relative;
-  display: inline-block;
+/* Mono label - typewriter aesthetic */
+.zine-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
 }
 
-.accent-line::after {
+/* Stamp-style label */
+.zine-stamp {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--color-text);
+  transform: rotate(-1deg);
+}
+
+/* Section marker - asterisk style */
+.zine-marker::before {
+  content: '✦';
+  margin-right: 0.5rem;
+  color: var(--color-accent);
+}
+
+/* Hand-placed feel - slight rotation */
+.zine-tilt-1 { transform: rotate(-0.5deg); }
+.zine-tilt-2 { transform: rotate(0.75deg); }
+.zine-tilt-3 { transform: rotate(-1deg); }
+
+/* Underline - rough, hand-drawn feel */
+.zine-underline {
+  position: relative;
+  display: inline;
+}
+
+.zine-underline::after {
   content: '';
   position: absolute;
-  bottom: -8px;
+  bottom: -2px;
   left: 0;
-  width: 40px;
+  width: 100%;
   height: 2px;
   background: var(--color-accent);
+  transform: rotate(-0.5deg) scaleX(1.02);
 }
 
-/* Vertical accent bar */
-.accent-bar {
-  position: relative;
-  padding-left: 1.5rem;
-}
-
-.accent-bar::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 0.25em;
-  width: 3px;
-  height: 1.5em;
-  background: var(--color-accent);
-}
-
-/* Decorative circle - geometric, clean */
-.deco-circle {
-  position: absolute;
-  width: 120px;
-  height: 120px;
-  border: 1px solid var(--color-accent);
-  border-radius: 50%;
-  opacity: 0.15;
-  pointer-events: none;
-}
-
-/* Decorative arc - elegant curve */
-.deco-arc {
-  position: absolute;
-  width: 200px;
-  height: 100px;
-  pointer-events: none;
-  opacity: 0.12;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 100' preserveAspectRatio='none'%3E%3Cpath d='M0 100 Q 100 0, 200 100' stroke='%23D4A373' stroke-width='1' fill='none'/%3E%3C/svg%3E");
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-/* Grid pattern overlay */
-.deco-grid {
-  position: absolute;
-  width: 150px;
-  height: 150px;
-  pointer-events: none;
-  opacity: 0.04;
-  background-image:
-    linear-gradient(var(--color-text) 1px, transparent 1px),
-    linear-gradient(90deg, var(--color-text) 1px, transparent 1px);
-  background-size: 20px 20px;
-}
-
-/* Dot accent - single sophisticated dot */
-.deco-dot {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  background: var(--color-accent);
-  border-radius: 50%;
-  opacity: 0.6;
-  pointer-events: none;
-}
-
-/* Line cluster - parallel lines */
-.deco-lines {
-  position: absolute;
-  width: 60px;
-  height: 40px;
-  pointer-events: none;
-  opacity: 0.15;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 40'%3E%3Cline x1='0' y1='10' x2='60' y2='10' stroke='%23D4A373' stroke-width='1'/%3E%3Cline x1='0' y1='20' x2='60' y2='20' stroke='%23D4A373' stroke-width='1'/%3E%3Cline x1='0' y1='30' x2='60' y2='30' stroke='%23D4A373' stroke-width='1'/%3E%3C/svg%3E");
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-/* Corner bracket - editorial style */
-.deco-bracket {
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  pointer-events: none;
-  opacity: 0.2;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Cpath d='M0 40 L0 0 L40 0' stroke='%231A1A1A' stroke-width='1' fill='none'/%3E%3C/svg%3E");
-  background-size: contain;
-  background-repeat: no-repeat;
-}
-
-.deco-bracket.top-left {
-  top: 0;
-  left: 0;
-}
-
-.deco-bracket.top-right {
-  top: 0;
-  right: 0;
-  transform: scaleX(-1);
-}
-
-.deco-bracket.bottom-left {
-  bottom: 0;
-  left: 0;
-  transform: scaleY(-1);
-}
-
-.deco-bracket.bottom-right {
-  bottom: 0;
-  right: 0;
-  transform: scale(-1);
-}
-
-/* Number/index style */
-.deco-index {
-  font-family: var(--font-serif);
-  font-size: 0.75rem;
-  color: var(--color-accent);
-  letter-spacing: 0.05em;
-}
-
-/* Subtle arrow */
-.arrow-refined {
-  display: inline-block;
-  width: 24px;
-  height: 12px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 12'%3E%3Cpath d='M0 6 L20 6 M16 2 L20 6 L16 10' stroke='%231A1A1A' stroke-width='1' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-  background-size: contain;
-  background-repeat: no-repeat;
+/* Arrow in mono style */
+.zine-arrow {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
   transition: transform 0.2s ease;
 }
 
-.group:hover .arrow-refined {
+.group:hover .zine-arrow {
   transform: translateX(4px);
 }
 
-/* Cross/plus decoration */
-.deco-cross {
-  position: absolute;
-  width: 20px;
-  height: 20px;
-  pointer-events: none;
-  opacity: 0.25;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'%3E%3Cpath d='M10 0 L10 20 M0 10 L20 10' stroke='%23D4A373' stroke-width='1'/%3E%3C/svg%3E");
-  background-size: contain;
-  background-repeat: no-repeat;
+/* Index numbers - mono, bracketed */
+.zine-index {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-text-light);
 }
 
-/* Elegant divider with accent */
-.divider-accent {
+.zine-index::before {
+  content: '[';
+}
+
+.zine-index::after {
+  content: ']';
+}
+
+/* Divider with asterisks */
+.zine-divider {
   display: flex;
   align-items: center;
   gap: 1rem;
+  color: var(--color-text-light);
+  font-size: 0.75rem;
 }
 
-.divider-accent::before,
-.divider-accent::after {
+.zine-divider::before,
+.zine-divider::after {
   content: '';
   flex: 1;
   height: 1px;
   background: var(--color-border);
 }
 
-.divider-accent::before {
-  max-width: 60px;
+/* Corner mark - typographic */
+.zine-corner {
+  position: absolute;
+  font-family: var(--font-mono);
+  font-size: 1.5rem;
+  color: var(--color-border);
+  line-height: 1;
+  pointer-events: none;
 }
 
-/* Hover lift effect - subtle and refined */
-.hover-lift {
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.zine-corner.top-right {
+  top: 1rem;
+  right: 1rem;
 }
 
-.hover-lift:hover {
-  transform: translateY(-2px);
+.zine-corner.bottom-left {
+  bottom: 1rem;
+  left: 1rem;
 }
 
-/* Number badge */
-.num-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 28px;
-  border: 1px solid var(--color-border);
-  border-radius: 50%;
-  font-size: 0.75rem;
+/* Pull quote style */
+.zine-quote {
   font-family: var(--font-serif);
-  color: var(--color-text-muted);
+  font-style: italic;
+  font-size: 1.25rem;
+  border-left: 2px solid var(--color-accent);
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  transform: rotate(-0.3deg);
+}
+
+/* Tag/category pill */
+.zine-tag {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.5rem;
+  background: var(--color-bg-alt);
+  border-radius: 2px;
+}
+
+/* Page number style */
+.zine-page-num {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--color-text-light);
+}
+
+/* Hover effect - subtle shift */
+.zine-hover {
+  transition: transform 0.2s ease;
+}
+
+.zine-hover:hover {
+  transform: translateX(2px) rotate(0.25deg);
+}
+
+/* Section header with line */
+.zine-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.zine-section::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--color-border);
 }
 
 /* Responsive */
