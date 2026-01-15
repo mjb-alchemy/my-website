@@ -7,14 +7,15 @@
    ============================================ */
 
 @theme {
-  /* Colors - Warm, slightly aged paper */
-  --color-bg: #FAF8F5;
-  --color-bg-alt: #F5F2ED;
+  /* Colors - Bright, warm, photography-friendly */
+  --color-bg: #FFFCF7;
+  --color-bg-alt: #FFF5E6;
   --color-text: #1A1A1A;
-  --color-text-muted: #5A5A5A;
-  --color-text-light: #8A8A8A;
-  --color-accent: #C45D3A;
-  --color-border: #E5E0D8;
+  --color-text-muted: #4A4A4A;
+  --color-text-light: #7A7A7A;
+  --color-accent: #E85D30;
+  --color-accent-soft: #FFE4D6;
+  --color-border: #F0E6D8;
 
   /* Typography */
   --font-sans: 'DM Sans', system-ui, sans-serif;
