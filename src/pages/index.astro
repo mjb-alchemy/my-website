@@ -9,88 +9,207 @@ import '../styles/global.css';
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content="Meenal Balar — illustrations, projects, writing, and reading notes." />
     <title>Meenal Balar</title>
+    <style>
+      /* Bouncing animation */
+      @keyframes bounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-8px); }
+      }
+
+      .easter-egg {
+        animation: bounce 1s ease-in-out infinite;
+        cursor: pointer;
+        user-select: none;
+        transition: filter 0.2s;
+      }
+
+      .easter-egg:hover {
+        animation-play-state: paused;
+        filter: brightness(1.2);
+      }
+
+      /* Terminal mode styles */
+      .terminal-mode {
+        --color-bg: #0a0a0a !important;
+        --color-bg-alt: #1a1a1a !important;
+        --color-text: #00ff00 !important;
+        --color-text-muted: #00cc00 !important;
+        --color-accent: #00ff00 !important;
+        --color-border: #333 !important;
+      }
+
+      .terminal-mode * {
+        font-family: 'JetBrains Mono', monospace !important;
+      }
+
+      .terminal-mode h1,
+      .terminal-mode h2,
+      .terminal-mode h3 {
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: #00ff00 !important;
+      }
+
+      .terminal-mode .font-serif {
+        color: #00ff00 !important;
+      }
+
+      .terminal-mode .bg-bg-dark {
+        background-color: #000 !important;
+      }
+
+      .terminal-mode .text-white {
+        color: #00ff00 !important;
+      }
+
+      .terminal-mode .text-white\/50 {
+        color: #00aa00 !important;
+      }
+
+      /* Scanline effect */
+      .terminal-mode::after {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        pointer-events: none;
+        background: repeating-linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 0.15),
+          rgba(0, 0, 0, 0.15) 1px,
+          transparent 1px,
+          transparent 2px
+        );
+        z-index: 9999;
+      }
+
+      /* Blinking cursor after name */
+      .terminal-mode .terminal-cursor::after {
+        content: '_';
+        animation: blink 1s step-end infinite;
+      }
+
+      @keyframes blink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0; }
+      }
+    </style>
   </head>
   <body class="min-h-screen bg-bg">
-    <!-- Hero Section - Full viewport, bold typography -->
-    <section class="min-h-screen flex flex-col justify-between px-6 md:px-12 lg:px-16 py-8">
-      <!-- Top Bar -->
-      <header class="flex justify-between items-center">
-        <span class="text-sm font-medium tracking-wide">Meenal Balar</span>
-        <a href="mailto:hello@meenalbalar.com" class="text-sm font-medium hover:text-accent transition-colors">
-          Contact
-        </a>
-      </header>
+    <!-- Full-screen Hero with Side Navigation -->
+    <section class="min-h-screen grid grid-cols-1 lg:grid-cols-[1fr_400px]">
+      <!-- Main Hero Area -->
+      <div class="relative flex flex-col justify-between p-8 lg:p-12 min-h-screen lg:min-h-0">
+        <!-- Top -->
+        <header class="flex justify-between items-start">
+          <a href="/" class="text-sm font-medium tracking-wide">Meenal Balar</a>
+          <a href="mailto:hello@meenalbalar.com" class="text-sm font-medium hover:text-accent transition-colors">
+            Contact
+          </a>
+        </header>
 
-      <!-- Center - Giant Name -->
-      <main class="flex-1 flex items-center justify-center py-16">
-        <div class="text-center">
-          <h1 class="text-display mb-8">
+        <!-- Center - Giant Name -->
+        <div class="py-16 lg:py-0">
+          <h1 class="text-display leading-none terminal-cursor">
             Meenal<br/>Balar
           </h1>
-          <p class="text-xl md:text-2xl text-text-muted max-w-lg mx-auto font-light">
+          <p class="text-xl md:text-2xl text-text-muted mt-8 max-w-md">
             Illustrator, builder, and reader
           </p>
         </div>
-      </main>
 
-      <!-- Bottom Navigation - Horizontal, bold -->
-      <nav class="border-t border-border pt-8">
-        <ul class="flex flex-wrap justify-center gap-x-12 gap-y-4 text-lg md:text-xl">
+        <!-- Bottom -->
+        <div class="text-sm text-text-muted">
+          San Francisco, CA
+        </div>
+      </div>
+
+      <!-- Right Side Navigation Panel -->
+      <nav class="bg-bg-dark text-white p-8 lg:p-12 flex flex-col justify-center">
+        <ul class="space-y-8">
           <li>
-            <a href="/illustrations" class="group inline-flex items-center gap-2 hover:text-accent transition-colors">
-              <span class="font-serif">Illustrations</span>
-              <span class="opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+            <a href="/illustrations" class="group block">
+              <span class="text-xs uppercase tracking-widest text-white/50 block mb-2">01</span>
+              <span class="text-3xl lg:text-4xl font-serif group-hover:text-accent transition-colors">Illustrations</span>
             </a>
           </li>
           <li>
-            <a href="/projects" class="group inline-flex items-center gap-2 hover:text-accent transition-colors">
-              <span class="font-serif">Projects</span>
-              <span class="opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+            <a href="/projects" class="group block">
+              <span class="text-xs uppercase tracking-widest text-white/50 block mb-2">02</span>
+              <span class="text-3xl lg:text-4xl font-serif group-hover:text-accent transition-colors">Projects</span>
             </a>
           </li>
           <li>
-            <a href="/blog" class="group inline-flex items-center gap-2 hover:text-accent transition-colors">
-              <span class="font-serif">Blog</span>
-              <span class="opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+            <a href="/blog" class="group block">
+              <span class="text-xs uppercase tracking-widest text-white/50 block mb-2">03</span>
+              <span class="text-3xl lg:text-4xl font-serif group-hover:text-accent transition-colors">Blog</span>
             </a>
           </li>
           <li>
-            <a href="/books" class="group inline-flex items-center gap-2 hover:text-accent transition-colors">
-              <span class="font-serif">Books</span>
-              <span class="opacity-0 group-hover:opacity-100 transition-opacity">→</span>
+            <a href="/books" class="group block">
+              <span class="text-xs uppercase tracking-widest text-white/50 block mb-2">04</span>
+              <span class="text-3xl lg:text-4xl font-serif group-hover:text-accent transition-colors">Books</span>
             </a>
           </li>
         </ul>
       </nav>
     </section>
 
-    <!-- Optional: Featured Section -->
-    <section class="bg-bg-alt py-24 px-6 md:px-12 lg:px-16">
-      <div class="max-w-6xl mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-          <div>
-            <span class="text-sm font-medium tracking-widest uppercase text-text-muted mb-4 block">About</span>
-            <h2 class="mb-6">Creating at the intersection of art & technology</h2>
-            <p class="text-lg text-text-muted leading-relaxed mb-8">
-              I'm an illustrator and builder based in San Francisco. My work explores narrative, form, and the places where craft meets code.
-            </p>
-            <a href="/projects" class="inline-flex items-center gap-2 text-lg font-medium hover:text-accent transition-colors">
-              View my work <span>→</span>
-            </a>
-          </div>
-          <div class="aspect-[4/3] bg-border">
-            <!-- Placeholder for featured image -->
-          </div>
-        </div>
+    <!-- Featured Work Section - Full Bleed -->
+    <section class="grid grid-cols-1 lg:grid-cols-2 min-h-[80vh]">
+      <!-- Image -->
+      <div class="bg-bg-alt aspect-square lg:aspect-auto">
+        <!-- Placeholder for featured illustration -->
+      </div>
+
+      <!-- Content -->
+      <div class="flex flex-col justify-center p-8 lg:p-16">
+        <span class="text-xs uppercase tracking-widest text-text-muted mb-6">Featured</span>
+        <h2 class="text-4xl lg:text-5xl font-serif mb-6 leading-tight">Creating at the intersection of art & technology</h2>
+        <p class="text-lg text-text-muted leading-relaxed mb-8 max-w-lg">
+          I'm an illustrator and builder based in San Francisco. My work explores narrative, form, and the places where craft meets code.
+        </p>
+        <a href="/illustrations" class="inline-flex items-center gap-3 text-lg font-medium group">
+          <span class="group-hover:text-accent transition-colors">View work</span>
+          <span class="text-2xl group-hover:translate-x-1 transition-transform">→</span>
+        </a>
       </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-8 px-6 md:px-12 lg:px-16 border-t border-border">
-      <div class="max-w-6xl mx-auto flex justify-between items-center text-sm text-text-muted">
+    <footer class="py-12 px-8 lg:px-16 border-t border-border">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-text-muted">
         <span>© 2024 Meenal Balar</span>
-        <span>San Francisco, CA</span>
+        <div class="flex items-center gap-4">
+          <a href="mailto:hello@meenalbalar.com" class="hover:text-accent transition-colors">
+            hello@meenalbalar.com
+          </a>
+          <button id="easter-egg" class="easter-egg text-xl" title="👾">👾</button>
+        </div>
       </div>
     </footer>
+
+    <script>
+      const easterEgg = document.getElementById('easter-egg');
+      let terminalMode = false;
+
+      easterEgg?.addEventListener('click', () => {
+        terminalMode = !terminalMode;
+        document.body.classList.toggle('terminal-mode', terminalMode);
+
+        // Scroll to top to see the mode change
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        if (terminalMode) {
+          easterEgg.textContent = '📰';
+          easterEgg.title = 'Back to editorial mode';
+        } else {
+          easterEgg.textContent = '👾';
+          easterEgg.title = 'Enter terminal mode';
+        }
+      });
+    </script>
   </body>
 </html>
