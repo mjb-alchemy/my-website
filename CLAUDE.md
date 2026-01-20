@@ -1,45 +1,57 @@
 # Meenal Balar's Personal Website
 
 ## Project Overview
-A personal portfolio website with four main sections: illustrations gallery, projects portfolio, personal blog, and book/article notes. The site should feel handmade, warm, and personal—drawing from South Asian artistic traditions and vintage zine aesthetics.
+A personal portfolio website with four main sections: illustrations gallery, projects portfolio, personal blog, and book/article notes. The site reflects two sides of who I am: an artist, writer, and editor with a love for vintage Indian editorial design—the kind of zine you'd find at an old Indian cafe—and a fairly new coder exploring technology.
 
 ## Tech Stack
 - **Framework:** Astro (static site generator)
-- **Styling:** Tailwind CSS
+- **Styling:** Tailwind CSS v4
 - **CMS:** Decap CMS (visual editor at `/admin`)
 - **Hosting:** Netlify (with Netlify Identity for CMS auth)
-- **Books data:** Google Sheets (fetched at build time)
+- **Books data:** Google Sheets (fetched at build time) - not yet implemented
 
 ## Design Direction
 
 ### Aesthetic
-- Zine meets South Asian artistic tradition
-- Handmade, warm, personal, intimate
-- References: Nabiu Studio, Keya Vadgama, PAGE BREAK NYC, The Juggernaut, Rupy C. Tut
+- Old vintage Indian editorial design
+- Literary, sophisticated, curator energy
+- Warm and personal with high-contrast moments
+- References: vintage Indian print shops, literary zines, editorial typography
 
 ### Color Palette
 | Role | Color |
 |------|-------|
-| Base | Hemp paper cream/ivory (`#F5F0E6`) |
-| Primary text | Deep indigo (`#1E3A5F`) |
-| Accent 1 | Ochre/muted gold (`#C9A227`) |
-| Accent 2 | Tea-stained amber (`#D4A574`) |
+| Background | Warm cream (`#FAF6F1`) |
+| Background alt | Deeper cream (`#F0EBE3`) |
+| Dark panel | Near black (`#1A1A1A`) |
+| Primary text | Dark (`#1A1A1A`) |
+| Muted text | Gray (`#555555`) |
+| Accent | Vibrant orange (`#E85D30`) |
 
 ### Typography
-- Body/UI: JetBrains Mono (typewriter energy)
-- Headings: Display font with personality (TBD)
+- **Headlines:** Cormorant Garamond (elegant, vintage serif with Indian print-shop energy)
+- **Body/UI:** Lato (clean humanist sans - Gill Sans alternative)
+- **Labels/Code:** JetBrains Mono (typewriter energy)
 
-### Handmade Touches
-- Stitched/sewn line borders
-- Hand-drawn dividers
-- Slightly tilted/scattered element placement
-- Paper grain texture backgrounds
-- Soft, imperfect edges on images
+### Layout
+- Split-screen hero: name on left, dark navigation panel on right
+- Numbered navigation (01, 02, 03, 04)
+- Full-bleed featured sections
+- High contrast between warm cream and dark panels
+
+### Easter Egg: Two Sides of Me
+The site has a hidden Easter egg that reflects my dual identity:
+- **Default (Editorial Mode):** The vintage Indian editorial aesthetic—warm, literary, artistic
+- **Terminal Mode:** A coder's perspective—green text, monospace font, CRT scanlines
+
+Triggered by a bouncing 👾 in the footer:
+- Click 👾 to enter terminal mode (the coder in me)
+- Click 📰 to return to editorial mode (the artist/writer in me)
 
 ## Site Structure
 
 ```
-/                    → Cover page (name + TOC navigation)
+/                    → Split-screen hero with side navigation
 /illustrations       → Gallery grid with lightbox
 /projects            → Portfolio cards
 /blog                → Post list
@@ -76,8 +88,15 @@ npm run preview      # Preview production build
 | Projects | Decap CMS or edit `src/content/projects/*.md` |
 | Books | Update Google Sheet → trigger Netlify rebuild |
 
+## Pending Tasks
+- [ ] Set up Netlify Identity for CMS login
+- [ ] Implement Google Sheets integration for books
+- [ ] Add real content (illustrations, projects, blog posts)
+- [ ] Mobile hamburger menu
+- [ ] Custom domain setup
+
 ## Important Notes
-- Owner is not a coder — keep workflows simple
+- Owner is not a coder by trade — keep workflows simple
 - Decap CMS provides visual editing (no Markdown knowledge needed)
 - Site auto-deploys when changes are pushed to GitHub
-- Footer is a "colophon" style — name, contact, one-liner (no separate About page)
+- Footer is a "colophon" style — name, contact, Easter egg
