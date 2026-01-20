@@ -1,7 +1,7 @@
 ---
 title: "Sample Project"
 description: "This is a placeholder project to demonstrate the layout. Replace with your actual projects."
-date: 2024-01-10
+date: 2026-01-10
 featured: true
 ---
 

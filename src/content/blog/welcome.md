@@ -1,7 +1,7 @@
 ---
 title: "Welcome to My Corner of the Internet"
 description: "A first post about what you'll find here and why I made this space."
-date: 2024-01-15
+date: 2026-01-15
 ---
 
 Hello, and welcome.

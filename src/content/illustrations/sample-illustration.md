@@ -1,7 +1,7 @@
 ---
 title: "Sample Illustration"
 description: "A placeholder to show how the gallery works. Replace with your actual artwork."
-date: 2024-01-12
+date: 2026-01-12
 image: "../../assets/illustrations/placeholder.svg"
 ---
 
