@@ -16,7 +16,7 @@ I've been meaning to make this space for a while. Somewhere that feels handmade 
 
 - **Projects**: Things I've built or helped build. Design work, product thinking, collaborations.
 
-- **Blog**: Essays, reflections, and notes on things I'm learning or thinking about.
+- **Notes**: Essays, reflections, and notes on things I'm learning or thinking about.
 
 - **Books**: My reading list with notes — what I've read, what stood out, and who recommended it.
 

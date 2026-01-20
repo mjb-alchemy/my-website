@@ -14,9 +14,9 @@ publish_mode: editorial_workflow
 
 # Collections define what content you can manage
 collections:
-  # Blog Posts
+  # Notes (writing)
   - name: "blog"
-    label: "Blog Posts"
+    label: "Notes"
     folder: "src/content/blog"
     create: true
     slug: "{{slug}}"
