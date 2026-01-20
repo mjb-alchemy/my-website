@@ -2,8 +2,7 @@
 # https://decapcms.org/docs/configuration-options/
 
 backend:
-  name: github
-  repo: mjb-alchemy/my-website
+  name: git-gateway
   branch: main
 
 # Media files will be stored in this folder
