@@ -9,6 +9,12 @@ import '../styles/global.css';
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content="Meenal Balar — illustrations, projects, writing, and reading notes." />
     <title>Meenal Balar</title>
+    <script is:inline>
+      // Apply terminal mode immediately to prevent flash
+      if (localStorage.getItem('terminalMode') === 'true') {
+        document.documentElement.classList.add('terminal-mode');
+      }
+    </script>
     <style>
       /* Bouncing animation */
       @keyframes bounce {
@@ -181,7 +187,7 @@ import '../styles/global.css';
     <!-- Footer -->
     <footer class="py-12 px-8 lg:px-16 border-t border-border">
       <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-text-muted">
-        <span>© 2024 Meenal Balar</span>
+        <span>© 2026 Meenal Balar</span>
         <div class="flex items-center gap-4">
           <a href="mailto:hello@meenalbalar.com" class="hover:text-accent transition-colors">
             hello@meenalbalar.com
@@ -191,13 +197,20 @@ import '../styles/global.css';
       </div>
     </footer>
 
-    <script>
+    <script is:inline>
       const easterEgg = document.getElementById('easter-egg');
-      let terminalMode = false;
+      let terminalMode = localStorage.getItem('terminalMode') === 'true';
+
+      // Update button state on load
+      if (terminalMode) {
+        easterEgg.textContent = '📰';
+        easterEgg.title = 'Back to editorial mode';
+      }
 
       easterEgg?.addEventListener('click', () => {
         terminalMode = !terminalMode;
-        document.body.classList.toggle('terminal-mode', terminalMode);
+        localStorage.setItem('terminalMode', terminalMode);
+        document.documentElement.classList.toggle('terminal-mode', terminalMode);
 
         // Scroll to top to see the mode change
         window.scrollTo({ top: 0, behavior: 'smooth' });

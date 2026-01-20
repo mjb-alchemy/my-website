@@ -22,6 +22,105 @@ const currentPath = Astro.url.pathname;
     <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title} | Meenal Balar</title>
+    <script is:inline>
+      // Apply terminal mode immediately to prevent flash
+      if (localStorage.getItem('terminalMode') === 'true') {
+        document.documentElement.classList.add('terminal-mode');
+      }
+    </script>
+    <style>
+      /* Bouncing animation */
+      @keyframes bounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-8px); }
+      }
+
+      .easter-egg {
+        animation: bounce 1s ease-in-out infinite;
+        cursor: pointer;
+        user-select: none;
+        transition: filter 0.2s;
+      }
+
+      .easter-egg:hover {
+        animation-play-state: paused;
+        filter: brightness(1.2);
+      }
+
+      /* Terminal mode styles */
+      .terminal-mode,
+      .terminal-mode body {
+        --color-bg: #0a0a0a !important;
+        --color-bg-alt: #1a1a1a !important;
+        --color-text: #00ff00 !important;
+        --color-text-muted: #00cc00 !important;
+        --color-accent: #00ff00 !important;
+        --color-border: #333 !important;
+        background-color: #0a0a0a !important;
+      }
+
+      .terminal-mode * {
+        font-family: 'JetBrains Mono', monospace !important;
+      }
+
+      .terminal-mode h1,
+      .terminal-mode h2,
+      .terminal-mode h3 {
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: #00ff00 !important;
+      }
+
+      .terminal-mode .font-serif {
+        color: #00ff00 !important;
+      }
+
+      .terminal-mode a {
+        color: #00ff00 !important;
+      }
+
+      .terminal-mode a:hover {
+        color: #00cc00 !important;
+      }
+
+      .terminal-mode .text-text-muted {
+        color: #00cc00 !important;
+      }
+
+      .terminal-mode .border-border {
+        border-color: #333 !important;
+      }
+
+      /* Scanline effect */
+      .terminal-mode::after {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        pointer-events: none;
+        background: repeating-linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 0.15),
+          rgba(0, 0, 0, 0.15) 1px,
+          transparent 1px,
+          transparent 2px
+        );
+        z-index: 9999;
+      }
+
+      /* Blinking cursor */
+      .terminal-mode .terminal-cursor::after {
+        content: '_';
+        animation: blink 1s step-end infinite;
+      }
+
+      @keyframes blink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0; }
+      }
+    </style>
   </head>
   <body class="min-h-screen bg-bg">
     <!-- Bold Navigation -->
@@ -84,11 +183,38 @@ const currentPath = Astro.url.pathname;
     <footer class="px-6 md:px-12 lg:px-16 py-8 border-t border-border">
       <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-text-muted">
         <span>© 2026 Meenal Balar</span>
-        <a href="mailto:hello@meenalbalar.com" class="hover:text-accent transition-colors">
-          hello@meenalbalar.com
-        </a>
+        <div class="flex items-center gap-4">
+          <a href="mailto:hello@meenalbalar.com" class="hover:text-accent transition-colors">
+            hello@meenalbalar.com
+          </a>
+          <button id="easter-egg" class="easter-egg text-xl" title="Enter terminal mode">👾</button>
+        </div>
       </div>
     </footer>
 
+    <script is:inline>
+      const easterEgg = document.getElementById('easter-egg');
+      let terminalMode = localStorage.getItem('terminalMode') === 'true';
+
+      // Update button state on load
+      if (terminalMode) {
+        easterEgg.textContent = '📰';
+        easterEgg.title = 'Back to editorial mode';
+      }
+
+      easterEgg?.addEventListener('click', () => {
+        terminalMode = !terminalMode;
+        localStorage.setItem('terminalMode', terminalMode);
+        document.documentElement.classList.toggle('terminal-mode', terminalMode);
+
+        if (terminalMode) {
+          easterEgg.textContent = '📰';
+          easterEgg.title = 'Back to editorial mode';
+        } else {
+          easterEgg.textContent = '👾';
+          easterEgg.title = 'Enter terminal mode';
+        }
+      });
+    </script>
   </body>
 </html>
