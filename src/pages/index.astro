@@ -101,13 +101,18 @@ import '../styles/global.css';
         0%, 100% { opacity: 1; }
         50% { opacity: 0; }
       }
+
+      /* Green tinted photos in terminal mode */
+      .terminal-mode .photo-grid img {
+        filter: grayscale(100%) sepia(100%) hue-rotate(70deg) saturate(300%) brightness(0.8);
+      }
     </style>
   </head>
   <body class="min-h-screen bg-bg">
     <!-- Full-screen Hero with Side Navigation -->
-    <section class="min-h-screen grid grid-cols-1 lg:grid-cols-[1fr_400px]">
+    <section class="min-h-screen grid grid-cols-1 lg:grid-cols-[1fr_500px]">
       <!-- Main Hero Area -->
-      <div class="relative flex flex-col justify-between p-8 lg:p-12 min-h-screen lg:min-h-0">
+      <div class="relative flex flex-col p-8 lg:p-12 min-h-screen lg:min-h-0">
         <!-- Top -->
         <header class="flex justify-between items-start">
           <a href="/" class="text-sm font-medium tracking-wide">Meenal Balar</a>
@@ -116,8 +121,8 @@ import '../styles/global.css';
           </a>
         </header>
 
-        <!-- Center - Giant Name -->
-        <div class="py-16 lg:py-0">
+        <!-- Name - aligned with nav -->
+        <div class="mt-auto mb-auto lg:mt-[20vh]">
           <h1 class="text-display leading-none terminal-cursor">
             Meenal<br/>Balar
           </h1>
@@ -126,10 +131,6 @@ import '../styles/global.css';
           </p>
         </div>
 
-        <!-- Bottom -->
-        <div class="text-sm text-text-muted">
-          San Francisco, CA
-        </div>
       </div>
 
       <!-- Right Side Navigation Panel -->
@@ -163,24 +164,36 @@ import '../styles/global.css';
       </nav>
     </section>
 
-    <!-- Featured Work Section - Full Bleed -->
-    <section class="grid grid-cols-1 lg:grid-cols-2 min-h-[80vh]">
-      <!-- Image -->
-      <div class="bg-bg-alt aspect-square lg:aspect-auto">
-        <!-- Placeholder for featured illustration -->
+    <!-- About Section -->
+    <section id="about" class="grid grid-cols-1 lg:grid-cols-[667px_1fr] min-h-[80vh] py-16 lg:py-24">
+      <!-- Left: 3x3 Photo Grid -->
+      <div class="flex items-center justify-center lg:justify-start px-8 lg:pl-16 lg:pr-0">
+        <div class="photo-grid grid grid-cols-3 gap-2 w-full">
+          <div class="aspect-square bg-bg-alt overflow-hidden">
+            <img src="/src/assets/hero-image.jpeg" alt="" class="w-full h-full object-cover object-top" />
+          </div>
+          <div class="aspect-square bg-bg-alt"></div>
+          <div class="aspect-square bg-bg-alt"></div>
+          <div class="aspect-square bg-bg-alt"></div>
+          <div class="aspect-square bg-bg-alt"></div>
+          <div class="aspect-square bg-bg-alt"></div>
+          <div class="aspect-square bg-bg-alt"></div>
+          <div class="aspect-square bg-bg-alt"></div>
+          <div class="aspect-square bg-bg-alt"></div>
+        </div>
       </div>
 
-      <!-- Content -->
-      <div class="flex flex-col justify-center p-8 lg:p-16">
-        <span class="text-xs uppercase tracking-widest text-text-muted mb-6">Featured</span>
-        <h2 class="text-4xl lg:text-5xl font-serif mb-6 leading-tight">Creating at the intersection of art & technology</h2>
-        <p class="text-lg text-text-muted leading-relaxed mb-8 max-w-lg">
-          I'm an illustrator and builder based in San Francisco. My work explores narrative, form, and the places where craft meets code.
+      <!-- Right: Editorial Letter -->
+      <div class="flex flex-col justify-center px-8 lg:pl-12 lg:pr-16 max-w-lg">
+        <p class="text-lg lg:text-xl leading-relaxed text-text-muted mb-6">
+          I'm an illustrator and builder based in San Francisco, exploring the places where craft meets code.
         </p>
-        <a href="/illustrations" class="inline-flex items-center gap-3 text-lg font-medium group">
-          <span class="group-hover:text-accent transition-colors">View work</span>
-          <span class="text-2xl group-hover:translate-x-1 transition-transform">→</span>
-        </a>
+        <p class="text-lg lg:text-xl leading-relaxed text-text-muted mb-6">
+          Here you'll find my sketches, projects, notes, and reading list—the things I make and the ideas I'm thinking through.
+        </p>
+        <p class="font-serif text-xl italic mt-4">
+          — Meenal
+        </p>
       </div>
     </section>
 
