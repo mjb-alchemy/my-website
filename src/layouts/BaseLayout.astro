@@ -125,64 +125,108 @@ const base = import.meta.env.BASE_URL;
   </head>
   <body class="min-h-screen bg-bg">
     <!-- Bold Navigation -->
-    <nav class="px-6 md:px-12 lg:px-16 py-6 flex items-center justify-between border-b border-border">
-      <a href={base} class="font-serif text-2xl font-semibold hover:text-accent transition-colors">
-        Meenal Balar
-      </a>
-      <ul class="flex items-center gap-8 text-base font-medium">
-        <li>
-          <a
-            href={`${base}sketches`}
-            class:list={[
-              "hover:text-accent transition-colors duration-300 ease-out",
-              { "text-accent": currentPath.includes('/sketches') }
-            ]}
-          >
-            Sketches
-          </a>
-        </li>
-        <li class="relative group">
-          <button
-            class:list={[
-              "hover:text-accent transition-colors duration-300 ease-out",
-              { "text-accent": currentPath.includes('/projects') }
-            ]}
-          >
-            Projects
-          </button>
-          <ul class="absolute top-full right-0 mt-2 bg-bg border border-border shadow-lg py-2 min-w-[200px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-out z-50">
-            <li>
-              <a href={`${base}projects/magpie`} class="block px-4 py-2 hover:text-accent hover:bg-bg-alt transition-colors duration-300 ease-out">Magpie</a>
-            </li>
-            <li>
-              <a href={`${base}projects/alchemy`} class="block px-4 py-2 hover:text-accent hover:bg-bg-alt transition-colors duration-300 ease-out">Alchemy</a>
-            </li>
-          </ul>
-        </li>
-        <li>
-          <a
-            href={`${base}notes`}
-            class:list={[
-              "hover:text-accent transition-colors duration-300 ease-out",
-              { "text-accent": currentPath.includes('/notes') }
-            ]}
-          >
-            Notes
-          </a>
-        </li>
-        <li>
-          <a
-            href={`${base}books`}
-            class:list={[
-              "hover:text-accent transition-colors duration-300 ease-out",
-              { "text-accent": currentPath.includes('/books') }
-            ]}
-          >
-            Shelf
-          </a>
-        </li>
-      </ul>
+    <nav class="px-6 md:px-12 lg:px-16 py-6 border-b border-border">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <a href={base} class="font-serif text-2xl font-semibold hover:text-accent transition-colors shrink-0">
+          Meenal Balar
+        </a>
+        <ul class="flex items-center gap-4 md:gap-8 text-sm md:text-base font-medium flex-wrap">
+          <li>
+            <a
+              href={`${base}sketches`}
+              class:list={[
+                "hover:text-accent transition-colors duration-300 ease-out",
+                { "text-accent": currentPath.includes('/sketches') }
+              ]}
+            >
+              Sketches
+            </a>
+          </li>
+          <li class="relative" id="projects-dropdown">
+            <button
+              id="projects-toggle"
+              class:list={[
+                "hover:text-accent transition-colors duration-300 ease-out",
+                { "text-accent": currentPath.includes('/projects') }
+              ]}
+            >
+              Projects
+            </button>
+            <ul id="projects-menu" class="absolute top-full right-0 mt-2 bg-bg border border-border shadow-lg py-2 min-w-[200px] opacity-0 invisible transition-all duration-300 ease-out z-50">
+              <li>
+                <a href={`${base}projects/magpie`} class="block px-4 py-2 hover:text-accent hover:bg-bg-alt transition-colors duration-300 ease-out">Magpie</a>
+              </li>
+              <li>
+                <a href={`${base}projects/alchemy`} class="block px-4 py-2 hover:text-accent hover:bg-bg-alt transition-colors duration-300 ease-out">Alchemy</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a
+              href={`${base}notes`}
+              class:list={[
+                "hover:text-accent transition-colors duration-300 ease-out",
+                { "text-accent": currentPath.includes('/notes') }
+              ]}
+            >
+              Notes
+            </a>
+          </li>
+          <li>
+            <a
+              href={`${base}books`}
+              class:list={[
+                "hover:text-accent transition-colors duration-300 ease-out",
+                { "text-accent": currentPath.includes('/books') }
+              ]}
+            >
+              Shelf
+            </a>
+          </li>
+        </ul>
+      </div>
     </nav>
+
+    <script is:inline>
+      // Projects dropdown - works on both click (mobile) and hover (desktop)
+      const projectsDropdown = document.getElementById('projects-dropdown');
+      const projectsToggle = document.getElementById('projects-toggle');
+      const projectsMenu = document.getElementById('projects-menu');
+
+      if (projectsToggle && projectsMenu && projectsDropdown) {
+        // Click toggle for mobile
+        projectsToggle.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const isVisible = projectsMenu.classList.contains('opacity-100');
+          if (isVisible) {
+            projectsMenu.classList.remove('opacity-100', 'visible');
+            projectsMenu.classList.add('opacity-0', 'invisible');
+          } else {
+            projectsMenu.classList.remove('opacity-0', 'invisible');
+            projectsMenu.classList.add('opacity-100', 'visible');
+          }
+        });
+
+        // Hover for desktop
+        projectsDropdown.addEventListener('mouseenter', () => {
+          projectsMenu.classList.remove('opacity-0', 'invisible');
+          projectsMenu.classList.add('opacity-100', 'visible');
+        });
+
+        projectsDropdown.addEventListener('mouseleave', () => {
+          projectsMenu.classList.remove('opacity-100', 'visible');
+          projectsMenu.classList.add('opacity-0', 'invisible');
+        });
+
+        // Close when clicking outside
+        document.addEventListener('click', (e) => {
+          if (!projectsDropdown.contains(e.target)) {
+            projectsMenu.classList.remove('opacity-100', 'visible');
+            projectsMenu.classList.add('opacity-0', 'invisible');
+          }
+        });
+      }
+    </script>
 
     <main class="px-6 md:px-12 lg:px-16 pb-24">
       <slot />
