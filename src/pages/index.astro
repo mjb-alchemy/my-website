@@ -33,10 +33,15 @@ const base = import.meta.env.BASE_URL;
         transition: opacity 0.3s ease-in-out;
       }
 
-      /* Hourglass */
+      /* Hourglass - smooth continuous spin */
       .hourglass {
         display: inline-block;
-        transition: transform 0.3s ease-in-out;
+        animation: spin 4s linear infinite;
+      }
+
+      @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
       }
 
       /* Terminal mode hourglass - green tint */
@@ -264,23 +269,13 @@ const base = import.meta.env.BASE_URL;
     </footer>
 
     <script is:inline>
-      // Cycling active verbs with synced hourglass flip
+      // Cycling active verbs
       const verbs = ['Tinkering', 'Sketching', 'Pontificating', 'Building', 'Reading', 'Ruminating', 'Writing', 'Meditating', 'Exploring', 'Hibernating', 'Reflecting', 'Coding', 'Debugging', 'Shipping', 'Noodling'];
       let verbIndex = 0;
-      let rotation = 0;
       const verbElement = document.getElementById('active-verb');
-      const hourglassElement = document.querySelector('.hourglass');
 
       setInterval(() => {
         verbIndex = (verbIndex + 1) % verbs.length;
-        rotation += 180;
-
-        // Flip hourglass
-        if (hourglassElement) {
-          hourglassElement.style.transform = `rotate(${rotation}deg)`;
-        }
-
-        // Fade and change verb
         if (verbElement) {
           verbElement.style.opacity = '0';
           setTimeout(() => {

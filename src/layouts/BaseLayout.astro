@@ -193,19 +193,23 @@ const base = import.meta.env.BASE_URL;
       const projectsToggle = document.getElementById('projects-toggle');
       const projectsMenu = document.getElementById('projects-menu');
 
+      function toggleProjectsMenu(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        const isVisible = projectsMenu.classList.contains('opacity-100');
+        if (isVisible) {
+          projectsMenu.classList.remove('opacity-100', 'visible');
+          projectsMenu.classList.add('opacity-0', 'invisible');
+        } else {
+          projectsMenu.classList.remove('opacity-0', 'invisible');
+          projectsMenu.classList.add('opacity-100', 'visible');
+        }
+      }
+
       if (projectsToggle && projectsMenu && projectsDropdown) {
-        // Click toggle for mobile
-        projectsToggle.addEventListener('click', (e) => {
-          e.stopPropagation();
-          const isVisible = projectsMenu.classList.contains('opacity-100');
-          if (isVisible) {
-            projectsMenu.classList.remove('opacity-100', 'visible');
-            projectsMenu.classList.add('opacity-0', 'invisible');
-          } else {
-            projectsMenu.classList.remove('opacity-0', 'invisible');
-            projectsMenu.classList.add('opacity-100', 'visible');
-          }
-        });
+        // Click and touch toggle for mobile
+        projectsToggle.addEventListener('click', toggleProjectsMenu);
+        projectsToggle.addEventListener('touchend', toggleProjectsMenu);
 
         // Hover for desktop
         projectsDropdown.addEventListener('mouseenter', () => {
