@@ -9,15 +9,7 @@ const sortedPosts = posts.sort((a, b) =>
 ---
 
 <BaseLayout title="Notes">
-  <header class="pt-16 pb-20 max-w-3xl">
-    <span class="text-sm font-medium tracking-widest uppercase text-text-muted mb-6 block">Writing</span>
-    <h1 class="mb-8">Notes</h1>
-    <p class="text-xl text-text-muted max-w-2xl leading-relaxed">
-      Essays, reflections, and notes on things I'm learning and thinking about.
-    </p>
-  </header>
-
-  <div class="max-w-3xl">
+  <div class="max-w-3xl pt-16">
     {sortedPosts.length === 0 ? (
       <div class="py-24 text-center">
         <p class="text-text-muted mb-2">No notes yet.</p>

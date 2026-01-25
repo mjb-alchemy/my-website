@@ -18,16 +18,8 @@ function renderStars(rating: number): string {
 }
 ---
 
-<BaseLayout title="Books">
-  <header class="pt-16 pb-20 max-w-3xl">
-    <span class="text-sm font-medium tracking-widest uppercase text-text-muted mb-6 block">Reading</span>
-    <h1 class="mb-8">Books</h1>
-    <p class="text-xl text-text-muted max-w-2xl leading-relaxed">
-      What I've been reading, with notes and who recommended them.
-    </p>
-  </header>
-
-  <div class="max-w-3xl">
+<BaseLayout title="Shelf">
+  <div class="max-w-3xl pt-16">
     {books.length === 0 ? (
       <div class="py-24 text-center">
         <p class="text-text-muted mb-2">No books logged yet.</p>

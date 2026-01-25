@@ -137,19 +137,26 @@ const currentPath = Astro.url.pathname;
               { "text-accent": currentPath.startsWith('/illustrations') }
             ]}
           >
-            Illustrations
+            Sketches
           </a>
         </li>
-        <li>
-          <a
-            href="/projects"
+        <li class="relative group">
+          <button
             class:list={[
               "hover:text-accent transition-colors",
               { "text-accent": currentPath.startsWith('/projects') }
             ]}
           >
             Projects
-          </a>
+          </button>
+          <ul class="absolute top-full right-0 mt-2 bg-bg border border-border shadow-lg py-2 min-w-[200px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all z-50">
+            <li>
+              <a href="/projects/magpie" class="block px-4 py-2 hover:text-accent hover:bg-bg-alt transition-colors">Magpie</a>
+            </li>
+            <li>
+              <a href="/projects/alchemy" class="block px-4 py-2 hover:text-accent hover:bg-bg-alt transition-colors">Alchemy</a>
+            </li>
+          </ul>
         </li>
         <li>
           <a
@@ -170,7 +177,7 @@ const currentPath = Astro.url.pathname;
               { "text-accent": currentPath.startsWith('/books') }
             ]}
           >
-            Books
+            Shelf
           </a>
         </li>
       </ul>

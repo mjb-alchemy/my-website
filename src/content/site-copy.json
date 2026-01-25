@@ -2,8 +2,7 @@
   "site": {
     "name": "Meenal Balar",
     "tagline": "Illustrator, builder, and reader",
-    "description": "Meenal Balar — illustrations, projects, writing, and reading notes.",
-    "location": "San Francisco, CA",
+    "description": "Meenal Balar — sketches, projects, notes, and reading list.",
     "email": "hello@meenalbalar.com",
     "copyright": "© 2026 Meenal Balar"
   },
@@ -11,42 +10,24 @@
     "illustrations": "Sketches",
     "projects": "Projects",
     "notes": "Notes",
-    "books": "Books"
-  },
-  "home": {
-    "featured": {
-      "label": "Featured",
-      "headline": "Creating at the intersection of art & technology",
-      "description": "I'm an illustrator and builder based in San Francisco. My work explores narrative, form, and the places where craft meets code.",
-      "cta": "View work"
-    }
+    "books": "Shelf"
   },
   "pages": {
     "illustrations": {
-      "label": "Gallery",
-      "title": "Illustrations",
-      "description": "Sketches, studies, and finished pieces from my creative practice."
+      "title": "Sketches",
+      "description": "Sketches, studies, and finished pieces."
     },
     "projects": {
-      "label": "Portfolio",
       "title": "Projects",
-      "description": "Things I've built or helped build — design work, product thinking, and collaborations."
+      "description": "Things I've built or helped bring to life."
     },
     "notes": {
-      "label": "Writing",
       "title": "Notes",
-      "description": "Essays, reflections, and notes on things I'm learning and thinking about."
+      "description": "Essays, reflections, and notes on things I'm learning."
     },
     "books": {
-      "label": "Reading",
-      "title": "Books",
+      "title": "Shelf",
       "description": "What I've been reading, with notes on what stood out."
     }
-  },
-  "empty": {
-    "notes": "No notes yet.",
-    "illustrations": "No illustrations yet.",
-    "projects": "No projects yet.",
-    "books": "No books yet."
   }
 }

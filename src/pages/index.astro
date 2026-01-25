@@ -1,5 +1,15 @@
 ---
 import '../styles/global.css';
+import { Image } from 'astro:assets';
+import heroImage from '../assets/hero-image.jpeg';
+import gridImage from '../assets/grid image.jpg';
+import gridImage2 from '../assets/grid image 2.jpg';
+import gridImage3 from '../assets/grid image 3.jpg';
+import gridImage4 from '../assets/grid image 4.jpeg';
+import gridSeaRanch from '../assets/grid image sea ranch.jpg';
+import gridKid from '../assets/grid-kid.jpg';
+import coupleGrid from '../assets/couple grid.jpg';
+import kiliGrid from '../assets/kili-grid.jpg';
 ---
 
 <html lang="en">
@@ -139,7 +149,7 @@ import '../styles/global.css';
           <li>
             <a href="/illustrations" class="group block">
               <span class="text-xs uppercase tracking-widest text-white/50 block mb-2">01</span>
-              <span class="text-3xl lg:text-4xl font-serif group-hover:text-accent transition-colors">Illustrations</span>
+              <span class="text-3xl lg:text-4xl font-serif group-hover:text-accent transition-colors">Sketches</span>
             </a>
           </li>
           <li>
@@ -157,7 +167,7 @@ import '../styles/global.css';
           <li>
             <a href="/books" class="group block">
               <span class="text-xs uppercase tracking-widest text-white/50 block mb-2">04</span>
-              <span class="text-3xl lg:text-4xl font-serif group-hover:text-accent transition-colors">Books</span>
+              <span class="text-3xl lg:text-4xl font-serif group-hover:text-accent transition-colors">Shelf</span>
             </a>
           </li>
         </ul>
@@ -170,29 +180,45 @@ import '../styles/global.css';
       <div class="flex items-center justify-center lg:justify-start px-8 lg:pl-16 lg:pr-0">
         <div class="photo-grid grid grid-cols-3 gap-2 w-full">
           <div class="aspect-square bg-bg-alt overflow-hidden">
-            <img src="/src/assets/hero-image.jpeg" alt="" class="w-full h-full object-cover object-top" />
+            <Image src={heroImage} alt="" width={300} height={300} class="w-full h-full object-cover object-top" />
           </div>
-          <div class="aspect-square bg-bg-alt"></div>
-          <div class="aspect-square bg-bg-alt"></div>
-          <div class="aspect-square bg-bg-alt"></div>
-          <div class="aspect-square bg-bg-alt"></div>
-          <div class="aspect-square bg-bg-alt"></div>
-          <div class="aspect-square bg-bg-alt"></div>
-          <div class="aspect-square bg-bg-alt"></div>
-          <div class="aspect-square bg-bg-alt"></div>
+          <div class="aspect-square bg-bg-alt overflow-hidden">
+            <Image src={gridSeaRanch} alt="" width={300} height={300} class="w-full h-full object-cover object-top" />
+          </div>
+          <div class="aspect-square bg-bg-alt overflow-hidden">
+            <Image src={gridImage2} alt="" width={300} height={300} class="w-full h-full object-cover object-top" />
+          </div>
+          <div class="aspect-square bg-bg-alt overflow-hidden">
+            <Image src={gridKid} alt="" width={300} height={300} class="w-full h-full object-cover object-top" />
+          </div>
+          <div class="aspect-square bg-bg-alt overflow-hidden">
+            <Image src={coupleGrid} alt="" width={300} height={300} class="w-full h-full object-cover object-top" />
+          </div>
+          <div class="aspect-square bg-bg-alt overflow-hidden">
+            <Image src={gridImage3} alt="" width={300} height={300} class="w-full h-full object-cover object-top" />
+          </div>
+          <div class="aspect-square bg-bg-alt overflow-hidden">
+            <Image src={kiliGrid} alt="" width={300} height={300} class="w-full h-full object-cover object-top" />
+          </div>
+          <div class="aspect-square bg-bg-alt overflow-hidden">
+            <Image src={gridImage4} alt="" width={300} height={300} class="w-full h-full object-cover object-top" />
+          </div>
+          <div class="aspect-square bg-bg-alt overflow-hidden">
+            <Image src={gridImage} alt="" width={300} height={300} class="w-full h-full object-cover object-top" />
+          </div>
         </div>
       </div>
 
       <!-- Right: Editorial Letter -->
       <div class="flex flex-col justify-center px-8 lg:pl-12 lg:pr-16 max-w-lg">
         <p class="text-lg lg:text-xl leading-relaxed text-text-muted mb-6">
-          I'm an illustrator and builder based in San Francisco, exploring the places where craft meets code.
+          Hi! I'm Meenal. Welcome to my sandbox.
         </p>
         <p class="text-lg lg:text-xl leading-relaxed text-text-muted mb-6">
-          Here you'll find my sketches, projects, notes, and reading list—the things I make and the ideas I'm thinking through.
+          I'm drawn to people and projects devoted to human progress. My startup career led me into classrooms, clinics, and communities around the world, expanding access and getting people online. I know what happens when builders lean into their craft, make things easier, or better yet, flip what's broken.
         </p>
-        <p class="font-serif text-xl italic mt-4">
-          — Meenal
+        <p class="text-lg lg:text-xl leading-relaxed text-text-muted mb-6">
+          Time to pick up my pen, open my terminal, and see what's possible. Reach out if you're in a similar space or want to trade notes. I'd love to hear from you.
         </p>
       </div>
     </section>

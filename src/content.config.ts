@@ -23,21 +23,7 @@ const illustrations = defineCollection({
   }),
 });
 
-// Projects collection
-const projects = defineCollection({
-  type: 'content',
-  schema: z.object({
-    title: z.string(),
-    description: z.string(),
-    date: z.coerce.date(),
-    images: z.array(z.string()).optional(),
-    link: z.string().url().optional(),
-    featured: z.boolean().default(false),
-  }),
-});
-
 export const collections = {
   blog,
   illustrations,
-  projects,
 };
