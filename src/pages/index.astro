@@ -126,10 +126,11 @@ const base = import.meta.env.BASE_URL;
       <!-- Main Hero Area -->
       <div class="relative flex flex-col p-8 lg:p-12 min-h-screen lg:min-h-0">
         <!-- Top -->
-        <header class="flex justify-between items-start">
-          <a href={base} class="text-sm font-medium tracking-wide">Meenal Balar</a>
-          <a href="mailto:hello@meenalbalar.com" class="text-sm font-medium hover:text-accent transition-colors">
-            Contact
+        <header class="flex justify-start items-start">
+          <a href={base} class="text-sm font-medium tracking-wide hover:text-accent transition-colors" title="Home">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+            </svg>
           </a>
         </header>
 
@@ -154,11 +155,19 @@ const base = import.meta.env.BASE_URL;
               <span class="text-3xl lg:text-4xl font-serif group-hover:text-accent transition-colors">Sketches</span>
             </a>
           </li>
-          <li>
-            <a href={`${base}projects/magpie`} class="group block">
+          <li class="group/projects relative">
+            <div class="cursor-pointer">
               <span class="text-xs uppercase tracking-widest text-white/50 block mb-2">02</span>
-              <span class="text-3xl lg:text-4xl font-serif group-hover:text-accent transition-colors">Projects</span>
-            </a>
+              <span class="text-3xl lg:text-4xl font-serif group-hover/projects:text-accent transition-colors">Projects</span>
+            </div>
+            <ul class="mt-4 space-y-2 max-h-0 overflow-hidden group-hover/projects:max-h-40 transition-all duration-300">
+              <li>
+                <a href={`${base}projects/magpie`} class="text-lg text-white/70 hover:text-accent transition-colors pl-4 block">Magpie</a>
+              </li>
+              <li>
+                <a href={`${base}projects/alchemy`} class="text-lg text-white/70 hover:text-accent transition-colors pl-4 block">Alchemy</a>
+              </li>
+            </ul>
           </li>
           <li>
             <a href={`${base}notes`} class="group block">
