@@ -5,8 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://mjb-alchemy.github.io',
-  base: '/my-website/',
+  site: 'https://meenaljbalar.com',
   trailingSlash: 'always',
   vite: {
     plugins: [tailwindcss()]
