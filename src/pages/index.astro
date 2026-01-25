@@ -28,14 +28,9 @@ const base = import.meta.env.BASE_URL;
       }
     </script>
     <style>
-      /* Slow blink animation */
-      @keyframes slow-blink {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0.3; }
-      }
-
-      .slow-blink {
-        animation: slow-blink 2.5s ease-in-out infinite;
+      /* Active verb transition */
+      #active-verb {
+        transition: opacity 0.3s ease-in-out;
       }
 
       /* Bouncing animation */
@@ -149,8 +144,8 @@ const base = import.meta.env.BASE_URL;
           <h1 class="text-display leading-none terminal-cursor">
             Meenal<br/>Balar
           </h1>
-          <p class="text-xl md:text-2xl text-text-muted mt-8 max-w-md slow-blink">
-            Tinkering
+          <p class="text-xl md:text-2xl text-text-muted mt-8 max-w-md">
+            <span id="active-verb">Tinkering</span>
           </p>
         </div>
 
@@ -239,7 +234,7 @@ const base = import.meta.env.BASE_URL;
           I'm drawn to people and projects devoted to human progress. My startup career led me into classrooms, clinics, and communities around the world, expanding access and getting people online. I know what happens when builders lean into their craft, make things easier, or better yet, flip what's broken.
         </p>
         <p class="text-lg lg:text-xl leading-relaxed text-text-muted mb-6">
-          Time to pick up my pen, open my terminal, and see what's possible. Reach out if you're in a similar space or want to trade notes. I'd love to hear from you.
+          Time to pick up my pen, open the terminal, and see what's possible. Reach out if you're in a similar space or want to trade notes. I'd love to hear from you.
         </p>
       </div>
     </section>
@@ -258,6 +253,22 @@ const base = import.meta.env.BASE_URL;
     </footer>
 
     <script is:inline>
+      // Cycling active verbs
+      const verbs = ['Tinkering', 'Sketching', 'Building', 'Reading', 'Writing', 'Exploring'];
+      let verbIndex = 0;
+      const verbElement = document.getElementById('active-verb');
+
+      setInterval(() => {
+        verbIndex = (verbIndex + 1) % verbs.length;
+        if (verbElement) {
+          verbElement.style.opacity = '0';
+          setTimeout(() => {
+            verbElement.textContent = verbs[verbIndex];
+            verbElement.style.opacity = '1';
+          }, 300);
+        }
+      }, 3000);
+
       const easterEgg = document.getElementById('easter-egg');
       let terminalMode = localStorage.getItem('terminalMode') === 'true';
 
