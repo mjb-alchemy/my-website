@@ -177,12 +177,12 @@ const base = import.meta.env.BASE_URL;
               <span class="text-3xl lg:text-4xl font-serif group-hover:text-accent transition-colors duration-500 ease-in-out">Sketches</span>
             </a>
           </li>
-          <li class="group/projects relative">
-            <div class="cursor-pointer">
+          <li id="home-projects-dropdown" class="group/projects relative">
+            <div id="home-projects-toggle" class="cursor-pointer">
               <span class="text-xs uppercase tracking-widest text-white/50 block mb-2">02</span>
               <span class="text-3xl lg:text-4xl font-serif group-hover/projects:text-accent transition-colors duration-500 ease-in-out">Projects</span>
             </div>
-            <ul class="mt-4 space-y-2 opacity-0 max-h-0 overflow-hidden group-hover/projects:opacity-100 group-hover/projects:max-h-40 transition-all duration-500 ease-in-out">
+            <ul id="home-projects-menu" class="mt-4 space-y-2 opacity-0 max-h-0 overflow-hidden group-hover/projects:opacity-100 group-hover/projects:max-h-40 transition-all duration-500 ease-in-out">
               <li>
                 <a href={`${base}projects/magpie`} class="text-lg text-white/70 hover:text-accent transition-colors duration-500 ease-in-out pl-4 block">Magpie</a>
               </li>
@@ -311,6 +311,40 @@ const base = import.meta.env.BASE_URL;
           easterEgg.title = 'Enter terminal mode';
         }
       });
+
+      // Home Projects dropdown - touch/click support for mobile
+      const homeProjectsDropdown = document.getElementById('home-projects-dropdown');
+      const homeProjectsToggle = document.getElementById('home-projects-toggle');
+      const homeProjectsMenu = document.getElementById('home-projects-menu');
+
+      function toggleHomeProjectsMenu(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        const isOpen = homeProjectsMenu.classList.contains('mobile-open');
+        if (isOpen) {
+          homeProjectsMenu.classList.remove('mobile-open');
+          homeProjectsMenu.style.opacity = '';
+          homeProjectsMenu.style.maxHeight = '';
+        } else {
+          homeProjectsMenu.classList.add('mobile-open');
+          homeProjectsMenu.style.opacity = '1';
+          homeProjectsMenu.style.maxHeight = '10rem';
+        }
+      }
+
+      if (homeProjectsToggle && homeProjectsMenu) {
+        homeProjectsToggle.addEventListener('click', toggleHomeProjectsMenu);
+        homeProjectsToggle.addEventListener('touchend', toggleHomeProjectsMenu);
+
+        // Close when clicking outside
+        document.addEventListener('click', (e) => {
+          if (homeProjectsDropdown && !homeProjectsDropdown.contains(e.target)) {
+            homeProjectsMenu.classList.remove('mobile-open');
+            homeProjectsMenu.style.opacity = '';
+            homeProjectsMenu.style.maxHeight = '';
+          }
+        });
+      }
     </script>
   </body>
 </html>
