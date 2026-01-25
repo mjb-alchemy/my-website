@@ -33,15 +33,16 @@ const base = import.meta.env.BASE_URL;
         transition: opacity 0.3s ease-in-out;
       }
 
-      /* Hourglass - smooth continuous spin */
+      /* Hourglass - pendulum swing */
       .hourglass {
         display: inline-block;
-        animation: spin 4s linear infinite;
+        animation: pendulum 3s ease-in-out infinite;
       }
 
-      @keyframes spin {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
+      @keyframes pendulum {
+        0% { transform: rotate(0deg); }
+        50% { transform: rotate(180deg); }
+        100% { transform: rotate(0deg); }
       }
 
       /* Terminal mode hourglass - green tint */

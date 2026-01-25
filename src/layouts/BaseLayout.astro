@@ -30,6 +30,18 @@ const base = import.meta.env.BASE_URL;
       }
     </script>
     <style>
+      /* Mobile nav - ensure stacked layout on small screens */
+      @media (max-width: 767px) {
+        .nav-container {
+          flex-direction: column !important;
+          align-items: flex-start !important;
+        }
+        .nav-links {
+          font-size: 0.875rem !important;
+          gap: 1rem !important;
+        }
+      }
+
       /* Bouncing animation */
       @keyframes bounce {
         0%, 100% { transform: translateY(0); }
@@ -126,11 +138,11 @@ const base = import.meta.env.BASE_URL;
   <body class="min-h-screen bg-bg">
     <!-- Bold Navigation -->
     <nav class="px-6 md:px-12 lg:px-16 py-6 border-b border-border">
-      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div class="nav-container flex flex-col md:flex-row md:items-center md:justify-between gap-4">
         <a href={base} class="font-serif text-2xl font-semibold hover:text-accent transition-colors shrink-0">
           Meenal Balar
         </a>
-        <ul class="flex items-center gap-4 md:gap-8 text-sm md:text-base font-medium flex-wrap">
+        <ul class="nav-links flex items-center gap-4 md:gap-8 text-sm md:text-base font-medium flex-wrap">
           <li>
             <a
               href={`${base}sketches`}
@@ -152,7 +164,7 @@ const base = import.meta.env.BASE_URL;
             >
               Projects
             </button>
-            <ul id="projects-menu" class="absolute top-full right-0 mt-2 bg-bg border border-border shadow-lg py-2 min-w-[200px] opacity-0 invisible transition-all duration-300 ease-out z-50">
+            <ul id="projects-menu" class="absolute top-full left-0 md:left-auto md:right-0 mt-2 bg-bg border border-border shadow-lg py-2 min-w-[200px] opacity-0 invisible transition-all duration-300 ease-out z-50">
               <li>
                 <a href={`${base}projects/magpie`} class="block px-4 py-2 hover:text-accent hover:bg-bg-alt transition-colors duration-300 ease-out">Magpie</a>
               </li>
