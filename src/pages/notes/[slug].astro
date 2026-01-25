@@ -16,16 +16,17 @@ interface Props {
 
 const { post } = Astro.props;
 const { Content } = await post.render();
+const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout title={post.data.title} description={post.data.description}>
   <article class="max-w-2xl pt-12">
     <!-- Back link -->
     <a
-      href="/blog"
+      href={`${base}notes`}
       class="text-label hover:opacity-60 transition-opacity mb-8 inline-block"
     >
-      ← Back to blog
+      ← Back to notes
     </a>
 
     <!-- Header -->
@@ -53,10 +54,10 @@ const { Content } = await post.render();
     <!-- Footer -->
     <footer class="mt-16 pt-8 border-t border-border">
       <a
-        href="/blog"
+        href={`${base}notes`}
         class="text-label hover:opacity-60 transition-opacity"
       >
-        ← Read more posts
+        ← Read more notes
       </a>
     </footer>
   </article>

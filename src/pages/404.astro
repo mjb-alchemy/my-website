@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout title="Coming Soon">
@@ -8,6 +10,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     <p class="text-lg text-text-muted mb-8 max-w-md">
       This page isn't ready yet. Check back soon.
     </p>
-    <a href="/" class="text-accent hover:underline font-medium">Back to home</a>
+    <a href={base} class="text-accent hover:underline font-medium">Back to home</a>
   </div>
 </BaseLayout>

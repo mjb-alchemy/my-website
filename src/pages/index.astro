@@ -10,6 +10,8 @@ import gridSeaRanch from '../assets/grid image sea ranch.jpg';
 import gridKid from '../assets/grid-kid.jpg';
 import coupleGrid from '../assets/couple grid.jpg';
 import kiliGrid from '../assets/kili-grid.jpg';
+
+const base = import.meta.env.BASE_URL;
 ---
 
 <html lang="en">
@@ -125,7 +127,7 @@ import kiliGrid from '../assets/kili-grid.jpg';
       <div class="relative flex flex-col p-8 lg:p-12 min-h-screen lg:min-h-0">
         <!-- Top -->
         <header class="flex justify-between items-start">
-          <a href="/" class="text-sm font-medium tracking-wide">Meenal Balar</a>
+          <a href={base} class="text-sm font-medium tracking-wide">Meenal Balar</a>
           <a href="mailto:hello@meenalbalar.com" class="text-sm font-medium hover:text-accent transition-colors">
             Contact
           </a>
@@ -147,25 +149,25 @@ import kiliGrid from '../assets/kili-grid.jpg';
       <nav class="bg-bg-dark text-white p-8 lg:p-12 flex flex-col justify-center">
         <ul class="space-y-8">
           <li>
-            <a href="/illustrations" class="group block">
+            <a href={`${base}illustrations`} class="group block">
               <span class="text-xs uppercase tracking-widest text-white/50 block mb-2">01</span>
               <span class="text-3xl lg:text-4xl font-serif group-hover:text-accent transition-colors">Sketches</span>
             </a>
           </li>
           <li>
-            <a href="/projects" class="group block">
+            <a href={`${base}projects/magpie`} class="group block">
               <span class="text-xs uppercase tracking-widest text-white/50 block mb-2">02</span>
               <span class="text-3xl lg:text-4xl font-serif group-hover:text-accent transition-colors">Projects</span>
             </a>
           </li>
           <li>
-            <a href="/notes" class="group block">
+            <a href={`${base}notes`} class="group block">
               <span class="text-xs uppercase tracking-widest text-white/50 block mb-2">03</span>
               <span class="text-3xl lg:text-4xl font-serif group-hover:text-accent transition-colors">Notes</span>
             </a>
           </li>
           <li>
-            <a href="/books" class="group block">
+            <a href={`${base}books`} class="group block">
               <span class="text-xs uppercase tracking-widest text-white/50 block mb-2">04</span>
               <span class="text-3xl lg:text-4xl font-serif group-hover:text-accent transition-colors">Shelf</span>
             </a>

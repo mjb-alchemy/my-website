@@ -6,6 +6,7 @@ const posts = await getCollection('blog', ({ data }) => !data.draft);
 const sortedPosts = posts.sort((a, b) =>
   b.data.date.valueOf() - a.data.date.valueOf()
 );
+const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout title="Notes">
@@ -14,14 +15,14 @@ const sortedPosts = posts.sort((a, b) =>
       <div class="py-24 text-center">
         <p class="text-text-muted mb-2">No notes yet.</p>
         <p class="text-sm text-text-light">
-          Write your first note through the CMS at <code class="bg-bg-alt px-2 py-1">/admin</code>
+          Check back soon for new notes.
         </p>
       </div>
     ) : (
       <div class="divide-y divide-border">
         {sortedPosts.map((post) => (
           <article class="group py-8 first:pt-0">
-            <a href={`/notes/${post.slug}`} class="block">
+            <a href={`${base}notes/${post.slug}`} class="block">
               <div class="flex items-start justify-between gap-8">
                 <div class="flex-1">
                   <h2 class="text-xl font-serif mb-2 group-hover:opacity-60 transition-opacity">
