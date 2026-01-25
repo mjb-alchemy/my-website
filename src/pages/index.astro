@@ -33,6 +33,18 @@ const base = import.meta.env.BASE_URL;
         transition: opacity 0.3s ease-in-out;
       }
 
+      /* Rotating hourglass */
+      .hourglass {
+        display: inline-block;
+        animation: spin 2s ease-in-out infinite;
+      }
+
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        50% { transform: rotate(180deg); }
+        100% { transform: rotate(180deg); }
+      }
+
       /* Bouncing animation */
       @keyframes bounce {
         0%, 100% { transform: translateY(0); }
@@ -145,7 +157,7 @@ const base = import.meta.env.BASE_URL;
             Meenal<br/>Balar
           </h1>
           <p class="text-xl md:text-2xl text-text-muted mt-8 max-w-md">
-            <span id="active-verb">Tinkering...</span>
+            <span class="hourglass">⏳</span> <span id="active-verb">Tinkering...</span>
           </p>
         </div>
 
