@@ -39,6 +39,11 @@ const base = import.meta.env.BASE_URL;
         transition: transform 0.3s ease-in-out;
       }
 
+      /* Terminal mode hourglass - green tint */
+      .terminal-mode .hourglass {
+        filter: sepia(1) saturate(5) hue-rotate(70deg) brightness(1.2);
+      }
+
       /* Bouncing animation */
       @keyframes bounce {
         0%, 100% { transform: translateY(0); }
@@ -163,33 +168,33 @@ const base = import.meta.env.BASE_URL;
           <li>
             <a href={`${base}sketches`} class="group block">
               <span class="text-xs uppercase tracking-widest text-white/50 block mb-2">01</span>
-              <span class="text-3xl lg:text-4xl font-serif group-hover:text-accent transition-colors">Sketches</span>
+              <span class="text-3xl lg:text-4xl font-serif group-hover:text-accent transition-colors duration-500 ease-in-out">Sketches</span>
             </a>
           </li>
           <li class="group/projects relative">
             <div class="cursor-pointer">
               <span class="text-xs uppercase tracking-widest text-white/50 block mb-2">02</span>
-              <span class="text-3xl lg:text-4xl font-serif group-hover/projects:text-accent transition-colors">Projects</span>
+              <span class="text-3xl lg:text-4xl font-serif group-hover/projects:text-accent transition-colors duration-500 ease-in-out">Projects</span>
             </div>
-            <ul class="mt-4 space-y-2 max-h-0 overflow-hidden group-hover/projects:max-h-40 transition-all duration-300">
+            <ul class="mt-4 space-y-2 opacity-0 max-h-0 overflow-hidden group-hover/projects:opacity-100 group-hover/projects:max-h-40 transition-all duration-500 ease-in-out">
               <li>
-                <a href={`${base}projects/magpie`} class="text-lg text-white/70 hover:text-accent transition-colors pl-4 block">Magpie</a>
+                <a href={`${base}projects/magpie`} class="text-lg text-white/70 hover:text-accent transition-colors duration-500 ease-in-out pl-4 block">Magpie</a>
               </li>
               <li>
-                <a href={`${base}projects/alchemy`} class="text-lg text-white/70 hover:text-accent transition-colors pl-4 block">Alchemy</a>
+                <a href={`${base}projects/alchemy`} class="text-lg text-white/70 hover:text-accent transition-colors duration-500 ease-in-out pl-4 block">Alchemy</a>
               </li>
             </ul>
           </li>
           <li>
             <a href={`${base}notes`} class="group block">
               <span class="text-xs uppercase tracking-widest text-white/50 block mb-2">03</span>
-              <span class="text-3xl lg:text-4xl font-serif group-hover:text-accent transition-colors">Notes</span>
+              <span class="text-3xl lg:text-4xl font-serif group-hover:text-accent transition-colors duration-500 ease-in-out">Notes</span>
             </a>
           </li>
           <li>
             <a href={`${base}books`} class="group block">
               <span class="text-xs uppercase tracking-widest text-white/50 block mb-2">04</span>
-              <span class="text-3xl lg:text-4xl font-serif group-hover:text-accent transition-colors">Shelf</span>
+              <span class="text-3xl lg:text-4xl font-serif group-hover:text-accent transition-colors duration-500 ease-in-out">Shelf</span>
             </a>
           </li>
         </ul>
@@ -232,7 +237,7 @@ const base = import.meta.env.BASE_URL;
       </div>
 
       <!-- Right: Editorial Letter -->
-      <div class="flex flex-col justify-center px-8 lg:pl-12 lg:pr-16 max-w-lg">
+      <div class="flex flex-col justify-center px-8 lg:pl-12 lg:pr-16 max-w-lg mt-12 lg:mt-0">
         <p class="text-lg lg:text-xl leading-relaxed text-text-muted mb-6">
           Hi! I'm Meenal. Welcome to my sandbox.
         </p>
