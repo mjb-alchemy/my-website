@@ -10,7 +10,7 @@ const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout title="Notes">
-  <div class="max-w-3xl pt-16">
+  <div class="max-w-3xl pt-8 md:pt-16">
     {sortedPosts.length === 0 ? (
       <div class="py-24 text-center">
         <p class="text-text-muted mb-2">No notes yet.</p>
@@ -21,9 +21,9 @@ const base = import.meta.env.BASE_URL;
     ) : (
       <div class="divide-y divide-border">
         {sortedPosts.map((post) => (
-          <article class="group py-8 first:pt-0">
+          <article class="group py-6 md:py-8 first:pt-0">
             <a href={`${base}notes/${post.slug}`} class="block">
-              <div class="flex items-start justify-between gap-8">
+              <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-6">
                 <div class="flex-1">
                   <h2 class="text-xl font-serif mb-2 group-hover:opacity-60 transition-opacity">
                     {post.data.title}
@@ -34,7 +34,7 @@ const base = import.meta.env.BASE_URL;
                     </p>
                   )}
                 </div>
-                <span class="text-label shrink-0 mt-1">
+                <span class="text-label shrink-0 sm:mt-1 order-first sm:order-last">
                   {post.data.date.toLocaleDateString('en-US', {
                     month: 'short',
                     year: 'numeric'

@@ -144,9 +144,9 @@ const base = import.meta.env.BASE_URL;
   </head>
   <body class="min-h-screen bg-bg">
     <!-- Full-screen Hero with Side Navigation -->
-    <section class="min-h-screen grid grid-cols-1 lg:grid-cols-[1fr_500px]">
+    <section class="min-h-screen grid grid-cols-1 lg:grid-cols-[1fr_400px] xl:grid-cols-[1fr_500px]">
       <!-- Main Hero Area -->
-      <div class="relative flex flex-col p-8 lg:p-12 min-h-screen lg:min-h-0">
+      <div class="relative flex flex-col p-6 md:p-8 lg:p-12 min-h-[60vh] lg:min-h-0">
         <!-- Top -->
         <header class="flex justify-start items-start">
           <a href={base} class="text-sm font-medium tracking-wide hover:text-accent transition-colors" title="Home">
@@ -169,38 +169,38 @@ const base = import.meta.env.BASE_URL;
       </div>
 
       <!-- Right Side Navigation Panel -->
-      <nav class="bg-bg-dark text-white p-8 lg:p-12 flex flex-col justify-center">
-        <ul class="space-y-8">
+      <nav class="bg-bg-dark text-white p-6 md:p-8 lg:p-12 flex flex-col justify-center">
+        <ul class="space-y-6 md:space-y-8">
           <li>
-            <a href={`${base}sketches`} class="group block">
-              <span class="text-xs uppercase tracking-widest text-white/50 block mb-2">01</span>
-              <span class="text-3xl lg:text-4xl font-serif group-hover:text-accent transition-colors duration-500 ease-in-out">Sketches</span>
+            <a href={`${base}sketches`} class="group block py-1">
+              <span class="text-xs uppercase tracking-widest text-white/50 block mb-1 md:mb-2">01</span>
+              <span class="text-2xl md:text-3xl lg:text-4xl font-serif group-hover:text-accent transition-colors duration-500 ease-in-out">Sketches</span>
             </a>
           </li>
           <li id="home-projects-dropdown" class="group/projects relative">
-            <div id="home-projects-toggle" class="cursor-pointer">
-              <span class="text-xs uppercase tracking-widest text-white/50 block mb-2">02</span>
-              <span class="text-3xl lg:text-4xl font-serif group-hover/projects:text-accent transition-colors duration-500 ease-in-out">Projects</span>
+            <div id="home-projects-toggle" class="cursor-pointer py-1">
+              <span class="text-xs uppercase tracking-widest text-white/50 block mb-1 md:mb-2">02</span>
+              <span class="text-2xl md:text-3xl lg:text-4xl font-serif group-hover/projects:text-accent transition-colors duration-500 ease-in-out">Projects</span>
             </div>
-            <ul id="home-projects-menu" class="mt-4 space-y-2 opacity-0 max-h-0 overflow-hidden group-hover/projects:opacity-100 group-hover/projects:max-h-40 transition-all duration-500 ease-in-out">
+            <ul id="home-projects-menu" class="mt-3 md:mt-4 space-y-2 opacity-0 max-h-0 overflow-hidden group-hover/projects:opacity-100 group-hover/projects:max-h-40 transition-all duration-500 ease-in-out">
               <li>
-                <a href={`${base}projects/magpie`} class="text-lg text-white/70 hover:text-accent transition-colors duration-500 ease-in-out pl-4 block">Magpie</a>
+                <a href={`${base}projects/magpie`} class="text-base md:text-lg text-white/70 hover:text-accent transition-colors duration-500 ease-in-out pl-4 block py-1">Magpie</a>
               </li>
               <li>
-                <a href={`${base}projects/alchemy`} class="text-lg text-white/70 hover:text-accent transition-colors duration-500 ease-in-out pl-4 block">Alchemy</a>
+                <a href={`${base}projects/alchemy`} class="text-base md:text-lg text-white/70 hover:text-accent transition-colors duration-500 ease-in-out pl-4 block py-1">Alchemy</a>
               </li>
             </ul>
           </li>
           <li>
-            <a href={`${base}notes`} class="group block">
-              <span class="text-xs uppercase tracking-widest text-white/50 block mb-2">03</span>
-              <span class="text-3xl lg:text-4xl font-serif group-hover:text-accent transition-colors duration-500 ease-in-out">Notes</span>
+            <a href={`${base}notes`} class="group block py-1">
+              <span class="text-xs uppercase tracking-widest text-white/50 block mb-1 md:mb-2">03</span>
+              <span class="text-2xl md:text-3xl lg:text-4xl font-serif group-hover:text-accent transition-colors duration-500 ease-in-out">Notes</span>
             </a>
           </li>
           <li>
-            <a href={`${base}books`} class="group block">
-              <span class="text-xs uppercase tracking-widest text-white/50 block mb-2">04</span>
-              <span class="text-3xl lg:text-4xl font-serif group-hover:text-accent transition-colors duration-500 ease-in-out">Shelf</span>
+            <a href={`${base}books`} class="group block py-1">
+              <span class="text-xs uppercase tracking-widest text-white/50 block mb-1 md:mb-2">04</span>
+              <span class="text-2xl md:text-3xl lg:text-4xl font-serif group-hover:text-accent transition-colors duration-500 ease-in-out">Shelf</span>
             </a>
           </li>
         </ul>
@@ -208,10 +208,10 @@ const base = import.meta.env.BASE_URL;
     </section>
 
     <!-- About Section -->
-    <section id="about" class="grid grid-cols-1 lg:grid-cols-[667px_1fr] min-h-[80vh] py-16 lg:py-24">
+    <section id="about" class="grid grid-cols-1 lg:grid-cols-[667px_1fr] min-h-[80vh] py-10 md:py-16 lg:py-24">
       <!-- Left: 3x3 Photo Grid -->
-      <div class="flex items-center justify-center lg:justify-start px-8 lg:pl-16 lg:pr-0">
-        <div class="photo-grid grid grid-cols-3 gap-2 w-full">
+      <div class="flex items-center justify-center lg:justify-start px-4 md:px-8 lg:pl-16 lg:pr-0">
+        <div class="photo-grid grid grid-cols-2 md:grid-cols-3 gap-1 md:gap-2 w-full max-w-md md:max-w-none">
           <div class="aspect-square bg-bg-alt overflow-hidden">
             <Image src={heroImage} alt="" width={300} height={300} class="w-full h-full object-cover object-top" />
           </div>
@@ -243,21 +243,21 @@ const base = import.meta.env.BASE_URL;
       </div>
 
       <!-- Right: Editorial Letter -->
-      <div class="flex flex-col justify-center px-8 lg:pl-12 lg:pr-16 max-w-lg mt-12 lg:mt-0">
-        <p class="text-lg lg:text-xl leading-relaxed text-text-muted mb-6">
+      <div class="flex flex-col justify-center px-4 md:px-8 lg:pl-12 lg:pr-16 max-w-lg mt-8 md:mt-12 lg:mt-0">
+        <p class="text-base md:text-lg lg:text-xl leading-relaxed text-text-muted mb-4 md:mb-6">
           Hi! I'm Meenal. Welcome to my sandbox.
         </p>
-        <p class="text-lg lg:text-xl leading-relaxed text-text-muted mb-6">
+        <p class="text-base md:text-lg lg:text-xl leading-relaxed text-text-muted mb-4 md:mb-6">
           I'm drawn to people and projects devoted to human progress. My startup career led me into classrooms, clinics, and communities around the world, expanding access and getting people online. I know what happens when builders lean into their craft, make things easier, or better yet, flip what's broken.
         </p>
-        <p class="text-lg lg:text-xl leading-relaxed text-text-muted mb-6">
+        <p class="text-base md:text-lg lg:text-xl leading-relaxed text-text-muted mb-4 md:mb-6">
           Time to pick up my pen, open the terminal, and see what's possible. Reach out if you're in a similar space or want to trade notes. I'd love to hear from you.
         </p>
       </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-12 px-8 lg:px-16 border-t border-border">
+    <footer class="py-8 md:py-12 px-4 md:px-8 lg:px-16 border-t border-border">
       <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-text-muted">
         <span>© 2026 Meenal Balar</span>
         <div class="flex items-center gap-4">

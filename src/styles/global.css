@@ -102,8 +102,21 @@ a:hover {
 /* Gallery - Uniform grid */
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.5rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .gallery-grid {
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
 }
 
 .gallery-item {
@@ -433,17 +446,7 @@ a:hover {
 }
 
 /* Responsive */
-@media (max-width: 1024px) {
-  .gallery-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
 @media (max-width: 640px) {
-  .gallery-grid {
-    grid-template-columns: 1fr;
-  }
-
   .offset-left, .offset-right {
     margin-left: 0;
     margin-right: 0;

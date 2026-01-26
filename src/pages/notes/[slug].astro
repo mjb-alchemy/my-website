@@ -20,18 +20,18 @@ const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout title={post.data.title} description={post.data.description}>
-  <article class="max-w-2xl pt-12">
+  <article class="max-w-2xl pt-6 md:pt-12">
     <!-- Back link -->
     <a
       href={`${base}notes`}
-      class="text-label hover:opacity-60 transition-opacity mb-8 inline-block"
+      class="text-label hover:opacity-60 transition-opacity mb-6 md:mb-8 inline-block py-1"
     >
       ← Back to notes
     </a>
 
     <!-- Header -->
-    <header class="mb-12">
-      <span class="text-label block mb-4">
+    <header class="mb-8 md:mb-12">
+      <span class="text-label block mb-3 md:mb-4">
         {post.data.date.toLocaleDateString('en-US', {
           year: 'numeric',
           month: 'long',
@@ -44,7 +44,7 @@ const base = import.meta.env.BASE_URL;
       )}
     </header>
 
-    <div class="divider mb-12"></div>
+    <div class="divider mb-8 md:mb-12"></div>
 
     <!-- Content -->
     <div class="prose">
@@ -52,7 +52,7 @@ const base = import.meta.env.BASE_URL;
     </div>
 
     <!-- Footer -->
-    <footer class="mt-16 pt-8 border-t border-border">
+    <footer class="mt-12 md:mt-16 pt-6 md:pt-8 border-t border-border">
       <a
         href={`${base}notes`}
         class="text-label hover:opacity-60 transition-opacity"

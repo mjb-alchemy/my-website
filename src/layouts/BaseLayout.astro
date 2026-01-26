@@ -143,17 +143,17 @@ const base = import.meta.env.BASE_URL;
   </head>
   <body class="min-h-screen bg-bg">
     <!-- Bold Navigation -->
-    <nav class="px-6 md:px-12 lg:px-16 py-6 border-b border-border">
+    <nav class="px-4 md:px-8 lg:px-16 py-4 md:py-6 border-b border-border">
       <div class="nav-container flex flex-col md:flex-row md:items-center md:justify-between gap-4">
         <a href={base} class="font-serif text-2xl font-semibold hover:text-accent transition-colors shrink-0">
           Meenal Balar
         </a>
-        <ul class="nav-links flex items-center gap-4 md:gap-8 text-sm md:text-base font-medium flex-wrap">
+        <ul class="nav-links flex items-center gap-2 md:gap-6 lg:gap-8 text-sm md:text-base font-medium flex-wrap">
           <li>
             <a
               href={`${base}sketches`}
               class:list={[
-                "hover:text-accent transition-colors duration-300 ease-out",
+                "hover:text-accent transition-colors duration-300 ease-out py-2 px-1 inline-block",
                 { "text-accent": currentPath.includes('/sketches') }
               ]}
             >
@@ -164,18 +164,18 @@ const base = import.meta.env.BASE_URL;
             <button
               id="projects-toggle"
               class:list={[
-                "hover:text-accent transition-colors duration-300 ease-out",
+                "hover:text-accent transition-colors duration-300 ease-out py-2 px-1",
                 { "text-accent": currentPath.includes('/projects') }
               ]}
             >
               Projects
             </button>
-            <ul id="projects-menu" class="absolute top-full left-0 md:left-auto md:right-0 mt-2 bg-bg border border-border shadow-lg py-2 min-w-[200px] opacity-0 invisible transition-all duration-300 ease-out z-50">
+            <ul id="projects-menu" class="absolute top-full left-0 mt-2 bg-bg border border-border shadow-lg py-2 min-w-[160px] md:min-w-[200px] opacity-0 invisible transition-all duration-300 ease-out z-50">
               <li>
-                <a href={`${base}projects/magpie`} class="block px-4 py-2 hover:text-accent hover:bg-bg-alt transition-colors duration-300 ease-out">Magpie</a>
+                <a href={`${base}projects/magpie`} class="block px-4 py-3 hover:text-accent hover:bg-bg-alt transition-colors duration-300 ease-out">Magpie</a>
               </li>
               <li>
-                <a href={`${base}projects/alchemy`} class="block px-4 py-2 hover:text-accent hover:bg-bg-alt transition-colors duration-300 ease-out">Alchemy</a>
+                <a href={`${base}projects/alchemy`} class="block px-4 py-3 hover:text-accent hover:bg-bg-alt transition-colors duration-300 ease-out">Alchemy</a>
               </li>
             </ul>
           </li>
@@ -183,7 +183,7 @@ const base = import.meta.env.BASE_URL;
             <a
               href={`${base}notes`}
               class:list={[
-                "hover:text-accent transition-colors duration-300 ease-out",
+                "hover:text-accent transition-colors duration-300 ease-out py-2 px-1 inline-block",
                 { "text-accent": currentPath.includes('/notes') }
               ]}
             >
@@ -194,7 +194,7 @@ const base = import.meta.env.BASE_URL;
             <a
               href={`${base}books`}
               class:list={[
-                "hover:text-accent transition-colors duration-300 ease-out",
+                "hover:text-accent transition-colors duration-300 ease-out py-2 px-1 inline-block",
                 { "text-accent": currentPath.includes('/books') }
               ]}
             >
@@ -250,11 +250,11 @@ const base = import.meta.env.BASE_URL;
       }
     </script>
 
-    <main class="px-6 md:px-12 lg:px-16 pb-24">
+    <main class="px-4 md:px-8 lg:px-16 pb-16 md:pb-24">
       <slot />
     </main>
 
-    <footer class="px-6 md:px-12 lg:px-16 py-8 border-t border-border">
+    <footer class="px-4 md:px-8 lg:px-16 py-6 md:py-8 border-t border-border">
       <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-text-muted">
         <span>© 2026 Meenal Balar</span>
         <div class="flex items-center gap-4">
