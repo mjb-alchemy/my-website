@@ -7,7 +7,7 @@ A personal portfolio website with four main sections: illustrations gallery, pro
 - **Framework:** Astro (static site generator)
 - **Styling:** Tailwind CSS v4
 - **CMS:** Decap CMS (visual editor at `/admin`)
-- **Hosting:** Netlify (with Netlify Identity for CMS auth)
+- **Hosting:** GitHub Pages
 - **Books data:** Google Sheets (fetched at build time) - not yet implemented
 
 ## Design Direction
@@ -57,7 +57,7 @@ Triggered by a bouncing 👾 in the footer:
 /blog                → Post list
 /blog/[slug]         → Individual post
 /books               → Reading list from Google Sheets
-/admin               → Decap CMS (requires Netlify Identity login)
+/admin               → Decap CMS
 ```
 
 ## Content Collections
@@ -86,17 +86,14 @@ npm run preview      # Preview production build
 | Blog posts | Decap CMS at `/admin` or edit `src/content/blog/*.md` |
 | Illustrations | Decap CMS or add to `src/content/illustrations/` |
 | Projects | Decap CMS or edit `src/content/projects/*.md` |
-| Books | Update Google Sheet → trigger Netlify rebuild |
+| Books | Update Google Sheet → trigger rebuild |
 
 ## Pending Tasks
-- [ ] Set up Netlify Identity for CMS login
 - [ ] Implement Google Sheets integration for books
 - [ ] Add real content (illustrations, projects, blog posts)
-- [ ] Mobile hamburger menu
 - [ ] Custom domain setup
 
 ## Important Notes
 - Owner is not a coder by trade — keep workflows simple
-- Decap CMS provides visual editing (no Markdown knowledge needed)
-- Site auto-deploys when changes are pushed to GitHub
+- Site auto-deploys via GitHub Pages when changes are pushed to main
 - Footer is a "colophon" style — name, contact, Easter egg
