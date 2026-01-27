@@ -10,6 +10,7 @@ import gridSeaRanch from '../assets/grid image sea ranch.jpg';
 import gridKid from '../assets/grid-kid.jpg';
 import coupleGrid from '../assets/couple grid.jpg';
 import kiliGrid from '../assets/kili-grid.jpg';
+import gridFlower from '../assets/grid_flower.jpg';
 
 const base = import.meta.env.BASE_URL;
 ---
@@ -239,6 +240,9 @@ const base = import.meta.env.BASE_URL;
           </div>
           <div class="aspect-square bg-bg-alt overflow-hidden">
             <Image src={gridImage} alt="" width={300} height={300} class="w-full h-full object-cover object-top" />
+          </div>
+          <div class="aspect-square bg-bg-alt overflow-hidden md:hidden">
+            <Image src={gridFlower} alt="" width={300} height={300} class="w-full h-full object-cover object-top" />
           </div>
         </div>
       </div>
