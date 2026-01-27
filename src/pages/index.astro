@@ -170,37 +170,38 @@ const base = import.meta.env.BASE_URL;
 
       <!-- Right Side Navigation Panel -->
       <nav class="bg-bg-dark text-white p-6 md:p-8 lg:p-12 flex flex-col justify-center">
-        <ul class="space-y-6 md:space-y-8">
+        <!-- Mobile: 2x2 grid | Desktop: vertical list -->
+        <ul class="grid grid-cols-2 gap-4 md:flex md:flex-col md:space-y-8 md:gap-0">
           <li>
             <a href={`${base}sketches`} class="group block py-1">
-              <span class="text-xs uppercase tracking-widest text-white/50 block mb-1 md:mb-2">01</span>
-              <span class="text-2xl md:text-3xl lg:text-4xl font-serif group-hover:text-accent transition-colors duration-500 ease-in-out">Sketches</span>
+              <span class="text-xs uppercase tracking-widest text-white/50 block mb-1">01</span>
+              <span class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-serif group-hover:text-accent transition-colors duration-500 ease-in-out">Sketches</span>
             </a>
           </li>
-          <li id="home-projects-dropdown" class="group/projects relative">
+          <li id="home-projects-dropdown" class="relative">
             <div id="home-projects-toggle" class="cursor-pointer py-1">
-              <span class="text-xs uppercase tracking-widest text-white/50 block mb-1 md:mb-2">02</span>
-              <span class="text-2xl md:text-3xl lg:text-4xl font-serif group-hover/projects:text-accent transition-colors duration-500 ease-in-out">Projects</span>
+              <span class="text-xs uppercase tracking-widest text-white/50 block mb-1">02</span>
+              <span class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-serif hover:text-accent transition-colors duration-500 ease-in-out">Projects</span>
             </div>
-            <ul id="home-projects-menu" class="mt-3 md:mt-4 space-y-2 opacity-0 max-h-0 overflow-hidden group-hover/projects:opacity-100 group-hover/projects:max-h-40 transition-all duration-500 ease-in-out">
+            <ul id="home-projects-menu" class="hidden md:block mt-2 md:mt-3 space-y-1 md:space-y-2 overflow-hidden">
               <li>
-                <a href={`${base}projects/magpie`} class="text-base md:text-lg text-white/70 hover:text-accent transition-colors duration-500 ease-in-out pl-4 block py-1">Magpie</a>
+                <a href={`${base}projects/magpie`} class="text-sm md:text-base lg:text-lg text-white/70 hover:text-accent transition-colors duration-500 ease-in-out pl-2 md:pl-4 block py-1">Magpie</a>
               </li>
               <li>
-                <a href={`${base}projects/alchemy`} class="text-base md:text-lg text-white/70 hover:text-accent transition-colors duration-500 ease-in-out pl-4 block py-1">Alchemy</a>
+                <a href={`${base}projects/alchemy`} class="text-sm md:text-base lg:text-lg text-white/70 hover:text-accent transition-colors duration-500 ease-in-out pl-2 md:pl-4 block py-1">Alchemy</a>
               </li>
             </ul>
           </li>
           <li>
             <a href={`${base}notes`} class="group block py-1">
-              <span class="text-xs uppercase tracking-widest text-white/50 block mb-1 md:mb-2">03</span>
-              <span class="text-2xl md:text-3xl lg:text-4xl font-serif group-hover:text-accent transition-colors duration-500 ease-in-out">Notes</span>
+              <span class="text-xs uppercase tracking-widest text-white/50 block mb-1">03</span>
+              <span class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-serif group-hover:text-accent transition-colors duration-500 ease-in-out">Notes</span>
             </a>
           </li>
           <li>
             <a href={`${base}books`} class="group block py-1">
-              <span class="text-xs uppercase tracking-widest text-white/50 block mb-1 md:mb-2">04</span>
-              <span class="text-2xl md:text-3xl lg:text-4xl font-serif group-hover:text-accent transition-colors duration-500 ease-in-out">Shelf</span>
+              <span class="text-xs uppercase tracking-widest text-white/50 block mb-1">04</span>
+              <span class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-serif group-hover:text-accent transition-colors duration-500 ease-in-out">Shelf</span>
             </a>
           </li>
         </ul>
@@ -312,36 +313,18 @@ const base = import.meta.env.BASE_URL;
         }
       });
 
-      // Home Projects dropdown - touch/click support for mobile
-      const homeProjectsDropdown = document.getElementById('home-projects-dropdown');
+      // Home Projects dropdown - mobile: click to toggle, desktop: always visible
       const homeProjectsToggle = document.getElementById('home-projects-toggle');
       const homeProjectsMenu = document.getElementById('home-projects-menu');
 
-      function toggleHomeProjectsMenu(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        const isOpen = homeProjectsMenu.classList.contains('mobile-open');
-        if (isOpen) {
-          homeProjectsMenu.classList.remove('mobile-open');
-          homeProjectsMenu.style.opacity = '';
-          homeProjectsMenu.style.maxHeight = '';
-        } else {
-          homeProjectsMenu.classList.add('mobile-open');
-          homeProjectsMenu.style.opacity = '1';
-          homeProjectsMenu.style.maxHeight = '10rem';
-        }
-      }
-
+      // On mobile, clicking Projects toggles the submenu
       if (homeProjectsToggle && homeProjectsMenu) {
-        homeProjectsToggle.addEventListener('click', toggleHomeProjectsMenu);
-        homeProjectsToggle.addEventListener('touchend', toggleHomeProjectsMenu);
-
-        // Close when clicking outside
-        document.addEventListener('click', (e) => {
-          if (homeProjectsDropdown && !homeProjectsDropdown.contains(e.target)) {
-            homeProjectsMenu.classList.remove('mobile-open');
-            homeProjectsMenu.style.opacity = '';
-            homeProjectsMenu.style.maxHeight = '';
+        homeProjectsToggle.addEventListener('click', (e) => {
+          // Only toggle on mobile (< 768px)
+          if (window.innerWidth < 768) {
+            e.preventDefault();
+            e.stopPropagation();
+            homeProjectsMenu.classList.toggle('hidden');
           }
         });
       }
