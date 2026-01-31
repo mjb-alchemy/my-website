@@ -6,6 +6,13 @@
     "email": "meenal@whyalchemy.com",
     "copyright": "© 2026 Meenal Balar"
   },
+  "home": {
+    "greeting": "Hi! I'm Meenal. Welcome to my sandbox",
+    "bio": [
+      "I'm drawn to people and projects devoted to human progress. My startup career has led me into classrooms, clinics, and communities around the world, expanding access and getting people online. I've loved helping builders of all kinds clarify their focus, unblock growth, or better yet, flip what's broken.",
+      "Now I'm picking up my pen and popping open the terminal. If you're in a similar space or want to trade notes, I'd love to hear from you."
+    ]
+  },
   "nav": {
     "illustrations": "Sketches",
     "projects": "Projects",

@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import { Image } from 'astro:assets';
+import siteCopy from '../content/site-copy.json';
 import heroImage from '../assets/hero-image.jpeg';
 import gridImage from '../assets/grid image 5.jpg';
 import gridImage2 from '../assets/grid image 2.jpg';
@@ -250,14 +251,13 @@ const base = import.meta.env.BASE_URL;
       <!-- Right: Editorial Letter -->
       <div class="flex flex-col justify-center px-4 md:px-8 lg:pl-12 lg:pr-16 max-w-lg mt-8 md:mt-12 lg:mt-0">
         <p class="text-base md:text-lg lg:text-xl leading-relaxed text-text-muted mb-4 md:mb-6">
-          Hi! I'm Meenal. Welcome to my sandbox.
+          {siteCopy.home.greeting} <button id="greeting-easter-egg" class="easter-egg text-xl align-middle" title="👾">👾</button>
         </p>
-        <p class="text-base md:text-lg lg:text-xl leading-relaxed text-text-muted mb-4 md:mb-6">
-          I'm drawn to people and projects devoted to human progress. My startup career led me into classrooms, clinics, and communities around the world, expanding access and getting people online. I know what happens when builders lean into their craft, make things easier, or better yet, flip what's broken.
-        </p>
-        <p class="text-base md:text-lg lg:text-xl leading-relaxed text-text-muted mb-4 md:mb-6">
-          Time to pick up my pen, open the terminal, and see what's possible. Reach out if you're in a similar space or want to trade notes. I'd love to hear from you.
-        </p>
+        {siteCopy.home.bio.map((paragraph: string) => (
+          <p class="text-base md:text-lg lg:text-xl leading-relaxed text-text-muted mb-4 md:mb-6">
+            {paragraph}
+          </p>
+        ))}
       </div>
     </section>
 
@@ -291,30 +291,34 @@ const base = import.meta.env.BASE_URL;
         }
       }, 3000);
 
-      const easterEgg = document.getElementById('easter-egg');
+      const easterEggs = [
+        document.getElementById('easter-egg'),
+        document.getElementById('greeting-easter-egg')
+      ].filter(Boolean);
       let terminalMode = localStorage.getItem('terminalMode') === 'true';
 
-      // Update button state on load
-      if (terminalMode) {
-        easterEgg.textContent = '📰';
-        easterEgg.title = 'Back to editorial mode';
+      function updateEasterEggs() {
+        easterEggs.forEach(egg => {
+          if (terminalMode) {
+            egg.textContent = '📰';
+            egg.title = 'Back to editorial mode';
+          } else {
+            egg.textContent = '👾';
+            egg.title = 'Enter terminal mode';
+          }
+        });
       }
 
-      easterEgg?.addEventListener('click', () => {
-        terminalMode = !terminalMode;
-        localStorage.setItem('terminalMode', terminalMode);
-        document.documentElement.classList.toggle('terminal-mode', terminalMode);
+      // Update button state on load
+      updateEasterEggs();
 
-        // Scroll to top to see the mode change
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-
-        if (terminalMode) {
-          easterEgg.textContent = '📰';
-          easterEgg.title = 'Back to editorial mode';
-        } else {
-          easterEgg.textContent = '👾';
-          easterEgg.title = 'Enter terminal mode';
-        }
+      easterEggs.forEach(egg => {
+        egg.addEventListener('click', () => {
+          terminalMode = !terminalMode;
+          localStorage.setItem('terminalMode', terminalMode);
+          document.documentElement.classList.toggle('terminal-mode', terminalMode);
+          updateEasterEggs();
+        });
       });
 
       // Home Projects dropdown - mobile: click to toggle, desktop: always visible
