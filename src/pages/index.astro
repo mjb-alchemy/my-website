@@ -251,7 +251,7 @@ const base = import.meta.env.BASE_URL;
       <!-- Right: Editorial Letter -->
       <div class="flex flex-col justify-center px-4 md:px-8 lg:pl-12 lg:pr-16 max-w-lg mt-8 md:mt-12 lg:mt-0">
         <p class="text-base md:text-lg lg:text-xl leading-relaxed text-text-muted mb-4 md:mb-6">
-          {siteCopy.home.greeting} <button id="greeting-easter-egg" class="easter-egg text-xl align-middle" title="👾">👾</button>
+          {siteCopy.home.greeting}
         </p>
         {siteCopy.home.bio.map((paragraph: string) => (
           <p class="text-base md:text-lg lg:text-xl leading-relaxed text-text-muted mb-4 md:mb-6">
@@ -292,8 +292,7 @@ const base = import.meta.env.BASE_URL;
       }, 3000);
 
       const easterEggs = [
-        document.getElementById('easter-egg'),
-        document.getElementById('greeting-easter-egg')
+        document.getElementById('easter-egg')
       ].filter(Boolean);
       let terminalMode = localStorage.getItem('terminalMode') === 'true';
 
