@@ -1,6 +1,7 @@
 ---
 import '../../styles/global.css';
 import { Image } from 'astro:assets';
+import copy from '../../content/magpie-copy.json';
 import magpieIcon from '../../assets/magpie/icon-20x20-iphone@3x copy.png';
 import birdGif from '../../assets/magpie/_ copy.gif';
 import screen1 from '../../assets/magpie/screen 1.jpg';
@@ -16,8 +17,8 @@ const screens = [screen1, screen2, screen3];
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
-    <meta name="description" content="Magpie — Catch your ideas before they fly away." />
-    <title>Magpie | Meenal Balar</title>
+    <meta name="description" content={copy.metaDescription} />
+    <title>{copy.pageTitle}</title>
     <style>
       * {
         margin: 0;
@@ -649,7 +650,7 @@ const screens = [screen1, screen2, screen3];
         </svg>
       </div>
 
-      <h1 class="title">Magpie</h1>
+      <h1 class="title">{copy.title}</h1>
 
       <div class="ground"></div>
     </section>
@@ -695,7 +696,7 @@ const screens = [screen1, screen2, screen3];
         </svg>
       </div>
 
-      <p class="tagline">A mind-mapping app for creatives that helps collect the ideas that catch your eye.</p>
+      <p class="tagline">{copy.tagline}</p>
     </section>
 
     <!-- Section 3: Phone + Text -->
@@ -742,9 +743,9 @@ const screens = [screen1, screen2, screen3];
         </div>
 
         <div class="text-content">
-          <p>I believe we're all made up of a handful of ideas that shape what we see and how we move through the world. If we're lucky, we notice thoughts that poke through tiny openings in our day—in podcasts that stop you, shimmering images that catch you mid-run, sentences you screenshot from Substacks.</p>
-          <p>But most tools bury these ideas before they can come alive. You jot them down on a walk, file them away, or let software shove them into a to-do list. Scattered and half-remembered. Organized, but lifeless.</p>
-          <p>Magpie captures your ideas without crushing them—and helps you see what you keep circling back to.</p>
+          {copy.intro.map((paragraph) => (
+            <p>{paragraph}</p>
+          ))}
         </div>
       </div>
     </section>
@@ -785,17 +786,17 @@ const screens = [screen1, screen2, screen3];
       </div>
 
       <div class="waitlist">
-        <p class="waitlist-note">Currently in beta. Say hi if you're curious.</p>
+        <p class="waitlist-note">{copy.waitlist.note}</p>
         <form class="waitlist-form">
-          <input type="email" placeholder="your@email.com" required />
-          <button type="submit">Follow along</button>
+          <input type="email" placeholder={copy.waitlist.emailPlaceholder} required />
+          <button type="submit">{copy.waitlist.button}</button>
         </form>
       </div>
     </section>
 
     <!-- Footer -->
     <footer>
-      A project by <a href={base}>Meenal Balar</a>
+      {copy.footer} <a href={base}>Meenal Balar</a>
     </footer>
 
     <script>
