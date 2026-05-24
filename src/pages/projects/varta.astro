@@ -803,7 +803,11 @@ const carouselPhotos = [
       <section class="contact" id="contact">
         <h2>{copy.cta.english}</h2>
         <div>
-          {copy.cta.body.map((paragraph: string) => <p>{paragraph}</p>)}
+          {copy.cta.body.map((paragraph: string) => (
+            paragraph.includes('This product is early')
+              ? <p>{paragraph.split('early')[0]}<em>early</em>{paragraph.split('early').slice(1).join('early')}</p>
+              : <p>{paragraph}</p>
+          ))}
           <a class="mail-link" href={`mailto:${copy.cta.email}`}>{copy.cta.email}</a>
         </div>
       </section>
