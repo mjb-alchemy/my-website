@@ -219,7 +219,7 @@ const carouselPhotos = [
         display: flex;
         flex-direction: column;
         justify-content: center;
-        padding: clamp(1.65rem, 3.25vw, 2.8rem);
+        padding: clamp(1.65rem, 3.25vw, 2.8rem) clamp(2rem, 4.8vw, 4.2rem);
       }
 
       .eyebrow,
@@ -249,7 +249,7 @@ const carouselPhotos = [
 
       .hero-copy h1,
       .hero-copy p:not(.eyebrow) {
-        max-width: 680px;
+        width: min(100%, 720px);
         color: var(--brown);
         font-family: var(--editorial-serif);
         font-size: clamp(1.55rem, 2.12vw, 2.38rem);
@@ -261,7 +261,7 @@ const carouselPhotos = [
 
       .hero-copy h1 {
         margin: 0;
-        text-wrap: balance;
+        text-wrap: pretty;
       }
 
       .hero-copy p:not(.eyebrow) {
@@ -270,7 +270,7 @@ const carouselPhotos = [
 
       .definition-section {
         background: var(--pale-blue);
-        padding: clamp(2.15rem, 3.7vw, 3.35rem) clamp(1.5rem, 5vw, 4rem);
+        padding: clamp(2.15rem, 3.7vw, 3.35rem) clamp(1.5rem, 3vw, 2.8rem);
       }
 
       .product,
@@ -282,7 +282,7 @@ const carouselPhotos = [
       }
 
       .definition-section .dictionary-lockup {
-        width: min(100%, 1200px);
+        width: min(100%, 1320px);
         margin: 0 auto;
       }
 
@@ -296,7 +296,7 @@ const carouselPhotos = [
       }
 
       .dictionary-lockup {
-        max-width: 1200px;
+        max-width: 1320px;
       }
 
       .dictionary-title {
@@ -341,12 +341,12 @@ const carouselPhotos = [
       }
 
       .definition {
-        max-width: 1060px;
+        max-width: 1320px;
         margin-top: 1rem;
         color: var(--brown);
         font-family: var(--editorial-serif);
-        font-size: clamp(1.5rem, 2vw, 2.3rem);
-        line-height: 1.18;
+        font-size: clamp(1.45rem, 1.85vw, 2.12rem);
+        line-height: 1.2;
       }
 
       .definition strong {
