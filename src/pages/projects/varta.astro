@@ -1,0 +1,793 @@
+---
+import { Image } from 'astro:assets';
+import copy from '../../content/projects/varta.json';
+import heroPhoto from '../../assets/varta/photos/hero-curb.jpg';
+import carouselMasime from '../../assets/varta/photos/carousel 1_masime.jpg';
+import carouselMomBoys from '../../assets/varta/photos/carousel 2_momboys.jpg';
+import carouselPool from '../../assets/varta/photos/carousel 3_sittingbypool.jpg';
+import carouselSittingRoom from '../../assets/varta/photos/carousel 4_sittingroom.jpg';
+import carouselTeaRoom from '../../assets/varta/photos/carousel 5_tea room.jpg';
+import carouselGate from '../../assets/varta/photos/carousel 6_gate.jpg';
+import categoryListScreen from '../../assets/varta/screenshots/category-list.png';
+import recordingThreadScreen from '../../assets/varta/screenshots/recording-thread.png';
+
+const base = import.meta.env.BASE_URL;
+const navItems = copy.nav;
+const promptCategories = copy.prompts.categories;
+const phoneScreens = [
+  {
+    src: categoryListScreen,
+    alt: 'Varta app category list screen with Gujarati and English prompt topics.',
+  },
+  {
+    src: recordingThreadScreen,
+    alt: 'Varta app recording screen with Gujarati prompts and saved voice notes.',
+  },
+];
+const carouselPhotos = [
+  {
+    src: carouselTeaRoom,
+    alt: 'Family gathered around a table with cups of tea.',
+    width: 1365,
+    height: 2048,
+  },
+  {
+    src: carouselMomBoys,
+    alt: 'An elder woman leaning toward a child in conversation.',
+    width: 1365,
+    height: 2048,
+  },
+  {
+    src: carouselSittingRoom,
+    alt: 'Women sitting together in a family sitting room.',
+    width: 2048,
+    height: 1365,
+    wide: true,
+  },
+  {
+    src: carouselMasime,
+    alt: 'A woman embracing an elder family member near a bright window.',
+    width: 1365,
+    height: 2048,
+  },
+  {
+    src: carouselPool,
+    alt: 'A mother reading with children in a quiet nook by the pool.',
+    width: 1365,
+    height: 2048,
+  },
+  {
+    src: carouselGate,
+    alt: 'A person walking through an old arched gate.',
+    width: 1365,
+    height: 2048,
+  },
+];
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href={`${base}favicon.svg`} />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={copy.metaDescription} />
+    <title>Varta | Meenal Balar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Arapey:ital@0;1&family=Lato:wght@300;400;700;900&family=Noto+Serif+Gujarati:wght@300;400;600&display=swap" rel="stylesheet" />
+    <style is:global>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      :root {
+        --haldi: #F6D83B;
+        --cream: #FFF4D6;
+        --pale-blue: #C9E6E5;
+        --rani: #D41473;
+        --green: #087A45;
+        --cobalt: #1763A6;
+        --ink: #231214;
+        --brown: #66402E;
+        --line: rgba(35, 18, 20, 0.22);
+        --editorial-serif: 'Arapey', Georgia, serif;
+      }
+
+      html {
+        background: var(--cream);
+        scroll-behavior: smooth;
+        scroll-padding-top: 1rem;
+      }
+
+      body {
+        min-height: 100vh;
+        overflow-x: hidden;
+        background: var(--cream);
+        color: var(--ink);
+        font-family: 'Lato', system-ui, sans-serif;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      .top {
+        background: var(--haldi);
+      }
+
+      .app-name {
+        display: block;
+        padding: 1rem 1.5rem 0.35rem;
+        color: var(--rani);
+        font-family: 'Lato', system-ui, sans-serif;
+        font-size: clamp(3rem, 8vw, 6.7rem);
+        font-weight: 900;
+        letter-spacing: 0;
+        line-height: 0.9;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
+      }
+
+      .jump-nav {
+        width: min(100%, 34rem);
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1rem;
+        margin: 0 auto;
+        padding: 0.65rem 1.5rem 1.15rem;
+        color: var(--rani);
+        font-size: 1rem;
+        font-weight: 700;
+        text-align: center;
+        text-transform: uppercase;
+      }
+
+      .jump-nav a {
+        text-decoration: none;
+      }
+
+      .jump-nav a:hover {
+        color: var(--green);
+      }
+
+      .app-name:focus:not(:focus-visible),
+      .jump-nav a:focus:not(:focus-visible) {
+        outline: none;
+      }
+
+      .app-name:focus-visible,
+      .jump-nav a:focus-visible {
+        border-radius: 0.15rem;
+        outline: 2px solid var(--green);
+        outline-offset: 0.2rem;
+      }
+
+      .back-link {
+        position: fixed;
+        top: 1rem;
+        left: 1rem;
+        z-index: 20;
+        width: 2.75rem;
+        height: 2.75rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--rani);
+        color: var(--cream);
+        border-radius: 999px;
+        text-decoration: none;
+        transition: background 180ms ease, transform 180ms ease;
+      }
+
+      .back-link:hover {
+        background: var(--green);
+        transform: translateX(-2px);
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 0.8fr) minmax(340px, 1fr);
+        min-height: clamp(460px, calc(100svh - 11rem), 580px);
+        background: var(--cream);
+      }
+
+      .hero-photo {
+        overflow: hidden;
+      }
+
+      .photo-treatment {
+        width: 100%;
+        height: 100%;
+      }
+
+      .hero-photo img,
+      .carousel-slide img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+      }
+
+      .hero-photo img {
+        object-position: center center;
+      }
+
+      .hero-copy {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: clamp(1.65rem, 3.25vw, 2.8rem);
+      }
+
+      .eyebrow,
+      .phone-kicker,
+      .feature-label,
+      .section-label,
+      .prompt-kicker {
+        color: var(--green);
+        font-size: 0.74rem;
+        font-weight: 900;
+        letter-spacing: 0.15em;
+        text-transform: uppercase;
+      }
+
+      .dictionary-title,
+      .section-copy h2,
+      .prompts-heading,
+      .mixed-heading,
+      .contact h2 {
+        color: var(--rani);
+        font-family: var(--editorial-serif);
+        font-weight: 400;
+        letter-spacing: 0;
+        overflow-wrap: break-word;
+        text-wrap: balance;
+      }
+
+      .hero-copy h1,
+      .hero-copy p:not(.eyebrow) {
+        max-width: 680px;
+        color: var(--brown);
+        font-family: var(--editorial-serif);
+        font-size: clamp(1.55rem, 2.12vw, 2.38rem);
+        font-weight: 400;
+        letter-spacing: 0.004em;
+        line-height: 1.28;
+        overflow-wrap: break-word;
+      }
+
+      .hero-copy h1 {
+        margin: 0;
+        text-wrap: balance;
+      }
+
+      .hero-copy p:not(.eyebrow) {
+        margin-top: 1.25rem;
+      }
+
+      .definition-section {
+        background: var(--pale-blue);
+        padding: clamp(2.15rem, 3.7vw, 3.35rem) clamp(1.5rem, 5vw, 4rem);
+      }
+
+      .product,
+      .prompts,
+      .mixed,
+      .contact,
+      .top {
+        scroll-margin-top: 1rem;
+      }
+
+      .definition-section .dictionary-lockup {
+        width: min(100%, 1200px);
+        margin: 0 auto;
+      }
+
+      .product {
+        display: grid;
+        grid-template-columns: minmax(360px, 1fr) minmax(0, 0.72fr);
+        gap: clamp(2.5rem, 6vw, 5rem);
+        align-items: center;
+        padding: clamp(3rem, 6vw, 5.5rem) clamp(1.5rem, 5vw, 4rem);
+        background: var(--cream);
+      }
+
+      .dictionary-lockup {
+        max-width: 1200px;
+      }
+
+      .dictionary-title {
+        margin-top: 0;
+        font-size: clamp(3rem, 5.2vw, 4.85rem);
+        line-height: 1;
+      }
+
+      .pronunciation {
+        margin: 0;
+        color: var(--green);
+        font-family: 'Lato', system-ui, sans-serif;
+        font-size: clamp(1.15rem, 1.7vw, 1.45rem);
+        font-weight: 900;
+        letter-spacing: 0.02em;
+      }
+
+      .script-line {
+        margin: 0;
+        color: var(--green);
+        font-family: 'Noto Serif Gujarati', Georgia, serif;
+        font-size: clamp(1.45rem, 2.3vw, 2rem);
+        font-weight: 600;
+        letter-spacing: 0;
+        line-height: 1;
+      }
+
+      .dictionary-meta {
+        display: inline-flex;
+        flex-wrap: wrap;
+        gap: 0.45rem 0.7rem;
+        align-items: baseline;
+        margin-top: 0.75rem;
+      }
+
+      .dictionary-dot {
+        color: var(--green);
+        font-size: clamp(1.1rem, 1.5vw, 1.35rem);
+        font-weight: 900;
+        line-height: 1;
+        transform: translateY(-0.04em);
+      }
+
+      .definition {
+        max-width: 1060px;
+        margin-top: 1rem;
+        color: var(--brown);
+        font-family: var(--editorial-serif);
+        font-size: clamp(1.5rem, 2vw, 2.3rem);
+        line-height: 1.18;
+      }
+
+      .definition strong {
+        color: var(--green);
+        font-family: var(--editorial-serif);
+        font-size: 1em;
+        font-style: normal;
+        font-weight: 400;
+        letter-spacing: 0;
+        text-transform: none;
+      }
+
+      .section-copy h2 {
+        margin-top: 0;
+        color: var(--green);
+        font-size: clamp(3.1rem, 5.6vw, 5.6rem);
+        line-height: 0.98;
+      }
+
+      .section-copy p {
+        max-width: 620px;
+        margin-top: 1.25rem;
+        color: var(--brown);
+        font-size: 1.06rem;
+        line-height: 1.78;
+      }
+
+      .product-body {
+        margin-top: 1.45rem;
+      }
+
+      .product-body p {
+        max-width: 620px;
+        font-size: 1.16rem;
+        line-height: 1.82;
+      }
+
+      .product-body p + p {
+        max-width: 620px;
+        font-size: 1.16rem;
+        line-height: 1.82;
+      }
+
+      .phone-row {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.25rem;
+        align-items: end;
+      }
+
+      .phone-device {
+        border-radius: 2rem;
+        background: var(--ink);
+        padding: 0.62rem;
+        box-shadow: 14px 14px 0 rgba(246, 216, 59, 0.9);
+      }
+
+      .phone-device:nth-child(2) {
+        transform: translateY(2.2rem);
+        box-shadow: 14px 14px 0 rgba(212, 20, 115, 0.9);
+      }
+
+      .phone-screen {
+        overflow: hidden;
+        border-radius: 1.45rem;
+        background: #f8f7f4;
+      }
+
+      .phone-screen img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .mixed {
+        background: var(--cream);
+        padding: clamp(1rem, 2.2vw, 1.8rem) clamp(1.5rem, 5vw, 4rem);
+      }
+
+      .prompts {
+        background: var(--haldi);
+        padding: clamp(4rem, 8vw, 7rem) 0;
+        overflow: hidden;
+      }
+
+      .prompts-intro {
+        width: min(100% - 3rem, 1120px);
+        margin: 0 auto 2.5rem;
+      }
+
+      .prompts-heading {
+        max-width: 900px;
+        color: var(--rani);
+        font-size: clamp(2.5rem, 5.4vw, 5.4rem);
+        line-height: 0.98;
+      }
+
+      .ticker-stack {
+        display: grid;
+        gap: 0.8rem;
+      }
+
+      .ticker-row {
+        display: grid;
+        grid-template-columns: minmax(8rem, 0.18fr) minmax(0, 1fr);
+        align-items: center;
+        gap: 1.2rem;
+        color: var(--ink);
+      }
+
+      .ticker-label {
+        justify-self: end;
+        color: var(--green);
+        font-size: 0.82rem;
+        font-weight: 900;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      .ticker-track {
+        min-width: 0;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+
+      .ticker-content {
+        display: inline-flex;
+        gap: 0.9rem;
+        animation: ticker 32s linear infinite;
+      }
+
+      .ticker-row:nth-child(2n) .ticker-content {
+        animation-direction: reverse;
+        animation-duration: 38s;
+      }
+
+      .ticker-pill {
+        display: inline-flex;
+        align-items: center;
+        min-height: 3rem;
+        border-radius: 999px;
+        background: var(--cream);
+        color: var(--brown);
+        font-family: var(--editorial-serif);
+        font-size: clamp(1.25rem, 2.6vw, 2rem);
+        line-height: 1.05;
+        padding: 0.65rem 1.1rem 0.78rem;
+      }
+
+      @keyframes ticker {
+        from {
+          transform: translateX(0);
+        }
+
+        to {
+          transform: translateX(-50%);
+        }
+      }
+
+      .mixed-heading {
+        max-width: 900px;
+        font-size: clamp(2.5rem, 5.4vw, 5.4rem);
+        line-height: 0.98;
+      }
+
+      .photo-carousel {
+        display: flex;
+        gap: 1.15rem;
+        margin: 0 calc(clamp(1.5rem, 5vw, 4rem) * -1);
+        overflow-x: auto;
+        padding: 0 clamp(1.5rem, 5vw, 4rem) 0.5rem;
+        scroll-padding-inline: clamp(1.5rem, 5vw, 4rem);
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+      }
+
+      .photo-carousel::-webkit-scrollbar {
+        display: none;
+      }
+
+      .carousel-slide {
+        background: #FFF9EA;
+        border-radius: 1.1rem;
+        flex: 0 0 min(72vw, 390px);
+        height: clamp(440px, 62vw, 620px);
+        overflow: hidden;
+        position: relative;
+        scroll-snap-align: start;
+      }
+
+      .carousel-slide.wide {
+        flex-basis: min(86vw, 720px);
+      }
+
+      .photo-credit {
+        margin-top: 0.8rem;
+        color: var(--brown);
+        font-style: italic;
+        font-size: 0.86rem;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        text-align: right;
+      }
+
+      .prompt-kicker {
+        color: var(--green);
+      }
+
+      .feature-label {
+        color: var(--haldi);
+      }
+
+      .contact {
+        display: grid;
+        grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
+        align-items: center;
+        gap: 2rem;
+        background: var(--pale-blue);
+        padding: clamp(3rem, 6vw, 5rem) clamp(1.5rem, 5vw, 4rem);
+      }
+
+      .contact h2 {
+        font-size: clamp(2.35rem, 4.4vw, 4.4rem);
+        line-height: 0.98;
+      }
+
+      .contact p {
+        max-width: 620px;
+        color: var(--brown);
+        font-size: 1.16rem;
+        line-height: 1.82;
+      }
+
+      .mail-link {
+        display: inline-block;
+        margin-top: 1.2rem;
+        color: var(--rani);
+        font-weight: 900;
+        text-decoration: none;
+      }
+
+      .mail-link:hover {
+        color: var(--green);
+        text-decoration: underline;
+        text-underline-offset: 0.18em;
+      }
+
+      footer {
+        padding: 2rem 1.5rem 3rem;
+        background: var(--cream);
+        color: var(--brown);
+        font-size: 0.82rem;
+        text-align: center;
+      }
+
+      footer a {
+        color: var(--rani);
+        text-decoration: none;
+      }
+
+      @media (max-width: 980px) {
+        .contact {
+          grid-template-columns: 1fr;
+        }
+
+        .phone-row {
+          max-width: 720px;
+          margin: 0 auto;
+        }
+
+        .carousel-slide {
+          flex-basis: min(76vw, 370px);
+        }
+
+        .carousel-slide.wide {
+          flex-basis: min(86vw, 640px);
+        }
+      }
+
+      @media (max-width: 760px) {
+        .hero,
+        .product {
+          grid-template-columns: 1fr;
+        }
+
+        .hero {
+          min-height: auto;
+        }
+
+        .hero-photo {
+          min-height: 440px;
+        }
+      }
+
+      @media (max-width: 680px) {
+        .app-name {
+          font-size: 3.2rem;
+        }
+
+        .jump-nav {
+          gap: 1rem;
+          overflow-x: auto;
+          justify-content: flex-start;
+        }
+
+        .hero-photo {
+          min-height: 430px;
+        }
+
+        .hero-copy {
+          padding: 2rem 1.2rem 2.4rem;
+        }
+
+        .hero-copy h1 {
+          font-size: clamp(2.05rem, 10.5vw, 3rem);
+        }
+
+        .section-copy .dictionary-title {
+          font-size: clamp(4rem, 18vw, 5.8rem);
+        }
+
+        .prompts-heading,
+        .contact h2 {
+          font-size: clamp(2.25rem, 11vw, 3.45rem);
+        }
+
+        .phone-row {
+          grid-template-columns: 1fr;
+        }
+
+        .phone-device:nth-child(2) {
+          transform: none;
+        }
+
+        .carousel-slide,
+        .carousel-slide.wide {
+          flex-basis: 82vw;
+          height: 520px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <a class="back-link" href={base} aria-label="Back to home">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+      </svg>
+    </a>
+
+    <header class="top" id="top">
+      <a class="app-name" href="#top">Varta</a>
+      <nav class="jump-nav" aria-label="Varta sections">
+        {navItems.map((item) => <a href={item.href}>{item.label}</a>)}
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-photo">
+          <Image class="photo-treatment" src={heroPhoto} alt="Two women in saris sitting together outside." width={900} height={1200} loading="eager" />
+        </div>
+
+        <div class="hero-copy">
+          <h1>{copy.hero.tagline}</h1>
+          {copy.hero.body.map((paragraph: string) => <p>{paragraph}</p>)}
+        </div>
+      </section>
+
+      <section class="definition-section" aria-labelledby="varta-definition">
+        <div class="dictionary-lockup">
+          <h2 class="dictionary-title" id="varta-definition">{copy.dictionary.title}</h2>
+          <div class="dictionary-meta">
+            <p class="pronunciation">{copy.dictionary.pronunciation}</p>
+            <span class="dictionary-dot" aria-hidden="true">·</span>
+            <p class="script-line">{copy.dictionary.script}</p>
+          </div>
+          <p class="definition"><strong>{copy.dictionary.definitionLabel}</strong> {copy.dictionary.definition}</p>
+        </div>
+      </section>
+
+      <section class="product" id="app">
+        <div class="phone-row" aria-label="Varta product mockups">
+          {phoneScreens.map((screen) => (
+            <div class="phone-device">
+              <div class="phone-screen">
+                <Image src={screen.src} alt={screen.alt} width={1206} height={2622} />
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div class="section-copy">
+          <h2>{copy.sections[1].headline}</h2>
+          <div class="product-body">
+            {copy.sections[1].body.map((paragraph: string) => <p>{paragraph}</p>)}
+          </div>
+        </div>
+      </section>
+
+      <section class="prompts" id="prompts">
+        <div class="prompts-intro">
+          <h2 class="prompts-heading">{copy.prompts.headline}</h2>
+        </div>
+
+        <div class="ticker-stack" aria-label="Varta prompt category examples">
+          {promptCategories.map((category) => (
+            <div class="ticker-row">
+              <p class="ticker-label">{category.label}</p>
+              <div class="ticker-track">
+                <div class="ticker-content">
+                  {[...category.questions, ...category.questions].map((question) => <span class="ticker-pill">{question}</span>)}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="mixed" id="about">
+        <div class="photo-carousel" aria-label="Family photos for Varta">
+          {carouselPhotos.map((photo) => (
+            <div class:list={['carousel-slide', { wide: photo.wide }]}>
+              <Image class="photo-treatment" src={photo.src} alt={photo.alt} width={photo.width} height={photo.height} />
+            </div>
+          ))}
+        </div>
+        <p class="photo-credit">{copy.photoCredit}</p>
+      </section>
+
+      <section class="contact" id="contact">
+        <h2>{copy.cta.english}</h2>
+        <div>
+          <p>{copy.cta.body}</p>
+          <a class="mail-link" href={`mailto:${copy.cta.email}`}>{copy.cta.email}</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      A project by <a href={base}>Meenal Balar</a>
+    </footer>
+  </body>
+</html>

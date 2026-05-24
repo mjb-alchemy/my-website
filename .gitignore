@@ -20,5 +20,20 @@ pnpm-debug.log*
 # macOS-specific files
 .DS_Store
 
+# private strategy notes
+docs/varta-*.md
+docs/**/varta-*.md
+
+# local/source Varta photos; explicitly unignore web-ready images used by the page
+src/assets/varta/photos/*
+!src/assets/varta/photos/hero-curb.jpg
+!src/assets/varta/photos/carousel 1_masime.jpg
+!src/assets/varta/photos/carousel 2_momboys.jpg
+!src/assets/varta/photos/carousel 3_sittingbypool.jpg
+!src/assets/varta/photos/carousel 4_sittingroom.jpg
+!src/assets/varta/photos/carousel 5_tea room.jpg
+!src/assets/varta/photos/carousel 6_gate.jpg
+src/assets/IMG_8927.jpg
+
 # jetbrains setting folder
 .idea/

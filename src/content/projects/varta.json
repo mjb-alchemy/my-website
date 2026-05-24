@@ -1,0 +1,181 @@
+{
+  "metaDescription": "Varta is a personal voice-first storytelling project for Gujarati mothers and their families.",
+  "nav": [
+    {
+      "href": "#app",
+      "label": "App"
+    },
+    {
+      "href": "#prompts",
+      "label": "Prompts"
+    },
+    {
+      "href": "#contact",
+      "label": "Contact"
+    }
+  ],
+  "hero": {
+    "eyebrow": "A personal project in progress",
+    "tagline": "Varta helps Gujarati women record everyday moments and memories in their own voice, no typing required.",
+    "body": [
+      "Every Gujarati knows it's the women in the family who have lived a thousand lives. Their stories come out while washing dishes or rolling theplas before a big trip. Varta exists to give these stories a home.",
+      "I'm building Varta for the women who shaped me, and for the wisdom, gentle jabs, and recipes I'm still hungry for."
+    ],
+    "mark": "વાતથી વાર્તા"
+  },
+  "dictionary": {
+    "title": "Varta",
+    "pronunciation": "/vaar-ta/",
+    "script": "વાર્તા",
+    "definitionLabel": "noun.",
+    "definition": "A story, a conversation, the thing someone remembers once you ask the right question. Often shared over a hot cup of chai."
+  },
+  "photoSlots": [
+    {
+      "label": "Family photo slot",
+      "caption": "Mom, masis, kakis, aunties"
+    },
+    {
+      "label": "Old album slot",
+      "caption": "Kitchen-table evidence"
+    },
+    {
+      "label": "Scan goes here",
+      "caption": "The people this is for"
+    }
+  ],
+  "intro": {
+    "eyebrow": "Why I’m making it",
+    "headline": "Some stories only arrive when no one makes them formal.",
+    "body": [
+      "I keep thinking about the stories Gujarati mothers tell sideways: while cooking, while correcting a detail, while laughing at something that was apparently obvious to everyone except you.",
+      "Varta is my attempt to make a small, familiar place for those stories. Not a memorial archive. Not homework. More like someone finally pressed record at the right moment."
+    ]
+  },
+  "sections": [
+    {
+      "eyebrow": "Why voice",
+      "headline": "Voice keeps the rhythm, the pause, the correction, the laugh before the point lands.",
+      "body": [
+        "Writing can flatten a story too quickly. Voice keeps the language, the switch into Gujarati, the little aside, the part where she starts somewhere and ends up somewhere better.",
+        "The app begins with prompts, but the point is not perfect answers. The point is giving Mom the mic and letting the story move the way memory moves."
+      ],
+      "phone": {
+        "kicker": "Today’s prompt",
+        "prompt": "તમારા ઘરમાં કઈ વાત વારંવાર કહેવામાં આવે છે?",
+        "translation": "What is a line people in your house say all the time?",
+        "action": "Tap once and talk",
+        "state": "Prompt card"
+      }
+    },
+    {
+      "eyebrow": "Product sketch",
+      "headline": "Tap and talk",
+      "body": [
+        "Varta is a voice-first storytelling app for the mom who doesn’t want to write but is always willing to chat. She can record freely or choose from topics like faith, recipes, and family, with prompts written in Gujarati and English. All she has to do is tap the red button and start talking. Her stories are saved automatically, with options to transcribe, share, or keep private. Prompts can always be skipped.",
+        "Next up: I’m still working on reminders, editing, sharing, photo inspiration, and the final storybook experience (written and audio, in English and Gujarati)."
+      ],
+      "phone": {
+        "kicker": "Saved story",
+        "prompt": "Pinned: Thepla for the train",
+        "translation": "8 min audio - Gujarati transcript ready",
+        "action": "Keep private / Share with family",
+        "state": "Saved"
+      }
+    }
+  ],
+  "phoneTabs": [
+    "Prompt",
+    "Record",
+    "Pin"
+  ],
+  "prompts": {
+    "headline": "Simple prompts. Real stories.",
+    "categories": [
+      {
+        "label": "Chitthi",
+        "questions": [
+          "What advice would you give your 20-year-old self?",
+          "What would you consider your motto?",
+          "Think of someone who showed you unexpected kindness."
+        ]
+      },
+      {
+        "label": "Kitchen",
+        "questions": [
+          "What dish brings a memory back to life?",
+          "What do you love to make for your children?",
+          "If food is how you show love, what do you hope people feel?"
+        ]
+      },
+      {
+        "label": "Childhood",
+        "questions": [
+          "What was your favorite place as a child?",
+          "What fascinated you when you were a girl?",
+          "What feeling from that time should your grandchildren know?"
+        ]
+      },
+      {
+        "label": "Family Vaat",
+        "questions": [
+          "Think of a vivid memory of your mother or grandmother.",
+          "Who in your family influenced you the most?",
+          "What is your favorite story about your father?"
+        ]
+      },
+      {
+        "label": "Faith",
+        "questions": [
+          "Who first showed you how to pray?",
+          "Where did you worship when you were young?",
+          "When did you feel God’s presence most clearly?"
+        ]
+      },
+      {
+        "label": "Coming Here",
+        "questions": [
+          "Think of one of your first days in a new country.",
+          "What was the hardest thing to leave behind?",
+          "What story from that time should your grandchildren know?"
+        ]
+      }
+    ]
+  },
+  "proofHeading": "The product is still early. The feeling is the thing I’m trying to get right.",
+  "features": [
+    {
+      "label": "Gujarati + English",
+      "text": "Prompts can meet her in whichever language feels easiest that day."
+    },
+    {
+      "label": "Voice notes",
+      "text": "The interaction should feel familiar, quick, and low-pressure."
+    },
+    {
+      "label": "Pinned stories",
+      "text": "The important bits stay easy to replay and return to."
+    },
+    {
+      "label": "Mom decides",
+      "text": "Sharing should feel chosen, not extracted."
+    }
+  ],
+  "texture": [
+    "recipes",
+    "sayings",
+    "blessings",
+    "side comments",
+    "family corrections",
+    "masti",
+    "migration",
+    "practical wisdom"
+  ],
+  "photoCredit": "Courtesy of Arjun Lall",
+  "cta": {
+    "gujarati": "સાચવ્યું. આભાર.",
+    "english": "I'd love to hear from you.",
+    "body": "Varta is early and personal. If you'd like to try Varta with your family, or if you have questions or ideas, please reach out.",
+    "email": "meenal@whyalchemy.com"
+  }
+}
