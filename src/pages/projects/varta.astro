@@ -580,6 +580,10 @@ const carouselPhotos = [
         line-height: 1.82;
       }
 
+      .contact p + p {
+        margin-top: 0.45rem;
+      }
+
       .mail-link {
         display: inline-block;
         margin-top: 1.2rem;
@@ -780,7 +784,7 @@ const carouselPhotos = [
       <section class="contact" id="contact">
         <h2>{copy.cta.english}</h2>
         <div>
-          <p>{copy.cta.body}</p>
+          {copy.cta.body.map((paragraph: string) => <p>{paragraph}</p>)}
           <a class="mail-link" href={`mailto:${copy.cta.email}`}>{copy.cta.email}</a>
         </div>
       </section>

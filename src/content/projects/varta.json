@@ -18,8 +18,7 @@
     "eyebrow": "A personal project in progress",
     "tagline": "Varta helps Gujarati women record everyday moments and memories in their own voice, no typing required.",
     "body": [
-      "Every Gujarati knows it's the women in the family who have lived a thousand lives. Their stories come out while washing dishes or rolling theplas before a big trip. Varta exists to give these stories a home.",
-      "I'm building Varta for the women who shaped me, and for the wisdom, gentle jabs, and recipes I'm still hungry for."
+      "Every Gujarati knows it's the women in the family who have lived a thousand lives. Their stories come out while washing dishes or rolling theplas before a big trip. Varta exists to give these stories a home."
     ],
     "mark": "વાતથી વાર્તા"
   },
@@ -175,7 +174,10 @@
   "cta": {
     "gujarati": "સાચવ્યું. આભાર.",
     "english": "I'd love to hear from you.",
-    "body": "Varta is early and personal. If you'd like to try Varta with your family, or if you have questions or ideas, please reach out.",
+    "body": [
+      "I'm building Varta for the women who shaped me, and for the wisdom, gentle jabs, and recipes I'm still hungry for.",
+      "Varta is early and personal. If you'd like to try Varta with your family, or if you have questions or ideas, please reach out."
+    ],
     "email": "meenal@whyalchemy.com"
   }
 }

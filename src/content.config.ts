@@ -83,7 +83,7 @@ const projects = defineCollection({
     cta: z.object({
       gujarati: z.string(),
       english: z.string(),
-      body: z.string(),
+      body: z.array(z.string()),
       email: z.string(),
     }),
   }),
