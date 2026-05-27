@@ -391,8 +391,49 @@ const carouselPhotos = [
         line-height: 1.82;
       }
 
+      .product-bullets {
+        display: grid;
+        gap: 0.58rem;
+        margin-top: 1rem;
+        padding: 0;
+        color: var(--brown);
+        font-family: 'Lato', system-ui, sans-serif;
+        font-size: 1.16rem;
+        line-height: 1.65;
+        list-style: none;
+      }
+
+      .product-bullets li {
+        display: grid;
+        grid-template-columns: 0.7rem minmax(0, 1fr);
+        gap: 0.62rem;
+        max-width: 620px;
+        color: var(--brown);
+      }
+
+      .product-bullets li::before {
+        content: "";
+        width: 0.34rem;
+        height: 0.34rem;
+        margin-top: 0.72em;
+        border-radius: 999px;
+        background: var(--green);
+      }
+
       .product-body strong {
         font-weight: 900;
+      }
+
+      .product-body a {
+        color: var(--rani);
+        font-weight: 900;
+        text-decoration: none;
+      }
+
+      .product-body a:hover {
+        color: var(--green);
+        text-decoration: underline;
+        text-underline-offset: 0.18em;
       }
 
       .phone-row {
@@ -761,11 +802,17 @@ const carouselPhotos = [
         <div class="section-copy">
           <h2>{copy.sections[1].headline}</h2>
           <div class="product-body">
-            {copy.sections[1].body.map((paragraph: string) => (
-              paragraph.startsWith('Next up:')
-                ? <p><strong>Next up:</strong>{paragraph.replace('Next up:', '')}</p>
-                : <p>{paragraph}</p>
-            ))}
+            <p>{copy.sections[1].body[0]}</p>
+            {copy.sections[1].bullets && (
+              <ul class="product-bullets">
+                {copy.sections[1].bullets.map((item: string) => <li>{item}</li>)}
+              </ul>
+            )}
+            <p>
+              {copy.sections[1].body[1].split('Reach out')[0]}
+              <a href="#contact">Reach out</a>
+              {copy.sections[1].body[1].split('Reach out')[1]}
+            </p>
           </div>
         </div>
       </section>

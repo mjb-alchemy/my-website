@@ -18,7 +18,7 @@
     "eyebrow": "A personal project in progress",
     "tagline": "Varta helps Gujarati women record everyday moments and memories in their own voice, no typing required.",
     "body": [
-      "Every Gujarati knows it's the women in the family who have lived a thousand lives. Their stories come out at the kitchen table or while rolling theplas before a big trip. Varta exists to give these stories a home."
+      "Every Gujarati knows it's the women in the family who have lived a thousand lives. Their stories come out at the kitchen table or while rolling theplas before a big trip. Varta exists to give their stories a home."
     ],
     "mark": "વાતથી વાર્તા"
   },
@@ -27,7 +27,7 @@
     "pronunciation": "/vaar-ta/",
     "script": "વાર્તા",
     "definitionLabel": "noun.",
-    "definition": "A story, a conversation, the thing someone shares once you ask the right question. Often shared over hot chai."
+    "definition": "a story, a conversation, a memory that emerges when you ask the right question (often over chai)."
   },
   "photoSlots": [
     {
@@ -71,8 +71,13 @@
       "eyebrow": "Product sketch",
       "headline": "Tap and talk",
       "body": [
-        "Varta is a voice-first storytelling app for the mom who doesn’t want to write but is always willing to chat. She can record freely or choose from topics like faith, recipes, and family, with prompts written in Gujarati and English. All she has to do is tap the red button and start talking. Her stories are saved automatically, with options to transcribe, share, or keep private. Prompts can always be skipped.",
-        "Next up: I’m still working on reminders, editing, sharing, photo inspiration, and the final storybook experience (written and audio, in English and Gujarati)."
+        "Varta is a voice-first storytelling app for the Gujarati mom who doesn't want to write but is always willing to chat. With Varta, she can:",
+        "Varta is early and personal. I'm working on reminders, editing, sharing, photo inspiration, and the final storybook experience next. Reach out if you'd like to know more."
+      ],
+      "bullets": [
+        "Choose from topics like faith, family, food and more",
+        "Tap to record in her own voice and language",
+        "Skip around, check progress, and manage her own WhatsApp-like experience"
       ],
       "phone": {
         "kicker": "Saved story",
@@ -175,7 +180,7 @@
     "gujarati": "સાચવ્યું. આભાર.",
     "english": "I'd love to hear from you.",
     "body": [
-      "I'm building Varta for the women who shaped me, and for the wisdom, gentle jabs, and recipes I'm still hungry for 🙂 This product is early and personal. If you'd like to try Varta with your family, or if you have questions or ideas, please reach out."
+      "I'm building Varta for the women who shaped me, and for the wisdom, gentle jabs, and recipes I'm still hungry for 🙂 Reach out if you'd like to try Varta with your family, or if you have questions or ideas -- I'd love to hear from you."
     ],
     "email": "meenal@whyalchemy.com"
   }

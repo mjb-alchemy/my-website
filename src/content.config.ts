@@ -57,6 +57,7 @@ const projects = defineCollection({
       eyebrow: z.string(),
       headline: z.string(),
       body: z.array(z.string()),
+      bullets: z.array(z.string()).optional(),
       phone: z.object({
         kicker: z.string(),
         prompt: z.string(),
