@@ -18,7 +18,7 @@
     "eyebrow": "A personal project in progress",
     "tagline": "A simple voice app for stories in her own language.",
     "body": [
-      "Varta began with the women in my family who have lived a thousand lives. Their stories slip out while rolling theplas before a big trip or around the table after everyone else has eaten. This project exists to give these stories a home."
+      "Varta began with the women in my family who have lived a thousand lives. Their stories slip out while rolling theplas before a big trip or around the table after everyone else has eaten. I'm building Varta to give these stories a home."
     ],
     "waitlist": {
       "beforeLink": "Varta is starting with Gujarati and English, and only available on iOS. ",
@@ -102,14 +102,6 @@
   "prompts": {
     "headline": "Simple prompts. Real stories.",
     "categories": [
-      {
-        "label": "Chitthi",
-        "questions": [
-          "What advice would you give your 20-year-old self?",
-          "What would you consider your motto?",
-          "Think of someone who showed you unexpected kindness."
-        ]
-      },
       {
         "label": "Kitchen",
         "questions": [
