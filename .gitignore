@@ -27,6 +27,7 @@ docs/**/varta-*.md
 # local/source Varta photos; explicitly unignore web-ready images used by the page
 src/assets/varta/photos/*
 !src/assets/varta/photos/hero-curb.jpg
+!src/assets/varta/photos/hero-curb crop.jpg
 !src/assets/varta/photos/carousel 1_masime.jpg
 !src/assets/varta/photos/carousel 2_momboys.jpg
 !src/assets/varta/photos/carousel 3_sittingbypool.jpg
