@@ -35,6 +35,12 @@ const projects = defineCollection({
       eyebrow: z.string(),
       tagline: z.string(),
       body: z.array(z.string()),
+      waitlist: z.object({
+        beforeLink: z.string(),
+        label: z.string(),
+        href: z.string().url(),
+        afterLink: z.string(),
+      }).optional(),
       mark: z.string(),
     }),
     dictionary: z.object({

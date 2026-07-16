@@ -269,6 +269,17 @@ const carouselPhotos = [
         margin-top: 1.25rem;
       }
 
+      .hero-copy a {
+        color: var(--rani);
+        text-decoration-color: color-mix(in srgb, var(--rani), transparent 35%);
+        text-decoration-thickness: 0.08em;
+        text-underline-offset: 0.14em;
+      }
+
+      .hero-copy a:hover {
+        color: var(--green);
+      }
+
       .definition-section {
         background: var(--pale-blue);
         padding: clamp(2.15rem, 3.7vw, 3.35rem) clamp(1.5rem, 3vw, 2.8rem);
@@ -773,6 +784,13 @@ const carouselPhotos = [
         <div class="hero-copy">
           <h1>{copy.hero.tagline}</h1>
           {copy.hero.body.map((paragraph: string) => <p>{paragraph}</p>)}
+          {copy.hero.waitlist && (
+            <p>
+              {copy.hero.waitlist.beforeLink}
+              <a href={copy.hero.waitlist.href} target="_blank" rel="noreferrer">{copy.hero.waitlist.label}</a>
+              {copy.hero.waitlist.afterLink}
+            </p>
+          )}
         </div>
       </section>
 

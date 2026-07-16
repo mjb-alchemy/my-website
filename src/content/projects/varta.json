@@ -1,5 +1,5 @@
 {
-  "metaDescription": "Varta is a personal voice-first storytelling project for Gujarati mothers and their families.",
+  "metaDescription": "Varta is a personal voice-first storytelling project for women and their families, starting with Gujarati and English.",
   "nav": [
     {
       "href": "#app",
@@ -16,10 +16,16 @@
   ],
   "hero": {
     "eyebrow": "A personal project in progress",
-    "tagline": "Varta helps Gujarati women record moments and memories in their own voice, without typing a word.",
+    "tagline": "Varta is a simple voice app that helps women record moments and memories in their own language, without typing a word.",
     "body": [
-      "If you're Gujarati, you know it's the women in the family who have lived a thousand lives. Their stories slip out while rolling theplas before a big trip or around the table after everyone else has eaten. Varta exists to give these stories a home."
+      "It's the women in my family who have lived a thousand lives. Their stories slip out when rolling theplas before a big trip or around the table after everyone else has eaten. Varta exists to give these stories a home."
     ],
+    "waitlist": {
+      "beforeLink": "Starting with Gujarati and English, with a ",
+      "label": "waitlist",
+      "href": "https://forms.gle/zVUbJAmy5bg1TAs79",
+      "afterLink": " for more languages."
+    },
     "mark": "વાતથી વાર્તા"
   },
   "dictionary": {
@@ -71,7 +77,7 @@
       "eyebrow": "Product sketch",
       "headline": "Tap and talk",
       "body": [
-        "Varta is a voice-based storytelling app for the Gujarati mom, aunt, or grandma who doesn't want to write but is always willing to chat. With Varta, she can:",
+        "Varta is a voice-based storytelling app for the mom, aunt, or grandma who doesn't want to write but is always willing to chat. With Varta, she can:",
         "Varta is early and personal. I'm working on reminders, editing, sharing, photo inspiration, and the final storybook experience next. Reach out if you'd like to know more."
       ],
       "bullets": [
@@ -180,7 +186,7 @@
     "gujarati": "સાચવ્યું. આભાર.",
     "english": "I'd love to hear from you.",
     "body": [
-      "I'm building Varta for the women who shaped me, and for the wisdom, gentle jabs, and recipes I'm still hungry for 🙂 Reach out if you'd like to try Varta with your family, or if you have questions or ideas -- I'd love to hear from you."
+      "I'm building Varta for the women who shaped me, and for the wisdom, gentle jabs, and recipes I'm still hungry for 🙂 Reach out if you'd like to try Varta with your family."
     ],
     "email": "meenal@whyalchemy.com"
   }
