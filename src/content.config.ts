@@ -92,6 +92,8 @@ const projects = defineCollection({
       english: z.string(),
       body: z.array(z.string()),
       email: z.string(),
+      betaHref: z.string().url().optional(),
+      betaLabel: z.string().optional(),
     }),
   }),
 });

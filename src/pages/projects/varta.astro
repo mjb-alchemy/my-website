@@ -247,7 +247,6 @@ const carouselPhotos = [
         text-wrap: balance;
       }
 
-      .hero-copy h1,
       .hero-copy p:not(.eyebrow) {
         width: min(100%, 720px);
         color: var(--brown);
@@ -260,12 +259,19 @@ const carouselPhotos = [
       }
 
       .hero-copy h1 {
+        width: min(100%, 780px);
         margin: 0;
-        font-weight: 700;
-        text-wrap: pretty;
+        color: var(--rani);
+        font-family: var(--editorial-serif);
+        font-size: clamp(3.1rem, 5.6vw, 5.6rem);
+        font-weight: 400;
+        letter-spacing: 0;
+        line-height: 0.95;
+        overflow-wrap: break-word;
+        text-wrap: balance;
       }
 
-      .hero-copy p:not(.eyebrow) {
+      .hero-copy p:not(.eyebrow):not(.hero-beta-note) {
         margin-top: 1.25rem;
       }
 
@@ -278,6 +284,10 @@ const carouselPhotos = [
 
       .hero-copy a:hover {
         color: var(--green);
+      }
+
+      .hero-copy .hero-beta-note {
+        margin-top: clamp(2rem, 5vw, 4rem) !important;
       }
 
       .definition-section {
@@ -641,18 +651,15 @@ const carouselPhotos = [
         margin-top: 0.45rem;
       }
 
-      .mail-link {
-        display: inline-block;
-        margin-top: 1.2rem;
+      .contact p a {
         color: var(--rani);
-        font-weight: 900;
-        text-decoration: none;
+        text-decoration-color: color-mix(in srgb, var(--rani), transparent 35%);
+        text-decoration-thickness: 0.08em;
+        text-underline-offset: 0.18em;
       }
 
-      .mail-link:hover {
+      .contact p a:hover {
         color: var(--green);
-        text-decoration: underline;
-        text-underline-offset: 0.18em;
       }
 
       footer {
@@ -785,7 +792,7 @@ const carouselPhotos = [
           <h1>{copy.hero.tagline}</h1>
           {copy.hero.body.map((paragraph: string) => <p>{paragraph}</p>)}
           {copy.hero.waitlist && (
-            <p>
+            <p class="hero-beta-note">
               {copy.hero.waitlist.beforeLink}
               <a href={copy.hero.waitlist.href} target="_blank" rel="noreferrer">{copy.hero.waitlist.label}</a>
               {copy.hero.waitlist.afterLink}
@@ -826,11 +833,15 @@ const carouselPhotos = [
                 {copy.sections[1].bullets.map((item: string) => <li>{item}</li>)}
               </ul>
             )}
-            <p>
-              {copy.sections[1].body[1].split('Reach out')[0]}
-              <a href="#contact">Reach out</a>
-              {copy.sections[1].body[1].split('Reach out')[1]}
-            </p>
+            {copy.sections[1].body[1].includes('Reach out') ? (
+              <p>
+                {copy.sections[1].body[1].split('Reach out')[0]}
+                <a href="#contact">Reach out</a>
+                {copy.sections[1].body[1].split('Reach out')[1]}
+              </p>
+            ) : (
+              <p>{copy.sections[1].body[1]}</p>
+            )}
           </div>
         </div>
       </section>
@@ -868,12 +879,14 @@ const carouselPhotos = [
       <section class="contact" id="contact">
         <h2>{copy.cta.english}</h2>
         <div>
-          {copy.cta.body.map((paragraph: string) => (
-            paragraph.includes('This product is early')
-              ? <p>{paragraph.split('early')[0]}<em>early</em>{paragraph.split('early').slice(1).join('early')}</p>
-              : <p>{paragraph}</p>
-          ))}
-          <a class="mail-link" href={`mailto:${copy.cta.email}`}>{copy.cta.email}</a>
+          <p>
+            {copy.cta.body[0]} Reach out at <a href={`mailto:${copy.cta.email}`}>{copy.cta.email}</a> if you'd like to try Varta with your family, or{' '}
+            {copy.cta.betaHref && copy.cta.betaLabel ? (
+              <a href={copy.cta.betaHref} target="_blank" rel="noreferrer">{copy.cta.betaLabel}</a>
+            ) : (
+              <span>sign up to be a beta tester</span>
+            )}<span>.</span>
+          </p>
         </div>
       </section>
     </main>
