@@ -97,3 +97,8 @@ npm run preview      # Preview production build
 - Owner is not a coder by trade — keep workflows simple
 - Site auto-deploys via GitHub Pages when changes are pushed to main
 - Footer is a "colophon" style — name, contact, Easter egg
+
+## Image Editing Rules
+- **NEVER overwrite original image files.** When editing an illustration photo (crop, brighten, etc.), write the result to a new file (or edit a copy) and keep the original untouched until the owner approves the result.
+- Show the edited version to the owner for approval before replacing anything or committing.
+- Gallery uniformity: match paper-white to ~240 brightness (measured via histogram 90th percentile); the site-wide CSS filter in `src/styles/global.css` handles the rest.
