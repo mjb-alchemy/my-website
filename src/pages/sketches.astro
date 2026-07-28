@@ -4,7 +4,13 @@ import { getCollection } from 'astro:content';
 import { Image } from 'astro:assets';
 
 const illustrations = await getCollection('illustrations');
-const sortedIllustrations = illustrations.sort(() => Math.random() - 0.5);
+// Chronological plate numbers (oldest = No. 01) that stay stable as new work is added
+const chronological = [...illustrations].sort(
+  (a, b) => a.data.date.valueOf() - b.data.date.valueOf() || a.data.title.localeCompare(b.data.title)
+);
+const plateNumbers = new Map(chronological.map((entry, i) => [entry.id, i + 1]));
+// Display newest first
+const sortedIllustrations = chronological.slice().reverse();
 ---
 
 <BaseLayout title="Sketches">
@@ -18,36 +24,46 @@ const sortedIllustrations = illustrations.sort(() => Math.random() - 0.5);
     </div>
   ) : (
     <div class="gallery-grid pb-16">
-      {sortedIllustrations.map((illustration, index) => (
-        <article
-          class="gallery-item cursor-pointer group"
-          data-lightbox
-          data-title={illustration.data.title}
-          data-description={illustration.data.description || ''}
-          data-date={illustration.data.date.toLocaleDateString('en-US', {
-            year: 'numeric',
-            month: 'long'
-          })}
-        >
-          <div class="overflow-hidden">
-            {typeof illustration.data.image === 'string' ? (
-              <img
-                src={illustration.data.image}
-                alt={illustration.data.title}
-                class="w-full h-auto group-hover:scale-[1.02] transition-transform duration-500"
-                loading="lazy"
-              />
-            ) : (
-              <Image
-                src={illustration.data.image}
-                alt={illustration.data.title}
-                width={600}
-                class="w-full h-auto group-hover:scale-[1.02] transition-transform duration-500"
-              />
-            )}
-          </div>
-        </article>
-      ))}
+      {sortedIllustrations.map((illustration) => {
+        const plate = String(plateNumbers.get(illustration.id)).padStart(2, '0');
+        const dateLabel = illustration.data.date.toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'long',
+          timeZone: 'UTC'
+        });
+        return (
+          <article
+            class="gallery-item cursor-pointer group"
+            data-lightbox
+            data-title={illustration.data.title}
+            data-description={illustration.data.description || ''}
+            data-date={dateLabel}
+          >
+            <div class="overflow-hidden">
+              {typeof illustration.data.image === 'string' ? (
+                <img
+                  src={illustration.data.image}
+                  alt={illustration.data.title}
+                  class="w-full h-auto group-hover:scale-[1.02] transition-transform duration-500"
+                  loading="lazy"
+                />
+              ) : (
+                <Image
+                  src={illustration.data.image}
+                  alt={illustration.data.title}
+                  width={800}
+                  widths={[400, 600, 800]}
+                  sizes="(min-width: 768px) 33vw, 50vw"
+                  class="w-full h-auto group-hover:scale-[1.02] transition-transform duration-500"
+                />
+              )}
+            </div>
+            <p class="gallery-caption text-label">
+              No. {plate} — {illustration.data.title} · {dateLabel}
+            </p>
+          </article>
+        );
+      })}
     </div>
   )}
 
