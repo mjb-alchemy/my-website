@@ -2,6 +2,7 @@
 title: "A World Appears"
 description: "Notes on Michael Pollan's journey into consciousness — the theories, the characters, and what it changed for me."
 date: 2026-07-30T12:00:00
+tag: "Book Report"
 ---
 
 *A World Appears* is a primer on how philosophers, scientists, and psychologists have attempted to unravel the mystery of consciousness throughout history. The book itself is pretty "meta": we traverse working theories of consciousness — past, present, all unproven — while Pollan invites us into his own mind, wrestling with what he believes is or isn't true given his deep knowledge of plants, his personal experiences with meditation, psychedelics, and writing, and conversations around AI.

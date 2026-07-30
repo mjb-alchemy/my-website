@@ -52,12 +52,12 @@ Triggered by a bouncing 👾 in the footer:
 
 ```
 /                    → Split-screen hero with side navigation
-/illustrations       → Gallery grid with lightbox
+/sketches            → Gallery grid with lightbox
 /projects            → Portfolio cards
-/blog                → Post list
-/blog/[slug]         → Individual post
-/books               → Reading list from Google Sheets
-/admin               → Decap CMS
+/notes               → Post list (essays + book reports)
+/notes/[slug]        → Individual post
+/shelf               → Reading list (books hardcoded in src/pages/shelf.astro;
+                       /books redirects here; Google Sheets integration pending)
 ```
 
 ## Content Collections
@@ -83,10 +83,31 @@ npm run preview      # Preview production build
 
 | Content | How to Update |
 |---------|---------------|
-| Blog posts | Decap CMS at `/admin` or edit `src/content/blog/*.md` |
-| Illustrations | Decap CMS or add to `src/content/illustrations/` |
-| Projects | Decap CMS or edit `src/content/projects/*.md` |
-| Books | Update Google Sheet → trigger rebuild |
+| Notes/blog posts | Edit `src/content/blog/*.md` (published at `/notes`) |
+| Illustrations | Add to `src/content/illustrations/` |
+| Projects | Edit `src/content/projects/*.md` |
+| Shelf (books) | Edit the `books` array in `src/pages/shelf.astro` |
+
+## Book Report Workflow
+
+When the owner shares a new book, publish two things:
+
+1. **Shelf entry** — add to the `books` array in `src/pages/shelf.astro`:
+   `title`, `author`, `rating` (1–5 stars, rounded from Goodreads if asked),
+   `ratingNote` (e.g. `"4.02 on Goodreads"`), `notes` (1–2 sentence blurb),
+   `dateRead` (`YYYY-MM-DD`; renders as "May 2026"), optional `referrer`,
+   and `reportSlug` if there's a full report.
+2. **Full report** (if the owner wrote one) — copy `templates/book-report.md`
+   to `src/content/blog/<book-slug>.md` and follow its structure:
+   opening take → Who should read it → Related books → How this book
+   changed me → Top quotes → Summary of key concepts. Set
+   `tag: "Book Report"` so it's labeled on `/notes` and the post page.
+
+Editing rules: light copyedit only — fix typos, smooth telegraphic notes
+into sentences, bold the lead-in phrase of each takeaway. Preserve the
+owner's voice and cut nothing without asking. Show what was edited so the
+owner can review. Owner supplies: title, author, month read, report text
+in any form (rough notes fine), and rating — or asks to pull Goodreads.
 
 ## Pending Tasks
 - [ ] Implement Google Sheets integration for books

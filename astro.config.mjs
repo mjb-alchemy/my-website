@@ -7,6 +7,9 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   site: 'https://meenaljbalar.com',
   trailingSlash: 'always',
+  redirects: {
+    '/books': '/shelf',
+  },
   vite: {
     plugins: [tailwindcss()]
   }
