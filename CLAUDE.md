@@ -96,18 +96,26 @@ When the owner shares a new book, publish two things:
    `title`, `author`, `rating` (1–5 stars, rounded from Goodreads if asked),
    `ratingNote` (e.g. `"4.02 on Goodreads"`), `notes` (1–2 sentence blurb),
    `dateRead` (`YYYY-MM-DD`; renders as "May 2026"), optional `referrer`,
-   and `reportSlug` if there's a full report.
-2. **Full report** (if the owner wrote one) — copy `templates/book-notes.md`
-   to `src/content/blog/<book-slug>.md` and follow its structure:
-   opening take → Who should read it → Related books → How this book
-   changed me → Top quotes → Summary of key concepts. Set
-   `tag: "Book Notes"` so it's labeled on `/notes` and the post page.
+   and `reportSlug` linking to the full notes (renders "Read the full
+   notes →").
+2. **Full book notes** (if the owner wrote them) — copy
+   `templates/book-notes.md` to `src/content/blog/<book-slug>.md` and
+   follow its structure: opening take → Who should read it → Related books
+   → How this book changed me → Top quotes → Summary of key concepts. Set
+   `tag: "Book Notes"` so the kicker label shows on `/notes` and the post
+   page. Keep the `description` to one short sentence.
 
 Editing rules: light copyedit only — fix typos, smooth telegraphic notes
-into sentences, bold the lead-in phrase of each takeaway. Preserve the
-owner's voice and cut nothing without asking. Show what was edited so the
-owner can review. Owner supplies: title, author, month read, report text
-in any form (rough notes fine), and rating — or asks to pull Goodreads.
+into sentences, bold the lead-in phrase of each takeaway. No em dashes in
+prose: use periods, commas, colons, or parentheses instead (quote
+attributions like "— Author" are the one exception). Preserve the owner's
+voice and cut nothing without asking. Show what was edited so the owner
+can review. Owner supplies: title, author, month read, notes text in any
+form (rough is fine), and rating — or asks to pull Goodreads.
+
+Prose typography is settled — don't change without asking: article title
+52px; section headings 27px bold; subheadings 21px bold; body 18px
+(`.prose` styles in `src/styles/global.css`).
 
 ## Pending Tasks
 - [ ] Implement Google Sheets integration for books

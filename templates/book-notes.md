@@ -2,9 +2,9 @@
 # Copy this file to src/content/blog/<book-slug>.md and fill in.
 # The slug (filename) becomes the URL: /notes/<book-slug>/
 title: "Book Title"
-description: "One-sentence teaser shown under the title and in link previews."
-date: 2026-01-01T12:00:00   # publish date — keep the T12:00:00 to avoid timezone date-shift
-tag: "Book Notes"          # shows as the small orange label; leave off for regular notes
+description: "Short one-liner, e.g. \"Notes on <author>'s <topic>.\" Shown under the title and in link previews."
+date: 2026-01-01T12:00:00   # publish date. Keep the T12:00:00 to avoid timezone date-shift
+tag: "Book Notes"           # shows as the small orange kicker above the title; leave off for regular notes
 ---
 
 One or two opening paragraphs: what the book is about, and your overall
@@ -29,7 +29,7 @@ meant to you and how it connects to your own life.
 
 ## Top quotes
 
-> "Quote text." — Attribution (leave off attribution if it's the author)
+> "Quote text." — Attribution (leave off attribution if it's the book's author speaking)
 
 > "Second quote."
 
@@ -37,6 +37,14 @@ meant to you and how it connects to your own life.
 
 ### Concept or theme one
 
-Prose or bullets — whatever fits. Use `###` subheadings to group ideas.
+Prose or bullets, whatever fits. Use `###` subheadings to group ideas.
 
 - **Named idea.** One- or two-sentence explanation.
+
+<!--
+Style rules (owner preference):
+- No em dashes in prose. Use periods, commas, colons, or parentheses instead.
+  The only exception is quote attributions ("— Author").
+- Keep the description to one short sentence.
+- Spell out theory acronyms in parentheses: "IIT (Integrated Information Theory)".
+-->
