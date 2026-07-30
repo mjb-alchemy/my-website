@@ -4,7 +4,7 @@
 title: "Book Title"
 description: "One-sentence teaser shown under the title and in link previews."
 date: 2026-01-01T12:00:00   # publish date — keep the T12:00:00 to avoid timezone date-shift
-tag: "Book Report"          # shows as the small orange label; leave off for regular notes
+tag: "Book Notes"          # shows as the small orange label; leave off for regular notes
 ---
 
 One or two opening paragraphs: what the book is about, and your overall

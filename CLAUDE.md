@@ -54,7 +54,7 @@ Triggered by a bouncing 👾 in the footer:
 /                    → Split-screen hero with side navigation
 /sketches            → Gallery grid with lightbox
 /projects            → Portfolio cards
-/notes               → Post list (essays + book reports)
+/notes               → Post list (essays + book notes)
 /notes/[slug]        → Individual post
 /shelf               → Reading list (books hardcoded in src/pages/shelf.astro;
                        /books redirects here; Google Sheets integration pending)
@@ -88,7 +88,7 @@ npm run preview      # Preview production build
 | Projects | Edit `src/content/projects/*.md` |
 | Shelf (books) | Edit the `books` array in `src/pages/shelf.astro` |
 
-## Book Report Workflow
+## Book Notes Workflow
 
 When the owner shares a new book, publish two things:
 
@@ -97,11 +97,11 @@ When the owner shares a new book, publish two things:
    `ratingNote` (e.g. `"4.02 on Goodreads"`), `notes` (1–2 sentence blurb),
    `dateRead` (`YYYY-MM-DD`; renders as "May 2026"), optional `referrer`,
    and `reportSlug` if there's a full report.
-2. **Full report** (if the owner wrote one) — copy `templates/book-report.md`
+2. **Full report** (if the owner wrote one) — copy `templates/book-notes.md`
    to `src/content/blog/<book-slug>.md` and follow its structure:
    opening take → Who should read it → Related books → How this book
    changed me → Top quotes → Summary of key concepts. Set
-   `tag: "Book Report"` so it's labeled on `/notes` and the post page.
+   `tag: "Book Notes"` so it's labeled on `/notes` and the post page.
 
 Editing rules: light copyedit only — fix typos, smooth telegraphic notes
 into sentences, bold the lead-in phrase of each takeaway. Preserve the
