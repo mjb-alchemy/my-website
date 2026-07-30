@@ -4,14 +4,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 // Placeholder data - will be replaced with Google Sheets integration
 const books = [
   {
-    title: "Sample Book Title",
-    author: "Author Name",
+    title: "A World Appears",
+    author: "Michael Pollan",
     rating: 4,
-    referrer: "A friend",
-    notes: "Add your notes about this book here. What stood out? What did you learn?",
-    dateRead: "2024-01-10"
+    ratingNote: "4.02 on Goodreads",
+    notes: "A primer on how philosophers, scientists, and psychologists have tried to unravel the mystery of consciousness — with Pollan wrestling alongside us, drawing on plants, meditation, psychedelics, and AI.",
+    reportSlug: "a-world-appears",
+    dateRead: "2026-05-15"
   }
 ];
+
+const base = import.meta.env.BASE_URL;
 
 function renderStars(rating: number): string {
   return '★'.repeat(rating) + '☆'.repeat(5 - rating);
@@ -48,6 +51,9 @@ function renderStars(rating: number): string {
             )}
 
             <div class="flex flex-wrap items-center gap-4 text-label">
+              {book.ratingNote && (
+                <span>{book.ratingNote}</span>
+              )}
               {book.referrer && (
                 <span>
                   Recommended by <span class="text-text">{book.referrer}</span>
@@ -59,6 +65,14 @@ function renderStars(rating: number): string {
                   month: 'short'
                 })}
               </span>
+              {book.reportSlug && (
+                <a
+                  href={`${base}notes/${book.reportSlug}/`}
+                  class="text-accent hover:opacity-60 transition-opacity"
+                >
+                  Read the full report →
+                </a>
+              )}
             </div>
           </article>
         ))}

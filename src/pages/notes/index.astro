@@ -22,7 +22,7 @@ const base = import.meta.env.BASE_URL;
       <div class="divide-y divide-border">
         {sortedPosts.map((post) => (
           <article class="group py-6 md:py-8 first:pt-0">
-            <a href={`${base}notes/${post.slug}`} class="block">
+            <a href={`${base}notes/${post.slug}/`} class="block">
               <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-2 sm:gap-6">
                 <div class="flex-1">
                   <h2 class="text-xl font-serif mb-2 group-hover:opacity-60 transition-opacity">
