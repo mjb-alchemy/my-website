@@ -1,6 +1,6 @@
 ---
 title: "A World Appears"
-description: "Notes on Michael Pollan's journey into consciousness — the theories, the characters, and what it changed for me."
+description: "Notes on Michael Pollan's journey into consciousness."
 date: 2026-07-30T12:00:00
 tag: "Book Notes"
 ---
