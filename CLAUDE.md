@@ -114,8 +114,10 @@ can review. Owner supplies: title, author, month read, notes text in any
 form (rough is fine), and rating — or asks to pull Goodreads.
 
 Prose typography is settled — don't change without asking: article title
-52px; section headings 27px bold; subheadings 21px bold; body 18px
-(`.prose` styles in `src/styles/global.css`).
+52px; section headings 27px bold; subheadings 21px bold; body 18px; list
+titles on Shelf and Notes 27px bold (`.prose` and `.list-title` styles in
+`src/styles/global.css`; the global `h2` rule is hero-scale and overrides
+Tailwind text-size utilities, so list/article headings need these classes).
 
 ## Pending Tasks
 - [ ] Implement Google Sheets integration for books

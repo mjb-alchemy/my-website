@@ -213,6 +213,14 @@ a:hover {
   letter-spacing: 0.05em;
 }
 
+/* List titles (Shelf entries, Notes list) — overrides the hero-scale h2 default */
+.list-title {
+  font-size: 1.6875rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
 /* Article title — calmer scale than the hero h1 */
 .article-title {
   font-size: clamp(2.25rem, 5vw, 3.25rem);
