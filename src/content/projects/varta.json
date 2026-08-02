@@ -16,7 +16,7 @@
   ],
   "hero": {
     "eyebrow": "A personal project in progress",
-    "tagline": "A simple voice app for stories in her own language.",
+    "tagline": "A simple voice app for family stories, in your own language.",
     "body": [
       "Varta began with the women in my family who have lived a thousand lives. Their stories slip out while rolling theplas before a big trip or around the table after everyone else has eaten. I'm building Varta to give these stories a home."
     ],
@@ -33,7 +33,7 @@
     "pronunciation": "/vaar-ta/",
     "script": "વાર્તા",
     "definitionLabel": "noun.",
-    "definition": "a story, a conversation, a memory that emerges when you ask the right question (often over chai)."
+    "definition": "a story or memory that comes when you ask the right question (often over chai)."
   },
   "photoSlots": [
     {
@@ -77,13 +77,13 @@
       "eyebrow": "Product sketch",
       "headline": "Tap and talk",
       "body": [
-        "Varta is for the mom, aunt, or grandma who doesn't want to write but is always willing to chat. With Varta, she can:",
-        "Varta is early and personal, and I'm working on making it better. Please reach out if you have input, ideas, or would like to know more."
+        "Varta is for the storyteller in your family who doesn't want to write but is always willing to chat. With Varta, they can:",
+        "Varta is in private beta with a small group of families. Reach out if you'd like your family in the next group."
       ],
       "bullets": [
         "Choose from topics like faith, family, food and more",
-        "Tap to record in her own voice and language",
-        "Skip around and build her story one voice note at a time"
+        "Tap to record in their own voice and language",
+        "Build their story one voice note at a time"
       ],
       "phone": {
         "kicker": "Saved story",
@@ -114,7 +114,7 @@
         "label": "Childhood",
         "questions": [
           "What was your favorite place as a child?",
-          "What fascinated you when you were a girl?",
+          "What fascinated you when you were young?",
           "What feeling from that time should your grandchildren know?"
         ]
       },
@@ -178,7 +178,7 @@
     "gujarati": "સાચવ્યું. આભાર.",
     "english": "I'd love to hear from you.",
     "body": [
-      "I'm building Varta for the women who shaped me."
+      ""
     ],
     "email": "meenal@whyalchemy.com",
     "betaHref": "https://forms.gle/zVUbJAmy5bg1TAs79",
