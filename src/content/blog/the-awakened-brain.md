@@ -1,6 +1,6 @@
 ---
 title: "The Awakened Brain"
-description: "Notes on Lisa Miller's science of spirituality."
+description: "Notes on Lisa Miller's case for spirituality, and its effect on human psychology."
 date: 2026-08-05T12:00:00
 tag: "Book Notes"
 ---
