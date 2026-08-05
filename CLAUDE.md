@@ -106,7 +106,8 @@ When the owner shares a new book, publish two things:
    page. Keep the `description` to one short sentence.
 
 Editing rules: light copyedit only — fix typos, smooth telegraphic notes
-into sentences, bold the lead-in phrase of each takeaway. No em dashes in
+into sentences, bold the lead-in phrase of each takeaway. Keep the owner's
+"vs." constructions as written. No em dashes in
 prose: use periods, commas, colons, or parentheses instead (quote
 attributions like "— Author" are the one exception). Preserve the owner's
 voice and cut nothing without asking. Show what was edited so the owner
