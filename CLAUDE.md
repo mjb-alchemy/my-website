@@ -96,7 +96,7 @@ When the owner shares a new book, publish two things:
    `title`, `author`, `rating` (1–5 stars, rounded from Goodreads if asked),
    `ratingNote` (e.g. `"4.02 on Goodreads"`), `notes` (1–2 sentence blurb),
    `dateRead` (`YYYY-MM-DD`; renders as "May 2026"), optional `referrer`,
-   and `reportSlug` linking to the full notes (renders "Read the full
+   and `reportSlug` linking to the full notes (renders "Read the
    notes →").
 2. **Full book notes** (if the owner wrote them) — copy
    `templates/book-notes.md` to `src/content/blog/<book-slug>.md` and
