@@ -16,9 +16,9 @@ As someone who grew up in a Hindu family but has long since drifted away from it
 
 ## How this book changed me
 
-**The difference between self-care and soul-care.** de Botton argues that caring for the soul is not about relaxation but a "rigorous, disciplined practice" of cultivating inner qualities like love, generosity, and transcendence, and putting our "outer," egoic pulls in perspective. Self-care is marketed to us ad nauseam. Putting aside its flaws, religion and its rituals make soul-care available to anyone who is interested.
+The book made clear the difference between self-care and soul-care. de Botton argues that caring for the soul is not about relaxation but a "rigorous, disciplined practice" of cultivating inner qualities like love, generosity, and transcendence, and putting our "outer," egoic pulls in perspective. Self-care is marketed to us ad nauseam. Putting aside its flaws, religion and its rituals make soul-care available to anyone who is interested.
 
-**Capitalism is filling the vacuum left by religion.** de Botton writes about capitalism filling the vacuum left by declining religiosity. We have the same needs (community and coping) except now we're building temples around the worship of money and professional success. I worry what this shift means for my kids and generations to come. In the meantime, the book has gotten me to reflect on my own religion, Hinduism, not from fact vs. myth, but from the rhythms that keep me connected to deeper inquiry and meaning.
+de Botton writes about capitalism filling the vacuum left by declining religiosity. We have the same needs (community and coping) except now we're building temples around the worship of money and professional success. I worry what this shift means for my kids and generations to come. In the meantime, the book has gotten me to reflect on my own religion, Hinduism, not from fact vs. myth, but from the rhythms that keep me connected to deeper inquiry and meaning.
 
 ## Top quotes
 
