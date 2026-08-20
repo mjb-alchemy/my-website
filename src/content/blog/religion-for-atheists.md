@@ -7,7 +7,7 @@ tag: "Book Notes"
 
 de Botton challenges us to look beyond the question of whether religion is true or not, and instead examine what the invention of religion tells us about humankind and our nature. He writes about religion as serving two fundamental needs: community (living together in harmony) and coping (easing suffering). He also explores the role of ritual in offering relief by putting our egos in their place.
 
-As someone who grew up in a Hindu family but has long since drifted away from its myths and rules, I appreciated this book. It helped me put aside the skepticism and focus on the parts I loved. The quiet moments, the sense that I am not alone, a belief in something bigger that could wade through all my wanting and touch the soul. de Botton puts into words what feels missing in my rushed, modern life.
+As someone who grew up in a Hindu family but has long since drifted away from its myths and rules, I appreciated this book. It helped me put aside the skepticism and focus on the parts I loved. The quiet moments, the sense that I am not alone, a belief in something bigger that could help me wade through all my wanting and touch soul. de Botton puts into words what feels missing in my rushed, modern life.
 
 ## Who should read it
 
