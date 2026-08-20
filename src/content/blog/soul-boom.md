@@ -5,7 +5,7 @@ date: 2026-08-20T12:00:00
 tag: "Book Notes"
 ---
 
-At six, my son was asking questions about Hinduism, the religion I was raised in but which now lives in our house as chipped statues standing alongside Star Wars figurines. His inquiry finally pushed me off of autopilot. My mom appeared in my mind, telling me what to say to him. Then my forehead touching cold ground in temples an ocean away. Images of women circling prayer beads in delicate fingers. None of it was an answer, and I wasn't really looking for one, not one I could hand him anyway. But the question stayed. What's more solid than "spiritual" without being weighed down by do's, don'ts, and duty? Something he could build on if he chose to.
+At six, my son was asking questions about Hinduism, the religion I was raised in but which now lives in our house as chipped statues battling Star Wars figurines. His inquiry finally pushed me off of autopilot. My mom appeared in my mind, telling me what to say to him. Then my forehead touching cold ground in temples an ocean away. Images of women circling prayer beads in delicate fingers. None of it was an answer, and I wasn't really looking for one, not one I could hand him anyway. But the question stayed. What's more solid than "spiritual" without being weighed down by do's, don'ts, and duty? Something he could build on if he chose to.
 
 Soul Boom was a light entry point into a vague topic. Rainn Wilson uses humor, pop culture, and his personal experience as a Baha'i to make a strong case for a return to spirituality and the cultivation of a shared moral character.
 
